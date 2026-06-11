@@ -6,6 +6,8 @@ The first version is intentionally transparent: local CSV data, a Python CLI, si
 
 Project site: https://hanhuark.github.io/funding-compiler/
 
+Latest screening report: https://hanhuark.github.io/funding-compiler/screenings/2026-06-11.html
+
 ## What It Does
 
 1. **Compile funding opportunities** from federal agencies, state agencies, foundations, and private companies. Examples include RFPs, NOFOs, FOAs, solicitations, prize calls, and recurring programs.
