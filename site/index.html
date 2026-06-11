@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>funding-compiler</title>
+  <meta name="description" content="Funding opportunity and faculty capability alignment dashboard.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Funding Intelligence Dashboard</p>
+      <h1>funding-compiler</h1>
+    </div>
+    <nav aria-label="Primary navigation">
+      <a href="#workflow">Workflow</a>
+      <a href="#sources">Funding Sources</a>
+      <a href="#faculty">Faculty Sources</a>
+      <a href="https://github.com/hanhuark/funding-compiler">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="overview" aria-labelledby="overview-title">
+      <div class="overview-copy">
+        <p class="eyebrow">UArk MEEG seed registry</p>
+        <h2 id="overview-title">Compile opportunities, profile expertise, and find proposal matches.</h2>
+        <p>
+          This static dashboard turns the repository's funding and faculty-source registries into a browsable planning surface for research development.
+        </p>
+      </div>
+      <div class="metrics" aria-label="Registry summary">
+        <div class="metric">
+          <span id="funding-count">0</span>
+          <p>Funding sources</p>
+        </div>
+        <div class="metric">
+          <span id="faculty-count">0</span>
+          <p>Faculty sources</p>
+        </div>
+        <div class="metric">
+          <span id="lab-count">0</span>
+          <p>Lab websites</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow" class="workflow" aria-labelledby="workflow-title">
+      <div class="section-heading">
+        <p class="eyebrow">Operating Model</p>
+        <h2 id="workflow-title">From source monitoring to actionable matches</h2>
+      </div>
+      <div class="flow">
+        <article>
+          <span>01</span>
+          <h3>Monitor</h3>
+          <p>Track federal, state, foundation, internal, and industry-partnership sources.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Normalize</h3>
+          <p>Convert opportunities and faculty evidence into consistent records and keywords.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Align</h3>
+          <p>Rank opportunity-faculty fits with transparent rationale for review.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>Report</h3>
+          <p>Generate one-pagers, detailed reports, source tables, and planning briefs.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="sources" class="panel" aria-labelledby="sources-title">
+      <div class="section-heading">
+        <p class="eyebrow">Funding Sources</p>
+        <h2 id="sources-title">Opportunity discovery registry</h2>
+      </div>
+      <div class="toolbar">
+        <label>
+          <span>Search sources</span>
+          <input id="funding-search" type="search" placeholder="Try NSF, DOE, SBIR, climate">
+        </label>
+        <label>
+          <span>Category</span>
+          <select id="funding-category"></select>
+        </label>
+      </div>
+      <div id="funding-grid" class="cards" aria-live="polite"></div>
+    </section>
+
+    <section id="faculty" class="panel" aria-labelledby="faculty-title">
+      <div class="section-heading">
+        <p class="eyebrow">Faculty Expertise Sources</p>
+        <h2 id="faculty-title">Directories, profiles, and lab websites</h2>
+      </div>
+      <div class="toolbar">
+        <label>
+          <span>Search faculty sources</span>
+          <input id="faculty-search" type="search" placeholder="Try thermal, robotics, AM3, Tung">
+        </label>
+        <label>
+          <span>Kind</span>
+          <select id="faculty-kind"></select>
+        </label>
+      </div>
+      <div id="faculty-grid" class="cards" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Static preview for the funding-compiler repository. Data comes from the repo's curated registries.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

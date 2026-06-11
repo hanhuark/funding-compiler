@@ -4,6 +4,8 @@
 
 The first version is intentionally transparent: local CSV data, a Python CLI, simple matching logic, tests, and Markdown reports that can be converted into one-pagers, detailed reports, slides, or dashboards later.
 
+Project site: https://hanhuark.github.io/funding-compiler/
+
 ## What It Does
 
 1. **Compile funding opportunities** from federal agencies, state agencies, foundations, and private companies. Examples include RFPs, NOFOs, FOAs, solicitations, prize calls, and recurring programs.
@@ -40,9 +42,17 @@ List faculty directory, profile, and lab sources for the UArk MEEG seed registry
 funding-compiler faculty-sources
 ```
 
+Regenerate the static dashboard JSON after editing registry YAML:
+
+```powershell
+$env:PYTHONPATH='src'
+python tools/sync_site_data.py
+```
+
 ## Repository Layout
 
 - `src/funding_compiler/` - Python package and CLI.
+- `site/` - Static GitHub Pages dashboard.
 - `data/funding_sources.yaml` - Curated registry of funding portals and discovery sources.
 - `data/uark_meeg_faculty_sources.yaml` - Seed registry for UArk MEEG faculty directories, profiles, and lab sites.
 - `examples/` - Sample opportunity and faculty data.
