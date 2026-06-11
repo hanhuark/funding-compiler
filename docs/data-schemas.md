@@ -33,3 +33,20 @@ The MVP accepts CSV and YAML files. CSV files should use the headers below.
 | `keywords` | Semicolon-delimited expertise tags. |
 | `profile_url` | Public faculty profile URL. |
 | `evidence` | Optional evidence snippet from profiles, papers, or awards. |
+
+## Faculty Sources
+
+Faculty source registries, such as `data/uark_meeg_faculty_sources.yaml`, track where profile evidence comes from before it is normalized into faculty profile records.
+
+| Field | Description |
+| --- | --- |
+| `id` | Stable source identifier. |
+| `name` | Directory, profile, lab, or source name. |
+| `kind` | Source type such as `faculty directory`, `faculty profile`, or `lab website`. |
+| `url` | Public URL for the source. |
+| `owners` | Faculty member names associated with the source. |
+| `department` | Department name. |
+| `institution` | Institution name. |
+| `focus_areas` | Semicolon- or YAML-list research themes inferred from the source. |
+| `evidence_type` | Type of evidence, such as official directory or lab website. |
+| `notes` | Curation notes. |

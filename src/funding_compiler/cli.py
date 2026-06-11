@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+from funding_compiler.faculty_sources import faculty_sources_by_kind, load_faculty_sources
 from funding_compiler.loaders import load_faculty, load_opportunities
 from funding_compiler.matching import match_opportunities
 from funding_compiler.reports import write_match_report
@@ -24,6 +25,12 @@ def main(argv: list[str] | None = None) -> int:
 
     sources_parser = subparsers.add_parser("sources", help="List curated funding source portals.")
     sources_parser.add_argument("--registry", default="data/funding_sources.yaml")
+
+    faculty_sources_parser = subparsers.add_parser(
+        "faculty-sources",
+        help="List faculty directory, profile, and lab website sources.",
+    )
+    faculty_sources_parser.add_argument("--registry", default="data/uark_meeg_faculty_sources.yaml")
 
     args = parser.parse_args(argv)
     if args.command == "demo":
@@ -47,6 +54,14 @@ def main(argv: list[str] | None = None) -> int:
             print(f"{category}:")
             for source in records:
                 print(f"  - {source.name} ({source.url})")
+        return 0
+    if args.command == "faculty-sources":
+        sources = load_faculty_sources(args.registry)
+        for kind, records in faculty_sources_by_kind(sources).items():
+            print(f"{kind}:")
+            for source in records:
+                owners = ", ".join(source.owners) if source.owners else "department"
+                print(f"  - {source.name} [{owners}] ({source.url})")
         return 0
     parser.error(f"Unknown command: {args.command}")
     return 2

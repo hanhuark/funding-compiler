@@ -34,10 +34,17 @@ List the curated source registry:
 funding-compiler sources
 ```
 
+List faculty directory, profile, and lab sources for the UArk MEEG seed registry:
+
+```powershell
+funding-compiler faculty-sources
+```
+
 ## Repository Layout
 
 - `src/funding_compiler/` - Python package and CLI.
 - `data/funding_sources.yaml` - Curated registry of funding portals and discovery sources.
+- `data/uark_meeg_faculty_sources.yaml` - Seed registry for UArk MEEG faculty directories, profiles, and lab sites.
 - `examples/` - Sample opportunity and faculty data.
 - `docs/` - Architecture, data schema, and reporting workflow notes.
 - `tests/` - Unit tests for loaders, matching, and reports.

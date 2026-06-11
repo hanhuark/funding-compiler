@@ -65,3 +65,19 @@ class FundingSource:
     focus_areas: list[str] = field(default_factory=list)
     refresh_hint: str = ""
     notes: str = ""
+
+
+@dataclass(frozen=True)
+class FacultySource:
+    """A source used to build or verify faculty expertise profiles."""
+
+    id: str
+    name: str
+    kind: str
+    url: str
+    owners: list[str] = field(default_factory=list)
+    department: str = ""
+    institution: str = ""
+    focus_areas: list[str] = field(default_factory=list)
+    evidence_type: str = ""
+    notes: str = ""

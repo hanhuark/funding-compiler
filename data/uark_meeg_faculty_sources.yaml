@@ -1,0 +1,139 @@
+metadata:
+  institution: University of Arkansas
+  department: Department of Mechanical Engineering
+  source_notes:
+    - Most MEEG faculty are listed in the department faculty directory.
+    - Steve Tung is listed separately on the College of Engineering administration directory.
+    - Lab website records were compiled from the local document "MEEG Labs.docx" dated 2026-06-11.
+
+sources:
+  - id: uark-meeg-faculty-directory
+    name: MEEG Faculty and Staff Directory
+    kind: faculty directory
+    url: https://engineering.uark.edu/mechanical-engineering/faculty.php
+    department: Department of Mechanical Engineering
+    institution: University of Arkansas
+    evidence_type: official directory
+    focus_areas: [mechanical engineering, faculty profiles, staff profiles, contact information]
+    notes: Primary source for most MEEG faculty and staff profile links.
+
+  - id: uark-meeg-steve-tung-profile
+    name: Steve Tung College Administration Profile
+    kind: faculty profile
+    url: https://engineering.uark.edu/directory/college-administration/uid/chstung/name/Steve+Tung/
+    owners: [Steve Tung]
+    department: Department of Mechanical Engineering
+    institution: University of Arkansas
+    evidence_type: official profile
+    focus_areas: [department leadership, mechanical engineering]
+    notes: Department head is listed separately from the main MEEG faculty directory.
+
+  - id: uark-meeg-maverick-rural-robotics-lab
+    name: Maverick Rural Robotics Lab
+    kind: lab website
+    url: https://mavericklab.uark.edu/
+    owners: [Anthony Gunderman]
+    department: Department of Mechanical Engineering
+    institution: University of Arkansas
+    evidence_type: lab website
+    focus_areas: [robotics, rural systems, field robotics, autonomy]
+
+  - id: uark-meeg-ned3-lab
+    name: NED3 Lab
+    kind: lab website
+    url: https://ned3.uark.edu/
+    owners: [Han Hu]
+    department: Department of Mechanical Engineering
+    institution: University of Arkansas
+    evidence_type: lab website
+    focus_areas: [thermal management, heat transfer, multiphase flow, diagnostics, AI]
+
+  - id: uark-meeg-empire-lab
+    name: EMPIRE Lab
+    kind: lab website
+    url: https://empire.uark.edu/
+    owners: [David Huitink]
+    department: Department of Mechanical Engineering
+    institution: University of Arkansas
+    evidence_type: lab website
+    focus_areas: [electronics packaging, manufacturing, materials, thermal systems]
+
+  - id: uark-meeg-caser-lab
+    name: Complex Adaptive Engineer Systems Research (CASER) Lab
+    kind: lab website
+    url: https://caesr.uark.edu/
+    owners: [David Jensen]
+    department: Department of Mechanical Engineering
+    institution: University of Arkansas
+    evidence_type: lab website
+    focus_areas: [complex systems, adaptive systems, engineering design, systems engineering]
+
+  - id: uark-meeg-asyst-lab
+    name: Aerospace Systems Engineering and Transportation (ASYST) Lab
+    kind: lab website
+    url: https://www.asystlab.org/
+    owners: [Neelakshi Majumdar]
+    department: Department of Mechanical Engineering
+    institution: University of Arkansas
+    evidence_type: lab website
+    focus_areas: [aerospace systems, transportation, autonomy, systems engineering]
+
+  - id: uark-meeg-nano-energy-lab
+    name: Meng Nano & Energy Lab
+    kind: lab website
+    url: https://nano-energy-lab.uark.edu/
+    owners: [Xiangbo Meng]
+    department: Department of Mechanical Engineering
+    institution: University of Arkansas
+    evidence_type: lab website
+    focus_areas: [nanomaterials, energy, coatings, electrochemistry]
+
+  - id: uark-meeg-millett-lab
+    name: Millett Lab
+    kind: lab website
+    url: https://millett.uark.edu/
+    owners: [Paul Millett]
+    department: Department of Mechanical Engineering
+    institution: University of Arkansas
+    evidence_type: lab website
+    focus_areas: [materials modeling, microstructure, computational materials, phase-field modeling]
+
+  - id: uark-meeg-energy-efficiency-lab
+    name: Energy Efficiency Lab
+    kind: lab website
+    url: https://energy-efficiency.uark.edu/
+    owners: [Darin Nutter]
+    department: Department of Mechanical Engineering
+    institution: University of Arkansas
+    evidence_type: lab website
+    focus_areas: [energy efficiency, buildings, HVAC, industrial energy]
+
+  - id: uark-meeg-wan-research-group
+    name: Wan Research Group (1RG)
+    kind: lab website
+    url: https://showone90.wixsite.com/show
+    owners: [Wan Shou]
+    department: Department of Mechanical Engineering
+    institution: University of Arkansas
+    evidence_type: lab website
+    focus_areas: [additive manufacturing, biomanufacturing, 3D printing, advanced manufacturing]
+
+  - id: uark-meeg-am3-lab
+    name: AM3 Lab
+    kind: lab website
+    url: https://wordpressua.uark.edu/am3/
+    owners: [Wenchao Zhou]
+    department: Department of Mechanical Engineering
+    institution: University of Arkansas
+    evidence_type: lab website
+    focus_areas: [additive manufacturing, materials, modeling, manufacturing systems]
+
+  - id: uark-meeg-nanomechanics-tribology-lab
+    name: Nanomechanics and Tribology Laboratory
+    kind: lab website
+    url: https://wordpressua.uark.edu/mzou/
+    owners: [Min Zou]
+    department: Department of Mechanical Engineering
+    institution: University of Arkansas
+    evidence_type: lab website
+    focus_areas: [nanomechanics, tribology, coatings, materials, manufacturing]
