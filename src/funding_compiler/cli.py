@@ -6,6 +6,7 @@ from pathlib import Path
 from funding_compiler.loaders import load_faculty, load_opportunities
 from funding_compiler.matching import match_opportunities
 from funding_compiler.reports import write_match_report
+from funding_compiler.sources import load_funding_sources, sources_by_category
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -20,6 +21,9 @@ def main(argv: list[str] | None = None) -> int:
     match_parser.add_argument("--faculty", required=True)
     match_parser.add_argument("--output", required=True)
     match_parser.add_argument("--min-score", type=float, default=0.1)
+
+    sources_parser = subparsers.add_parser("sources", help="List curated funding source portals.")
+    sources_parser.add_argument("--registry", default="data/funding_sources.yaml")
 
     args = parser.parse_args(argv)
     if args.command == "demo":
@@ -37,6 +41,13 @@ def main(argv: list[str] | None = None) -> int:
             Path(args.output),
             min_score=args.min_score,
         )
+    if args.command == "sources":
+        sources = load_funding_sources(args.registry)
+        for category, records in sources_by_category(sources).items():
+            print(f"{category}:")
+            for source in records:
+                print(f"  - {source.name} ({source.url})")
+        return 0
     parser.error(f"Unknown command: {args.command}")
     return 2
 

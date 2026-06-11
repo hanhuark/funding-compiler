@@ -49,3 +49,19 @@ class MatchResult:
     score: float
     matched_keywords: list[str]
     rationale: str
+
+
+@dataclass(frozen=True)
+class FundingSource:
+    """A monitored portal or directory where funding opportunities may appear."""
+
+    id: str
+    name: str
+    category: str
+    sponsor_type: str
+    url: str
+    access: str
+    opportunity_types: list[str] = field(default_factory=list)
+    focus_areas: list[str] = field(default_factory=list)
+    refresh_hint: str = ""
+    notes: str = ""

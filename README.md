@@ -28,9 +28,16 @@ funding-compiler match `
   --output outputs/matches.md
 ```
 
+List the curated source registry:
+
+```powershell
+funding-compiler sources
+```
+
 ## Repository Layout
 
 - `src/funding_compiler/` - Python package and CLI.
+- `data/funding_sources.yaml` - Curated registry of funding portals and discovery sources.
 - `examples/` - Sample opportunity and faculty data.
 - `docs/` - Architecture, data schema, and reporting workflow notes.
 - `tests/` - Unit tests for loaders, matching, and reports.

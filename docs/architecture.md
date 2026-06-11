@@ -4,7 +4,8 @@
 
 ```mermaid
 flowchart LR
-  A[Funding source files] --> C[Loaders]
+  S[Source registry] --> A[Funding source files]
+  A --> C[Loaders]
   B[Faculty profile files] --> C
   C --> D[Normalized records]
   D --> E[Match engine]
@@ -16,6 +17,7 @@ flowchart LR
 
 - `models.py` defines the opportunity, faculty, and match records.
 - `loaders.py` reads CSV or YAML files and normalizes keyword fields.
+- `sources.py` reads the curated source registry used to plan monitoring.
 - `matching.py` scores opportunity-faculty fit with a transparent keyword-overlap baseline.
 - `reports.py` renders Markdown reports for review, conversion, or downstream publishing.
 - `cli.py` exposes demo and matching workflows.

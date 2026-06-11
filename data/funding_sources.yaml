@@ -1,0 +1,253 @@
+sources:
+  - id: nsf-funding
+    name: NSF Funding Search
+    category: federal
+    sponsor_type: federal agency
+    url: https://www.nsf.gov/funding
+    access: public
+    opportunity_types: [program solicitation, Dear Colleague Letter, limited submission, SBIR, STTR]
+    focus_areas: [engineering, science, education, workforce, technology, interdisciplinary research]
+    refresh_hint: weekly
+    notes: NSF lists newest funding opportunities and links to the full funding search.
+
+  - id: nasa-nspires
+    name: NASA NSPIRES Solicitations
+    category: federal
+    sponsor_type: federal agency
+    url: https://nspires.nasaprs.com/external/solicitations/solicitations!init.do
+    access: public
+    opportunity_types: [solicitation, ROSES, cooperative agreement notice, grant]
+    focus_areas: [space, aeronautics, earth science, planetary science, technology]
+    refresh_hint: weekly
+    notes: NASA NSPIRES is the core portal for NASA research solicitations.
+
+  - id: doe-cmei-exchange
+    name: DOE CMEI eXCHANGE
+    category: federal
+    sponsor_type: federal agency
+    url: https://eere-exchange.energy.gov/Default.aspx
+    access: public
+    opportunity_types: [NOFO, FOA, RFI, NOI, lab call, teaming partner list]
+    focus_areas: [energy, manufacturing, critical materials, decarbonization, geothermal, water power]
+    refresh_hint: weekly
+    notes: DOE clean energy and manufacturing opportunities appear through the eXCHANGE portal.
+
+  - id: doe-arpa-e
+    name: DOE ARPA-E eXCHANGE
+    category: federal
+    sponsor_type: federal agency
+    url: https://arpa-e-foa.energy.gov/
+    access: public
+    opportunity_types: [FOA, RFI, request for information, teaming partner list]
+    focus_areas: [advanced energy, high-risk research, commercialization, climate technology]
+    refresh_hint: weekly
+    notes: ARPA-E uses a dedicated eXCHANGE portal for open funding opportunities.
+
+  - id: doe-mesc
+    name: DOE MESC Funding
+    category: federal
+    sponsor_type: federal agency
+    url: https://www.energy.gov/mesc/funding
+    access: public
+    opportunity_types: [funding opportunity, grant, cooperative agreement]
+    focus_areas: [manufacturing, supply chains, industrial base, energy security]
+    refresh_hint: monthly
+    notes: Manufacturing and Energy Supply Chains funding page.
+
+  - id: doe-office-science-open-foas
+    name: DOE Office of Science Open FOAs
+    category: federal
+    sponsor_type: federal agency
+    url: https://science.osti.gov/grants/FOAs/Open
+    access: public
+    opportunity_types: [FOA, national lab announcement, grant]
+    focus_areas: [basic energy sciences, physics, computation, biological research, fusion, accelerator science]
+    refresh_hint: weekly
+    notes: Open funding opportunity announcements for the DOE Office of Science.
+
+  - id: doe-wide-funding
+    name: DOE Funding Opportunities
+    category: federal
+    sponsor_type: federal agency
+    url: https://www.energy.gov/funding-opportunities
+    access: public
+    opportunity_types: [grant, loan, financing program, FOA]
+    focus_areas: [energy, deployment, commercialization, state and local funding]
+    refresh_hint: monthly
+    notes: DOE-wide landing page for grant, loan, and financing programs.
+
+  - id: grants-gov-simpler
+    name: Simpler Grants.gov Search
+    category: federal aggregator
+    sponsor_type: federal aggregator
+    url: https://simpler.grants.gov/search
+    access: public
+    opportunity_types: [grant, cooperative agreement, forecast, posted opportunity]
+    focus_areas: [all federal funding, research, education, infrastructure, public programs]
+    refresh_hint: weekly
+    notes: Cross-agency federal grant search. Useful as a broad catch-all.
+
+  - id: grantforward
+    name: GrantForward Search
+    category: aggregator
+    sponsor_type: commercial database
+    url: https://www.grantforward.com/search
+    access: subscription
+    opportunity_types: [federal grant, foundation grant, limited submission, fellowship]
+    focus_areas: [all disciplines, foundation funding, limited submissions]
+    refresh_hint: weekly
+    notes: Subscription database that can complement public agency portals.
+
+  - id: usda-nifa
+    name: USDA NIFA Funding Opportunities
+    category: federal
+    sponsor_type: federal agency
+    url: https://www.nifa.usda.gov/grants/funding-opportunities
+    access: public
+    opportunity_types: [RFA, grant, cooperative agreement]
+    focus_areas: [agriculture, food systems, water, rural development, bioeconomy, extension]
+    refresh_hint: weekly
+    notes: USDA National Institute of Food and Agriculture funding opportunities.
+
+  - id: nih-opportunities
+    name: NIH Explore Grant Opportunities
+    category: federal
+    sponsor_type: federal agency
+    url: https://grants.nih.gov/funding/explore-nih-opportunities
+    access: public
+    opportunity_types: [NOFO, parent announcement, institute opportunity, SBIR, STTR]
+    focus_areas: [health, biomedical research, bioengineering, clinical research, small business]
+    refresh_hint: weekly
+    notes: NIH portal for finding grant opportunities and parent announcements.
+
+  - id: sbir-topics
+    name: SBIR/STTR Funding Topics
+    category: federal aggregator
+    sponsor_type: federal aggregator
+    url: https://www.sbir.gov/topics
+    access: public
+    opportunity_types: [SBIR, STTR, topic, solicitation]
+    focus_areas: [small business, technology commercialization, agency topics]
+    refresh_hint: weekly
+    notes: Cross-agency SBIR/STTR topic search. Official agency solicitations should still be checked.
+
+  - id: sam-gov-contract-opportunities
+    name: SAM.gov Contract Opportunities
+    category: federal aggregator
+    sponsor_type: federal aggregator
+    url: https://sam.gov/content/opportunities
+    access: public
+    opportunity_types: [BAA, RFP, solicitation, special notice, sources sought]
+    focus_areas: [defense, federal contracts, research and development, procurement]
+    refresh_hint: weekly
+    notes: Important for BAAs and contract-style research opportunities that may not appear on grant portals.
+
+  - id: darpa-baa
+    name: DARPA Broad Agency Announcements
+    category: federal
+    sponsor_type: federal agency
+    url: https://www.darpa.mil/research/opportunities/baa
+    access: public
+    opportunity_types: [BAA, program announcement, special notice]
+    focus_areas: [defense, high-risk research, autonomy, AI, materials, biology, systems]
+    refresh_hint: weekly
+    notes: DARPA states BAAs are its primary vehicle for basic and applied R&D programs.
+
+  - id: dod-basic-research
+    name: DoD Basic Research Office
+    category: federal
+    sponsor_type: federal agency
+    url: https://basicresearch.defense.gov/
+    access: public
+    opportunity_types: [grant, fellowship, program announcement]
+    focus_areas: [basic research, defense research, Vannevar Bush Faculty Fellowship, DEPSCoR]
+    refresh_hint: monthly
+    notes: Useful for DoD university research programs and policy context.
+
+  - id: cdmrp
+    name: DoD CDMRP Open Funding Opportunities
+    category: federal
+    sponsor_type: federal agency
+    url: https://cdmrp.health.mil/funding/
+    access: public
+    opportunity_types: [program announcement, award mechanism, pre-application]
+    focus_areas: [medical research, rehabilitation, health technology, defense health]
+    refresh_hint: weekly
+    notes: Congressionally Directed Medical Research Programs open funding opportunities.
+
+  - id: epa-research-grants
+    name: EPA Research Funding Opportunities
+    category: federal
+    sponsor_type: federal agency
+    url: https://www.epa.gov/research-grants/research-funding-opportunities
+    access: public
+    opportunity_types: [RFA, grant, research funding opportunity]
+    focus_areas: [environment, water, air, climate, pollution prevention, sustainability]
+    refresh_hint: weekly
+    notes: EPA page for open and upcoming research funding opportunities.
+
+  - id: arpa-h
+    name: ARPA-H Funding Opportunities
+    category: federal
+    sponsor_type: federal agency
+    url: https://arpa-h.gov/explore-funding/open-funding-opportunities
+    access: public
+    opportunity_types: [ISO, BAA, solicitation, teaming opportunity]
+    focus_areas: [health, biomedical innovation, high-risk research, translational technology]
+    refresh_hint: weekly
+    notes: Useful for health-adjacent engineering, devices, AI, and translational research.
+
+  - id: noaa-funding
+    name: NOAA Education and Funding Opportunities
+    category: federal
+    sponsor_type: federal agency
+    url: https://www.noaa.gov/education
+    access: public
+    opportunity_types: [NOFO, grant, cooperative agreement]
+    focus_areas: [climate, oceans, weather, coastal resilience, education]
+    refresh_hint: monthly
+    notes: NOAA education page points to competitive funding for education projects; also search Grants.gov and Sea Grant for NOAA NOFOs.
+
+  - id: dot-university-transportation-centers
+    name: USDOT University Transportation Centers
+    category: federal
+    sponsor_type: federal agency
+    url: https://www.transportation.gov/utc/current-competition
+    access: public
+    opportunity_types: [NOFO, grant, center competition]
+    focus_areas: [transportation, infrastructure, mobility, safety, logistics]
+    refresh_hint: monthly
+    notes: Useful for transportation-related engineering research opportunities.
+
+  - id: uark-infoready
+    name: University of Arkansas InfoReady
+    category: internal
+    sponsor_type: university
+    url: https://uark.infoready4.com/
+    access: institutional
+    opportunity_types: [internal funding, limited submission, internal competition]
+    focus_areas: [university seed funding, limited submissions, research development]
+    refresh_hint: weekly
+    notes: University of Arkansas internal competitions and limited-submission coordination.
+
+  - id: arkansas-space-grant-infoready
+    name: Arkansas Space Grant Consortium InfoReady
+    category: state or regional
+    sponsor_type: consortium
+    url: https://arkansasspacegrant.infoready4.com/#homePage
+    access: public
+    opportunity_types: [fellowship, seed grant, student award, research grant]
+    focus_areas: [space, NASA EPSCoR, student research, aerospace, STEM education]
+    refresh_hint: monthly
+    notes: Arkansas Space Grant Consortium opportunities through InfoReady.
+
+  - id: uidp
+    name: UIDP
+    category: industry partnership
+    sponsor_type: membership organization
+    url: https://uidp.org/
+    access: mixed
+    opportunity_types: [industry partnership, collaboration opportunity, event, request for expertise]
+    focus_areas: [university-industry collaboration, corporate engagement, research partnerships]
+    refresh_hint: monthly
+    notes: Track as an industry-partnership intelligence source rather than a standard grant portal.
