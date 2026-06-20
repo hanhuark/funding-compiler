@@ -18,6 +18,22 @@ The MVP accepts CSV and YAML files. CSV files should use the headers below.
 | `source_url` | Source page or announcement URL. |
 | `notes` | Optional internal notes. |
 
+## Screening Action Metadata
+
+Curated screening folders may include an `opportunity_actions.yaml` sidecar. This keeps sponsor facts in the opportunity CSV separate from local planning judgment.
+
+| Field | Description |
+| --- | --- |
+| `deadline_type` | Deadline semantics: `fixed`, `window`, `rolling`, or `accepted_anytime`. |
+| `display_deadline` | Optional faculty-facing deadline label when the raw date is a window close date or placeholder. |
+| `verified_on` | Date the sponsor page or source evidence was last checked. |
+| `internal_review_by` | Suggested local go/no-go or routing date before the public sponsor deadline. |
+| `decision_stage` | Short workflow state, such as eligibility screen, team formation, or partner watch. |
+| `next_action` | Concrete action a research development lead or faculty member should take next. |
+| `risk_notes` | Eligibility, cost share, partner, limited-submission, or fit concerns that should be checked before outreach. |
+
+The generated screening report uses this sidecar to distinguish real deadlines from rolling programs, show current days remaining, and build the faculty-facing action inbox.
+
 ## Faculty Profiles
 
 | Field | Description |

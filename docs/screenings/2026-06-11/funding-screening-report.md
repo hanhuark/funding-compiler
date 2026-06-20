@@ -1,33 +1,64 @@
 # Current Funding Opportunity Screening
 
 Snapshot date: 2026-06-11
+Report refreshed: 2026-06-20
 
 This screening is a curated scan of active or actionable opportunities from the source registry. Sponsor pages remain authoritative, and internal eligibility, cost share, and routing should be verified before action.
+
+## Decision Summary
+
+- Opportunities screened: 10
+- Faculty alignments found: 35
+- Urgent or overdue action items: 1
+- Internal review dates already overdue: 1
+- Rolling or accepted-anytime items tracked separately: 2
+
+## Faculty Action Inbox
+
+| Action status | Sponsor | Program | Public deadline | Internal review by | Top aligned faculty/labs | Next action |
+| --- | --- | --- | --- | --- | --- | --- |
+| internal review overdue | U.S. Department of Energy | [Critical Minerals & Materials Accelerator Topic Area 2](https://eere-exchange.energy.gov/Default.aspx?Search=3589&SearchType=) | 2026-06-25; 5 days remaining as of 2026-06-20 | 2026-06-18 (overdue) | David Huitink, Min Zou, Xiangbo Meng | Pursue only if a PI team, partner roles, and cost-share assumptions can be confirmed immediately with the DOE NOFO in hand. |
+| planning | National Science Foundation | [Faculty Early Career Development Program (CAREER)](https://www.nsf.gov/funding/opportunities/career-faculty-early-career-development-program) | 2026-07-22; 32 days remaining as of 2026-06-20 | 2026-07-01 | Manual review | Identify eligible untenured tenure-track faculty, confirm the relevant NSF directorate window, and start the education-integration outline before committing proposal-development time. |
+| planning | U.S. Department of Energy | [Critical Minerals & Materials Accelerator Topic Area 3](https://eere-exchange.energy.gov/Default.aspx?Search=3589&SearchType=) | 2026-07-23; 33 days remaining as of 2026-06-20 | 2026-07-02 | Xiangbo Meng, Darin Nutter, Min Zou | Convene critical-materials, separations, geothermal, and technoeconomic-analysis candidates for a one-hour fit check. |
+| planning | National Science Foundation | [ECosystem for Leading Innovation in Plasma Science and Engineering (ECLIPSE)](https://www.nsf.gov/funding/opportunities/eclipse-ecosystem-leading-innovation-plasma-science-engineering) | 2026-08-11; 52 days remaining as of 2026-06-20 | 2026-07-15 | David Huitink, Min Zou, Wenchao Zhou | Confirm whether any MEEG team has a credible plasma, high-temperature, aerospace, or materials-processing angle before outreach. |
+| planning | NASA | [ROSES-2025 Rapid Response and Novel Research in Earth Science](https://simpler.grants.gov/opportunity/f412520b-5594-4ff2-ae51-9de1b8d8efef) | ROSES-25 close date; 72 days remaining as of 2026-06-20 | 2026-08-01 | Neelakshi Majumdar, Anthony Gunderman | Read the specific ROSES element before contacting faculty; only forward if the rapid-response mechanism matches an active earth-science event or dataset. |
+| planning | NASA | [Astrophysics Explorers Program 2026 SMEX AO](https://science.nasa.gov/researchers/sara/grant-solicitations/) | 2026-09-09; 81 days remaining as of 2026-06-20 | 2026-07-01 | Neelakshi Majumdar, Anthony Gunderman, David Jensen | Treat as a strategic aerospace/systems opportunity; verify NOI requirements and whether UArk has a realistic mission-team role. |
+| planning | National Science Foundation | [Computational and Data-Enabled Science and Engineering (CDS&E)](https://www.nsf.gov/funding/opportunities/cdse-computational-data-enabled-science-engineering) | 2026-09-15; 87 days remaining as of 2026-06-20 | 2026-08-15 | David Jensen, David Huitink, Han Hu | Identify projects where computation or data-enabled methods are the intellectual core, not only a tool layered onto another proposal. |
+| watch | U.S. Department of Energy Office of Science | [FY26 SBIR/STTR Phase II Applications from FY26 Phase I Awards](https://science.osti.gov/grants/FOAs/Open) | 2026-12-17; 180 days remaining as of 2026-06-20 | 2026-11-17 | David Huitink, Han Hu, Min Zou | Forward only to faculty with eligible small-business partners that hold relevant FY26 Phase I awards. |
+| accepted anytime | National Science Foundation | [Fluid Dynamics](https://www.nsf.gov/funding/opportunities/fluid-dynamics) | Accepted anytime; no fixed deadline | Not set | Han Hu, David Jensen | Use as a standing target for mature fluid-dynamics concepts; schedule program-director contact once a two-page concept is ready. |
+| rolling | ARPA-E | [SCALEUP Ready](https://arpa-e-foa.energy.gov/Default.aspx?Search=CONNECT&SearchType=) | Rolling while open | Not set | Manual review | Track for faculty with prior ARPA-E or energy-technology commercialization partners rather than broad distribution. |
+
+## Deadline Timeline
 
 ![Funding opportunity timeline](timeline.svg)
 
 ## Priority View
 
-| Urgency | Sponsor | Program | Deadline | Top aligned faculty/labs |
-| --- | --- | --- | --- | --- |
-| urgent | U.S. Department of Energy | [Critical Minerals & Materials Accelerator Topic Area 2](https://eere-exchange.energy.gov/Default.aspx?Search=3589&SearchType=) | 2026-06-25 | David Huitink, Min Zou, Xiangbo Meng |
-| soon | National Science Foundation | [Faculty Early Career Development Program (CAREER)](https://www.nsf.gov/funding/opportunities/career-faculty-early-career-development-program) | 2026-07-22 | Manual review |
-| soon | U.S. Department of Energy | [Critical Minerals & Materials Accelerator Topic Area 3](https://eere-exchange.energy.gov/Default.aspx?Search=3589&SearchType=) | 2026-07-23 | Xiangbo Meng, Darin Nutter, Min Zou |
-| planning | National Science Foundation | [ECosystem for Leading Innovation in Plasma Science and Engineering (ECLIPSE)](https://www.nsf.gov/funding/opportunities/eclipse-ecosystem-leading-innovation-plasma-science-engineering) | 2026-08-11 | David Huitink, Min Zou, Wenchao Zhou |
-| planning | NASA | [ROSES-2025 Rapid Response and Novel Research in Earth Science](https://simpler.grants.gov/opportunity/f412520b-5594-4ff2-ae51-9de1b8d8efef) | 2026-08-31 | Neelakshi Majumdar, Anthony Gunderman |
-| planning | NASA | [Astrophysics Explorers Program 2026 SMEX AO](https://science.nasa.gov/researchers/sara/grant-solicitations/) | 2026-09-09 | Neelakshi Majumdar, Anthony Gunderman, David Jensen |
-| planning | National Science Foundation | [Computational and Data-Enabled Science and Engineering (CDS&E)](https://www.nsf.gov/funding/opportunities/cdse-computational-data-enabled-science-engineering) | 2026-09-15 | David Jensen, David Huitink, Han Hu |
-| watch | U.S. Department of Energy Office of Science | [FY26 SBIR/STTR Phase II Applications from FY26 Phase I Awards](https://science.osti.gov/grants/FOAs/Open) | 2026-12-17 | David Huitink, Han Hu, Min Zou |
-| watch | National Science Foundation | [Fluid Dynamics](https://www.nsf.gov/funding/opportunities/fluid-dynamics) | 2026-12-31 | Han Hu, David Jensen |
-| watch | ARPA-E | [SCALEUP Ready](https://arpa-e-foa.energy.gov/Default.aspx?Search=CONNECT&SearchType=) | 2026-12-31 | Manual review |
+| Urgency | Sponsor | Program | Deadline | Top aligned faculty/labs | Risk notes |
+| --- | --- | --- | --- | --- | --- |
+| urgent | U.S. Department of Energy | [Critical Minerals & Materials Accelerator Topic Area 2](https://eere-exchange.energy.gov/Default.aspx?Search=3589&SearchType=) | 2026-06-25; 5 days remaining as of 2026-06-20 | David Huitink, Min Zou, Xiangbo Meng | Very short runway; topic fit depends on semiconductor-materials process capability and likely industry or national-lab relevance. |
+| planning | National Science Foundation | [Faculty Early Career Development Program (CAREER)](https://www.nsf.gov/funding/opportunities/career-faculty-early-career-development-program) | 2026-07-22; 32 days remaining as of 2026-06-20 | Manual review | Only eligible early-career faculty can lead; fit is not keyword-specific and should be reviewed manually against the PI's long-term research and education plan. |
+| planning | U.S. Department of Energy | [Critical Minerals & Materials Accelerator Topic Area 3](https://eere-exchange.energy.gov/Default.aspx?Search=3589&SearchType=) | 2026-07-23; 33 days remaining as of 2026-06-20 | Xiangbo Meng, Darin Nutter, Min Zou | Cost share, feedstock access, and partner credibility should be verified before faculty invest proposal time. |
+| planning | National Science Foundation | [ECosystem for Leading Innovation in Plasma Science and Engineering (ECLIPSE)](https://www.nsf.gov/funding/opportunities/eclipse-ecosystem-leading-innovation-plasma-science-engineering) | 2026-08-11; 52 days remaining as of 2026-06-20 | David Huitink, Min Zou, Wenchao Zhou | Keyword overlap around materials and manufacturing may overstate fit without real plasma-science expertise. |
+| planning | NASA | [ROSES-2025 Rapid Response and Novel Research in Earth Science](https://simpler.grants.gov/opportunity/f412520b-5594-4ff2-ae51-9de1b8d8efef) | ROSES-25 close date; 72 days remaining as of 2026-06-20 | Neelakshi Majumdar, Anthony Gunderman | The close date is not the same as a normal proposal deadline, and direct MEEG fit appears narrow. |
+| planning | NASA | [Astrophysics Explorers Program 2026 SMEX AO](https://science.nasa.gov/researchers/sara/grant-solicitations/) | 2026-09-09; 81 days remaining as of 2026-06-20 | Neelakshi Majumdar, Anthony Gunderman, David Jensen | Mission-scale AO is unlikely to be a standard single-PI research proposal. |
+| planning | National Science Foundation | [Computational and Data-Enabled Science and Engineering (CDS&E)](https://www.nsf.gov/funding/opportunities/cdse-computational-data-enabled-science-engineering) | 2026-09-15; 87 days remaining as of 2026-06-20 | David Jensen, David Huitink, Han Hu | Fit should be checked against the participating NSF division and September submission window. |
+| watch | U.S. Department of Energy Office of Science | [FY26 SBIR/STTR Phase II Applications from FY26 Phase I Awards](https://science.osti.gov/grants/FOAs/Open) | 2026-12-17; 180 days remaining as of 2026-06-20 | David Huitink, Han Hu, Min Zou | Not a standard university PI opportunity; participation depends on a qualified small-business lead. |
+| accepted anytime | National Science Foundation | [Fluid Dynamics](https://www.nsf.gov/funding/opportunities/fluid-dynamics) | Accepted anytime; no fixed deadline | Han Hu, David Jensen | No urgent deadline, so the main risk is treating a broad program page as a call without sharpening the intellectual contribution. |
+| rolling | ARPA-E | [SCALEUP Ready](https://arpa-e-foa.energy.gov/Default.aspx?Search=CONNECT&SearchType=) | Rolling while open | Manual review | Eligibility and technology-readiness constraints may exclude ordinary university-led concepts. |
 
 ## Opportunity Notes
 
 ### Critical Minerals & Materials Accelerator Topic Area 2
 
 - Sponsor: U.S. Department of Energy
-- Deadline: 2026-06-25 (14 days from snapshot)
-- Urgency: urgent
+- Deadline: 2026-06-25; 5 days remaining as of 2026-06-20
+- Deadline type: fixed
+- Internal review by: 2026-06-18 (overdue)
+- Verified on: 2026-06-11
+- Action status: internal review overdue
+- Next action: Pursue only if a PI team, partner roles, and cost-share assumptions can be confirmed immediately with the DOE NOFO in hand.
+- Risk notes: Very short runway; topic fit depends on semiconductor-materials process capability and likely industry or national-lab relevance.
 - Summary: Processes to refine and alloy gallium, gallium nitride, germanium, and silicon carbide for semiconductor applications.
 - Notes: Verified June 11 2026. Very near-term deadline; likely requires rapid teaming and industry/national lab relevance.
 - Top matches:
@@ -38,8 +69,13 @@ This screening is a curated scan of active or actionable opportunities from the 
 ### Faculty Early Career Development Program (CAREER)
 
 - Sponsor: National Science Foundation
-- Deadline: 2026-07-22 (41 days from snapshot)
-- Urgency: soon
+- Deadline: 2026-07-22; 32 days remaining as of 2026-06-20
+- Deadline type: fixed
+- Internal review by: 2026-07-01
+- Verified on: 2026-06-11
+- Action status: planning
+- Next action: Identify eligible untenured tenure-track faculty, confirm the relevant NSF directorate window, and start the education-integration outline before committing proposal-development time.
+- Risk notes: Only eligible early-career faculty can lead; fit is not keyword-specific and should be reviewed manually against the PI's long-term research and education plan.
 - Summary: NSF-wide early-career award supporting integrated research and education plans across engineering and science directorates.
 - Notes: Verified June 11 2026. Strong fit only for eligible untenured tenure-track faculty.
 - Top matches:
@@ -47,8 +83,13 @@ This screening is a curated scan of active or actionable opportunities from the 
 ### Critical Minerals & Materials Accelerator Topic Area 3
 
 - Sponsor: U.S. Department of Energy
-- Deadline: 2026-07-23 (42 days from snapshot)
-- Urgency: soon
+- Deadline: 2026-07-23; 33 days remaining as of 2026-06-20
+- Deadline type: fixed
+- Internal review by: 2026-07-02
+- Verified on: 2026-06-11
+- Action status: planning
+- Next action: Convene critical-materials, separations, geothermal, and technoeconomic-analysis candidates for a one-hour fit check.
+- Risk notes: Cost share, feedstock access, and partner credibility should be verified before faculty invest proposal time.
 - Summary: Cost-competitive direct lithium extraction, separation, processing, and related geothermal brine or volcanic-hosted critical materials topics.
 - Notes: Verified June 11 2026. More planning runway than Topic Area 2 but still urgent.
 - Top matches:
@@ -59,8 +100,13 @@ This screening is a curated scan of active or actionable opportunities from the 
 ### ECosystem for Leading Innovation in Plasma Science and Engineering (ECLIPSE)
 
 - Sponsor: National Science Foundation
-- Deadline: 2026-08-11 (61 days from snapshot)
-- Urgency: planning
+- Deadline: 2026-08-11; 52 days remaining as of 2026-06-20
+- Deadline type: fixed
+- Internal review by: 2026-07-15
+- Verified on: 2026-06-11
+- Action status: planning
+- Next action: Confirm whether any MEEG team has a credible plasma, high-temperature, aerospace, or materials-processing angle before outreach.
+- Risk notes: Keyword overlap around materials and manufacturing may overstate fit without real plasma-science expertise.
 - Summary: Cross-disciplinary plasma science and engineering ecosystem opportunity with CMMI/CBET/ECCS windows and EPSCoR-related components.
 - Notes: Verified June 11 2026. Include only if a credible plasma/high-temperature/aerospace angle exists.
 - Top matches:
@@ -71,8 +117,13 @@ This screening is a curated scan of active or actionable opportunities from the 
 ### ROSES-2025 Rapid Response and Novel Research in Earth Science
 
 - Sponsor: NASA
-- Deadline: 2026-08-31 (81 days from snapshot)
-- Urgency: planning
+- Deadline: ROSES-25 close date; 72 days remaining as of 2026-06-20
+- Deadline type: window
+- Internal review by: 2026-08-01
+- Verified on: 2026-06-11
+- Action status: planning
+- Next action: Read the specific ROSES element before contacting faculty; only forward if the rapid-response mechanism matches an active earth-science event or dataset.
+- Risk notes: The close date is not the same as a normal proposal deadline, and direct MEEG fit appears narrow.
 - Summary: NASA Earth Science rapid response and novel research mechanism with no fixed proposal due date; close date shown as last day to submit under ROSES-25 rules.
 - Notes: Screened from Simpler Grants.gov and NASA ROSES context. Verify specific ROSES element text before action.
 - Top matches:
@@ -82,8 +133,13 @@ This screening is a curated scan of active or actionable opportunities from the 
 ### Astrophysics Explorers Program 2026 SMEX AO
 
 - Sponsor: NASA
-- Deadline: 2026-09-09 (90 days from snapshot)
-- Urgency: planning
+- Deadline: 2026-09-09; 81 days remaining as of 2026-06-20
+- Deadline type: fixed
+- Internal review by: 2026-07-01
+- Verified on: 2026-06-11
+- Action status: planning
+- Next action: Treat as a strategic aerospace/systems opportunity; verify NOI requirements and whether UArk has a realistic mission-team role.
+- Risk notes: Mission-scale AO is unlikely to be a standard single-PI research proposal.
 - Summary: NASA Astrophysics Small Explorer mission opportunity; mostly aerospace/space systems rather than ordinary single-PI research.
 - Notes: Verified June 11 2026. Low direct fit for most MEEG faculty except aerospace/systems/instrumentation teams.
 - Top matches:
@@ -94,8 +150,13 @@ This screening is a curated scan of active or actionable opportunities from the 
 ### Computational and Data-Enabled Science and Engineering (CDS&E)
 
 - Sponsor: National Science Foundation
-- Deadline: 2026-09-15 (96 days from snapshot)
-- Urgency: planning
+- Deadline: 2026-09-15; 87 days remaining as of 2026-06-20
+- Deadline type: window
+- Internal review by: 2026-08-15
+- Verified on: 2026-06-11
+- Action status: planning
+- Next action: Identify projects where computation or data-enabled methods are the intellectual core, not only a tool layered onto another proposal.
+- Risk notes: Fit should be checked against the participating NSF division and September submission window.
 - Summary: Computational and data-enabled research across science and engineering, including CBET and CMMI participation.
 - Notes: Verified June 11 2026. Window is September 1-15 for CBET/CMMI.
 - Top matches:
@@ -106,8 +167,13 @@ This screening is a curated scan of active or actionable opportunities from the 
 ### FY26 SBIR/STTR Phase II Applications from FY26 Phase I Awards
 
 - Sponsor: U.S. Department of Energy Office of Science
-- Deadline: 2026-12-17 (189 days from snapshot)
-- Urgency: watch
+- Deadline: 2026-12-17; 180 days remaining as of 2026-06-20
+- Deadline type: fixed
+- Internal review by: 2026-11-17
+- Verified on: 2026-06-11
+- Action status: watch
+- Next action: Forward only to faculty with eligible small-business partners that hold relevant FY26 Phase I awards.
+- Risk notes: Not a standard university PI opportunity; participation depends on a qualified small-business lead.
 - Summary: DOE Office of Science SBIR/STTR Phase II opportunity; useful for faculty-industry teams and commercialization pathways rather than ordinary university-led proposals.
 - Notes: Verified June 11 2026. Track for faculty with company partners; not a standard university PI opportunity.
 - Top matches:
@@ -118,8 +184,13 @@ This screening is a curated scan of active or actionable opportunities from the 
 ### Fluid Dynamics
 
 - Sponsor: National Science Foundation
-- Deadline: 2026-12-31 (203 days from snapshot)
-- Urgency: watch
+- Deadline: Accepted anytime; no fixed deadline
+- Deadline type: accepted anytime
+- Internal review by: Not set
+- Verified on: 2026-06-11
+- Action status: accepted anytime
+- Next action: Use as a standing target for mature fluid-dynamics concepts; schedule program-director contact once a two-page concept is ready.
+- Risk notes: No urgent deadline, so the main risk is treating a broad program page as a call without sharpening the intellectual contribution.
 - Summary: Fundamental fluid dynamics research using experimental, theoretical, computational, AI/ML, instrumentation, diagnostics, wind/ocean energy, FSI, turbulence, bubble dynamics, and micro/nanofluidics approaches.
 - Notes: Accepted anytime. Deadline field uses 2026-12-31 only for chart placement; proposals can be submitted throughout the year.
 - Top matches:
@@ -129,8 +200,13 @@ This screening is a curated scan of active or actionable opportunities from the 
 ### SCALEUP Ready
 
 - Sponsor: ARPA-E
-- Deadline: 2026-12-31 (203 days from snapshot)
-- Urgency: watch
+- Deadline: Rolling while open
+- Deadline type: rolling
+- Internal review by: Not set
+- Verified on: 2026-06-11
+- Action status: rolling
+- Next action: Track for faculty with prior ARPA-E or energy-technology commercialization partners rather than broad distribution.
+- Risk notes: Eligibility and technology-readiness constraints may exclude ordinary university-led concepts.
 - Summary: Open-ended scale-up mechanism for promising energy technologies moving toward early commercial products.
 - Notes: Accepted anytime while open. Deadline field uses 2026-12-31 only for chart placement.
 - Top matches:

@@ -8,6 +8,7 @@ const facultyKind = document.querySelector("#faculty-kind");
 const state = {
   funding: [],
   faculty: [],
+  screening: null,
 };
 
 async function loadJson(path) {
@@ -16,6 +17,15 @@ async function loadJson(path) {
     throw new Error(`Could not load ${path}`);
   }
   return response.json();
+}
+
+async function loadOptionalJson(path) {
+  try {
+    return await loadJson(path);
+  } catch (error) {
+    console.warn(error.message);
+    return null;
+  }
 }
 
 function normalize(value) {
@@ -112,17 +122,47 @@ function renderFaculty() {
   }
 }
 
+function setText(selector, value) {
+  const element = document.querySelector(selector);
+  if (element && value !== undefined && value !== null && value !== "") {
+    element.textContent = value;
+  }
+}
+
+function renderScreeningSummary() {
+  const summary = state.screening;
+  if (!summary) {
+    return;
+  }
+
+  setText("#screening-count", summary.opportunity_count);
+  setText("#alignment-count", summary.alignment_count);
+  setText("#nearest-deadline-count", summary.nearest_deadline_days);
+  setText("#urgent-action-count", summary.urgent_action_count);
+  setText(
+    "#screening-as-of",
+    `Public sponsor pages checked on ${summary.snapshot_date}. Action status refreshed on ${summary.refreshed_on}.`,
+  );
+  setText(
+    "#nearest-deadline-copy",
+    `${summary.nearest_deadline_program} is the nearest dated deadline (${summary.nearest_deadline_label}).`,
+  );
+}
+
 async function init() {
-  const [funding, faculty] = await Promise.all([
+  const [funding, faculty, screening] = await Promise.all([
     loadJson("data/funding_sources.json"),
     loadJson("data/faculty_sources.json"),
+    loadOptionalJson("data/screening_summary.json"),
   ]);
   state.funding = funding.sources;
   state.faculty = faculty.sources;
+  state.screening = screening;
 
   document.querySelector("#funding-count").textContent = state.funding.length;
   document.querySelector("#faculty-count").textContent = state.faculty.length;
   document.querySelector("#lab-count").textContent = state.faculty.filter((item) => item.kind === "lab website").length;
+  renderScreeningSummary();
 
   optionize(fundingCategory, [...new Set(state.funding.map((source) => source.category))], "All categories");
   optionize(facultyKind, [...new Set(state.faculty.map((source) => source.kind))], "All kinds");

@@ -1,0 +1,75 @@
+snapshot_date: "2026-06-11"
+records:
+  opp-nsf-career-2026:
+    deadline_type: fixed
+    verified_on: "2026-06-11"
+    internal_review_by: "2026-07-01"
+    decision_stage: eligibility screen
+    next_action: Identify eligible untenured tenure-track faculty, confirm the relevant NSF directorate window, and start the education-integration outline before committing proposal-development time.
+    risk_notes: Only eligible early-career faculty can lead; fit is not keyword-specific and should be reviewed manually against the PI's long-term research and education plan.
+  opp-doe-cmma-ta2-2026:
+    deadline_type: fixed
+    verified_on: "2026-06-11"
+    internal_review_by: "2026-06-18"
+    decision_stage: rapid go/no-go
+    next_action: Pursue only if a PI team, partner roles, and cost-share assumptions can be confirmed immediately with the DOE NOFO in hand.
+    risk_notes: Very short runway; topic fit depends on semiconductor-materials process capability and likely industry or national-lab relevance.
+  opp-doe-cmma-ta3-2026:
+    deadline_type: fixed
+    verified_on: "2026-06-11"
+    internal_review_by: "2026-07-02"
+    decision_stage: team formation
+    next_action: Convene critical-materials, separations, geothermal, and technoeconomic-analysis candidates for a one-hour fit check.
+    risk_notes: Cost share, feedstock access, and partner credibility should be verified before faculty invest proposal time.
+  opp-nsf-fluid-dynamics-2026:
+    deadline_type: accepted_anytime
+    display_deadline: Accepted anytime
+    verified_on: "2026-06-11"
+    internal_review_by: ""
+    decision_stage: evergreen fit
+    next_action: Use as a standing target for mature fluid-dynamics concepts; schedule program-director contact once a two-page concept is ready.
+    risk_notes: No urgent deadline, so the main risk is treating a broad program page as a call without sharpening the intellectual contribution.
+  opp-nsf-cdse-cbet-cmmi-2026:
+    deadline_type: window
+    verified_on: "2026-06-11"
+    internal_review_by: "2026-08-15"
+    decision_stage: concept shaping
+    next_action: Identify projects where computation or data-enabled methods are the intellectual core, not only a tool layered onto another proposal.
+    risk_notes: Fit should be checked against the participating NSF division and September submission window.
+  opp-nsf-eclipse-2026:
+    deadline_type: fixed
+    verified_on: "2026-06-11"
+    internal_review_by: "2026-07-15"
+    decision_stage: credibility check
+    next_action: Confirm whether any MEEG team has a credible plasma, high-temperature, aerospace, or materials-processing angle before outreach.
+    risk_notes: Keyword overlap around materials and manufacturing may overstate fit without real plasma-science expertise.
+  opp-nasa-roses-2025-rapid-response:
+    deadline_type: window
+    display_deadline: ROSES-25 close date
+    verified_on: "2026-06-11"
+    internal_review_by: "2026-08-01"
+    decision_stage: sponsor-text verification
+    next_action: Read the specific ROSES element before contacting faculty; only forward if the rapid-response mechanism matches an active earth-science event or dataset.
+    risk_notes: The close date is not the same as a normal proposal deadline, and direct MEEG fit appears narrow.
+  opp-nasa-roses-2026-smex:
+    deadline_type: fixed
+    verified_on: "2026-06-11"
+    internal_review_by: "2026-07-01"
+    decision_stage: mission-scale triage
+    next_action: Treat as a strategic aerospace/systems opportunity; verify NOI requirements and whether UArk has a realistic mission-team role.
+    risk_notes: Mission-scale AO is unlikely to be a standard single-PI research proposal.
+  opp-arpae-scaleup-ready-2026:
+    deadline_type: rolling
+    display_deadline: Rolling while open
+    verified_on: "2026-06-11"
+    internal_review_by: ""
+    decision_stage: partner watch
+    next_action: Track for faculty with prior ARPA-E or energy-technology commercialization partners rather than broad distribution.
+    risk_notes: Eligibility and technology-readiness constraints may exclude ordinary university-led concepts.
+  opp-doe-sc-sbir-phaseii-2026:
+    deadline_type: fixed
+    verified_on: "2026-06-11"
+    internal_review_by: "2026-11-17"
+    decision_stage: company-partner watch
+    next_action: Forward only to faculty with eligible small-business partners that hold relevant FY26 Phase I awards.
+    risk_notes: Not a standard university PI opportunity; participation depends on a qualified small-business lead.
