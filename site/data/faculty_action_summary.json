@@ -1,0 +1,540 @@
+[
+  {
+    "faculty_name": "Anthony Gunderman",
+    "opportunity_count": 2,
+    "priority_opportunities": [
+      {
+        "program": "Astrophysics Explorers Program 2026 SMEX AO",
+        "sponsor": "NASA",
+        "source_url": "https://science.nasa.gov/researchers/sara/grant-solicitations/",
+        "status": "planning",
+        "deadline": "2026-09-09; 78 days remaining as of 2026-06-23",
+        "score": 0.333,
+        "fit_level": "promising",
+        "matched_terms": [
+          "aerospace systems",
+          "systems engineering"
+        ],
+        "next_action": "Treat as a strategic aerospace/systems opportunity; verify NOI requirements and whether UArk has a realistic mission-team role."
+      },
+      {
+        "program": "ROSES-2025 Rapid Response and Novel Research in Earth Science",
+        "sponsor": "NASA",
+        "source_url": "https://simpler.grants.gov/opportunity/f412520b-5594-4ff2-ae51-9de1b8d8efef",
+        "status": "planning",
+        "deadline": "ROSES-25 close date; 69 days remaining as of 2026-06-23",
+        "score": 0.125,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "sensing"
+        ],
+        "next_action": "Read the specific ROSES element before contacting faculty; only forward if the rapid-response mechanism matches an active earth-science event or dataset."
+      }
+    ]
+  },
+  {
+    "faculty_name": "Darin Nutter",
+    "opportunity_count": 1,
+    "priority_opportunities": [
+      {
+        "program": "Critical Minerals & Materials Accelerator Topic Area 3",
+        "sponsor": "U.S. Department of Energy",
+        "source_url": "https://eere-exchange.energy.gov/Default.aspx?Search=3589&SearchType=",
+        "status": "soon",
+        "deadline": "2026-07-23; 30 days remaining as of 2026-06-23",
+        "score": 0.143,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "technoeconomic analysis"
+        ],
+        "next_action": "Convene critical-materials, separations, geothermal, and technoeconomic-analysis candidates for a one-hour fit check."
+      }
+    ]
+  },
+  {
+    "faculty_name": "David Huitink",
+    "opportunity_count": 4,
+    "priority_opportunities": [
+      {
+        "program": "Critical Minerals & Materials Accelerator Topic Area 2",
+        "sponsor": "U.S. Department of Energy",
+        "source_url": "https://eere-exchange.energy.gov/Default.aspx?Search=3589&SearchType=",
+        "status": "internal review overdue",
+        "deadline": "2026-06-25; 2 days remaining as of 2026-06-23",
+        "score": 0.571,
+        "fit_level": "strong",
+        "matched_terms": [
+          "advanced materials",
+          "manufacturing",
+          "process technology",
+          "semiconductors"
+        ],
+        "next_action": "Pursue only if a PI team, partner roles, and cost-share assumptions can be confirmed immediately with the DOE NOFO in hand."
+      },
+      {
+        "program": "ECosystem for Leading Innovation in Plasma Science and Engineering (ECLIPSE)",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/eclipse-ecosystem-leading-innovation-plasma-science-engineering",
+        "status": "planning",
+        "deadline": "2026-08-11; 49 days remaining as of 2026-06-23",
+        "score": 0.286,
+        "fit_level": "promising",
+        "matched_terms": [
+          "manufacturing",
+          "materials"
+        ],
+        "next_action": "Confirm whether any MEEG team has a credible plasma, high-temperature, aerospace, or materials-processing angle before outreach."
+      },
+      {
+        "program": "Computational and Data-Enabled Science and Engineering (CDS&E)",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/cdse-computational-data-enabled-science-engineering",
+        "status": "planning",
+        "deadline": "2026-09-15; 84 days remaining as of 2026-06-23",
+        "score": 0.25,
+        "fit_level": "promising",
+        "matched_terms": [
+          "manufacturing",
+          "materials"
+        ],
+        "next_action": "Identify projects where computation or data-enabled methods are the intellectual core, not only a tool layered onto another proposal."
+      },
+      {
+        "program": "FY26 SBIR/STTR Phase II Applications from FY26 Phase I Awards",
+        "sponsor": "U.S. Department of Energy Office of Science",
+        "source_url": "https://science.osti.gov/grants/FOAs/Open",
+        "status": "watch",
+        "deadline": "2026-12-17; 177 days remaining as of 2026-06-23",
+        "score": 0.125,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "materials"
+        ],
+        "next_action": "Forward only to faculty with eligible small-business partners that hold relevant FY26 Phase I awards."
+      }
+    ]
+  },
+  {
+    "faculty_name": "David Jensen",
+    "opportunity_count": 3,
+    "priority_opportunities": [
+      {
+        "program": "Computational and Data-Enabled Science and Engineering (CDS&E)",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/cdse-computational-data-enabled-science-engineering",
+        "status": "planning",
+        "deadline": "2026-09-15; 84 days remaining as of 2026-06-23",
+        "score": 0.375,
+        "fit_level": "promising",
+        "matched_terms": [
+          "ai",
+          "computational modeling",
+          "data-enabled science"
+        ],
+        "next_action": "Identify projects where computation or data-enabled methods are the intellectual core, not only a tool layered onto another proposal."
+      },
+      {
+        "program": "Astrophysics Explorers Program 2026 SMEX AO",
+        "sponsor": "NASA",
+        "source_url": "https://science.nasa.gov/researchers/sara/grant-solicitations/",
+        "status": "planning",
+        "deadline": "2026-09-09; 78 days remaining as of 2026-06-23",
+        "score": 0.167,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "systems engineering"
+        ],
+        "next_action": "Treat as a strategic aerospace/systems opportunity; verify NOI requirements and whether UArk has a realistic mission-team role."
+      },
+      {
+        "program": "Fluid Dynamics",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/fluid-dynamics",
+        "status": "accepted anytime",
+        "deadline": "Accepted anytime; no fixed deadline",
+        "score": 0.1,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "ai"
+        ],
+        "next_action": "Use as a standing target for mature fluid-dynamics concepts; schedule program-director contact once a two-page concept is ready."
+      }
+    ]
+  },
+  {
+    "faculty_name": "Han Hu",
+    "opportunity_count": 4,
+    "priority_opportunities": [
+      {
+        "program": "Computational and Data-Enabled Science and Engineering (CDS&E)",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/cdse-computational-data-enabled-science-engineering",
+        "status": "planning",
+        "deadline": "2026-09-15; 84 days remaining as of 2026-06-23",
+        "score": 0.25,
+        "fit_level": "promising",
+        "matched_terms": [
+          "ai",
+          "machine learning"
+        ],
+        "next_action": "Identify projects where computation or data-enabled methods are the intellectual core, not only a tool layered onto another proposal."
+      },
+      {
+        "program": "Astrophysics Explorers Program 2026 SMEX AO",
+        "sponsor": "NASA",
+        "source_url": "https://science.nasa.gov/researchers/sara/grant-solicitations/",
+        "status": "planning",
+        "deadline": "2026-09-09; 78 days remaining as of 2026-06-23",
+        "score": 0.167,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "instrumentation"
+        ],
+        "next_action": "Treat as a strategic aerospace/systems opportunity; verify NOI requirements and whether UArk has a realistic mission-team role."
+      },
+      {
+        "program": "Fluid Dynamics",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/fluid-dynamics",
+        "status": "accepted anytime",
+        "deadline": "Accepted anytime; no fixed deadline",
+        "score": 0.6,
+        "fit_level": "strong",
+        "matched_terms": [
+          "ai",
+          "bubble dynamics",
+          "flow diagnostics",
+          "instrumentation",
+          "machine learning",
+          "multiphase flow"
+        ],
+        "next_action": "Use as a standing target for mature fluid-dynamics concepts; schedule program-director contact once a two-page concept is ready."
+      },
+      {
+        "program": "FY26 SBIR/STTR Phase II Applications from FY26 Phase I Awards",
+        "sponsor": "U.S. Department of Energy Office of Science",
+        "source_url": "https://science.osti.gov/grants/FOAs/Open",
+        "status": "watch",
+        "deadline": "2026-12-17; 177 days remaining as of 2026-06-23",
+        "score": 0.125,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "instrumentation"
+        ],
+        "next_action": "Forward only to faculty with eligible small-business partners that hold relevant FY26 Phase I awards."
+      }
+    ]
+  },
+  {
+    "faculty_name": "Min Zou",
+    "opportunity_count": 5,
+    "priority_opportunities": [
+      {
+        "program": "Critical Minerals & Materials Accelerator Topic Area 2",
+        "sponsor": "U.S. Department of Energy",
+        "source_url": "https://eere-exchange.energy.gov/Default.aspx?Search=3589&SearchType=",
+        "status": "internal review overdue",
+        "deadline": "2026-06-25; 2 days remaining as of 2026-06-23",
+        "score": 0.429,
+        "fit_level": "promising",
+        "matched_terms": [
+          "advanced materials",
+          "critical materials",
+          "manufacturing"
+        ],
+        "next_action": "Pursue only if a PI team, partner roles, and cost-share assumptions can be confirmed immediately with the DOE NOFO in hand."
+      },
+      {
+        "program": "Critical Minerals & Materials Accelerator Topic Area 3",
+        "sponsor": "U.S. Department of Energy",
+        "source_url": "https://eere-exchange.energy.gov/Default.aspx?Search=3589&SearchType=",
+        "status": "soon",
+        "deadline": "2026-07-23; 30 days remaining as of 2026-06-23",
+        "score": 0.143,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "critical materials"
+        ],
+        "next_action": "Convene critical-materials, separations, geothermal, and technoeconomic-analysis candidates for a one-hour fit check."
+      },
+      {
+        "program": "ECosystem for Leading Innovation in Plasma Science and Engineering (ECLIPSE)",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/eclipse-ecosystem-leading-innovation-plasma-science-engineering",
+        "status": "planning",
+        "deadline": "2026-08-11; 49 days remaining as of 2026-06-23",
+        "score": 0.286,
+        "fit_level": "promising",
+        "matched_terms": [
+          "manufacturing",
+          "materials"
+        ],
+        "next_action": "Confirm whether any MEEG team has a credible plasma, high-temperature, aerospace, or materials-processing angle before outreach."
+      },
+      {
+        "program": "Computational and Data-Enabled Science and Engineering (CDS&E)",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/cdse-computational-data-enabled-science-engineering",
+        "status": "planning",
+        "deadline": "2026-09-15; 84 days remaining as of 2026-06-23",
+        "score": 0.25,
+        "fit_level": "promising",
+        "matched_terms": [
+          "manufacturing",
+          "materials"
+        ],
+        "next_action": "Identify projects where computation or data-enabled methods are the intellectual core, not only a tool layered onto another proposal."
+      }
+    ]
+  },
+  {
+    "faculty_name": "Neelakshi Majumdar",
+    "opportunity_count": 2,
+    "priority_opportunities": [
+      {
+        "program": "Astrophysics Explorers Program 2026 SMEX AO",
+        "sponsor": "NASA",
+        "source_url": "https://science.nasa.gov/researchers/sara/grant-solicitations/",
+        "status": "planning",
+        "deadline": "2026-09-09; 78 days remaining as of 2026-06-23",
+        "score": 0.667,
+        "fit_level": "strong",
+        "matched_terms": [
+          "aerospace systems",
+          "mission design",
+          "nasa",
+          "systems engineering"
+        ],
+        "next_action": "Treat as a strategic aerospace/systems opportunity; verify NOI requirements and whether UArk has a realistic mission-team role."
+      },
+      {
+        "program": "ROSES-2025 Rapid Response and Novel Research in Earth Science",
+        "sponsor": "NASA",
+        "source_url": "https://simpler.grants.gov/opportunity/f412520b-5594-4ff2-ae51-9de1b8d8efef",
+        "status": "planning",
+        "deadline": "ROSES-25 close date; 69 days remaining as of 2026-06-23",
+        "score": 0.25,
+        "fit_level": "promising",
+        "matched_terms": [
+          "nasa",
+          "sensing"
+        ],
+        "next_action": "Read the specific ROSES element before contacting faculty; only forward if the rapid-response mechanism matches an active earth-science event or dataset."
+      }
+    ]
+  },
+  {
+    "faculty_name": "Paul Millett",
+    "opportunity_count": 3,
+    "priority_opportunities": [
+      {
+        "program": "Critical Minerals & Materials Accelerator Topic Area 2",
+        "sponsor": "U.S. Department of Energy",
+        "source_url": "https://eere-exchange.energy.gov/Default.aspx?Search=3589&SearchType=",
+        "status": "internal review overdue",
+        "deadline": "2026-06-25; 2 days remaining as of 2026-06-23",
+        "score": 0.143,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "critical materials"
+        ],
+        "next_action": "Pursue only if a PI team, partner roles, and cost-share assumptions can be confirmed immediately with the DOE NOFO in hand."
+      },
+      {
+        "program": "Critical Minerals & Materials Accelerator Topic Area 3",
+        "sponsor": "U.S. Department of Energy",
+        "source_url": "https://eere-exchange.energy.gov/Default.aspx?Search=3589&SearchType=",
+        "status": "soon",
+        "deadline": "2026-07-23; 30 days remaining as of 2026-06-23",
+        "score": 0.143,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "critical materials"
+        ],
+        "next_action": "Convene critical-materials, separations, geothermal, and technoeconomic-analysis candidates for a one-hour fit check."
+      },
+      {
+        "program": "Computational and Data-Enabled Science and Engineering (CDS&E)",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/cdse-computational-data-enabled-science-engineering",
+        "status": "planning",
+        "deadline": "2026-09-15; 84 days remaining as of 2026-06-23",
+        "score": 0.25,
+        "fit_level": "promising",
+        "matched_terms": [
+          "computational modeling",
+          "data-enabled science"
+        ],
+        "next_action": "Identify projects where computation or data-enabled methods are the intellectual core, not only a tool layered onto another proposal."
+      }
+    ]
+  },
+  {
+    "faculty_name": "Wan Shou",
+    "opportunity_count": 3,
+    "priority_opportunities": [
+      {
+        "program": "Critical Minerals & Materials Accelerator Topic Area 2",
+        "sponsor": "U.S. Department of Energy",
+        "source_url": "https://eere-exchange.energy.gov/Default.aspx?Search=3589&SearchType=",
+        "status": "internal review overdue",
+        "deadline": "2026-06-25; 2 days remaining as of 2026-06-23",
+        "score": 0.286,
+        "fit_level": "promising",
+        "matched_terms": [
+          "manufacturing",
+          "process technology"
+        ],
+        "next_action": "Pursue only if a PI team, partner roles, and cost-share assumptions can be confirmed immediately with the DOE NOFO in hand."
+      },
+      {
+        "program": "ECosystem for Leading Innovation in Plasma Science and Engineering (ECLIPSE)",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/eclipse-ecosystem-leading-innovation-plasma-science-engineering",
+        "status": "planning",
+        "deadline": "2026-08-11; 49 days remaining as of 2026-06-23",
+        "score": 0.143,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "manufacturing"
+        ],
+        "next_action": "Confirm whether any MEEG team has a credible plasma, high-temperature, aerospace, or materials-processing angle before outreach."
+      },
+      {
+        "program": "Computational and Data-Enabled Science and Engineering (CDS&E)",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/cdse-computational-data-enabled-science-engineering",
+        "status": "planning",
+        "deadline": "2026-09-15; 84 days remaining as of 2026-06-23",
+        "score": 0.125,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "manufacturing"
+        ],
+        "next_action": "Identify projects where computation or data-enabled methods are the intellectual core, not only a tool layered onto another proposal."
+      }
+    ]
+  },
+  {
+    "faculty_name": "Wenchao Zhou",
+    "opportunity_count": 4,
+    "priority_opportunities": [
+      {
+        "program": "Critical Minerals & Materials Accelerator Topic Area 2",
+        "sponsor": "U.S. Department of Energy",
+        "source_url": "https://eere-exchange.energy.gov/Default.aspx?Search=3589&SearchType=",
+        "status": "internal review overdue",
+        "deadline": "2026-06-25; 2 days remaining as of 2026-06-23",
+        "score": 0.286,
+        "fit_level": "promising",
+        "matched_terms": [
+          "manufacturing",
+          "process technology"
+        ],
+        "next_action": "Pursue only if a PI team, partner roles, and cost-share assumptions can be confirmed immediately with the DOE NOFO in hand."
+      },
+      {
+        "program": "ECosystem for Leading Innovation in Plasma Science and Engineering (ECLIPSE)",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/eclipse-ecosystem-leading-innovation-plasma-science-engineering",
+        "status": "planning",
+        "deadline": "2026-08-11; 49 days remaining as of 2026-06-23",
+        "score": 0.286,
+        "fit_level": "promising",
+        "matched_terms": [
+          "manufacturing",
+          "materials"
+        ],
+        "next_action": "Confirm whether any MEEG team has a credible plasma, high-temperature, aerospace, or materials-processing angle before outreach."
+      },
+      {
+        "program": "Computational and Data-Enabled Science and Engineering (CDS&E)",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/cdse-computational-data-enabled-science-engineering",
+        "status": "planning",
+        "deadline": "2026-09-15; 84 days remaining as of 2026-06-23",
+        "score": 0.25,
+        "fit_level": "promising",
+        "matched_terms": [
+          "manufacturing",
+          "materials"
+        ],
+        "next_action": "Identify projects where computation or data-enabled methods are the intellectual core, not only a tool layered onto another proposal."
+      },
+      {
+        "program": "FY26 SBIR/STTR Phase II Applications from FY26 Phase I Awards",
+        "sponsor": "U.S. Department of Energy Office of Science",
+        "source_url": "https://science.osti.gov/grants/FOAs/Open",
+        "status": "watch",
+        "deadline": "2026-12-17; 177 days remaining as of 2026-06-23",
+        "score": 0.125,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "materials"
+        ],
+        "next_action": "Forward only to faculty with eligible small-business partners that hold relevant FY26 Phase I awards."
+      }
+    ]
+  },
+  {
+    "faculty_name": "Xiangbo Meng",
+    "opportunity_count": 4,
+    "priority_opportunities": [
+      {
+        "program": "Critical Minerals & Materials Accelerator Topic Area 2",
+        "sponsor": "U.S. Department of Energy",
+        "source_url": "https://eere-exchange.energy.gov/Default.aspx?Search=3589&SearchType=",
+        "status": "internal review overdue",
+        "deadline": "2026-06-25; 2 days remaining as of 2026-06-23",
+        "score": 0.429,
+        "fit_level": "promising",
+        "matched_terms": [
+          "advanced materials",
+          "critical materials",
+          "semiconductors"
+        ],
+        "next_action": "Pursue only if a PI team, partner roles, and cost-share assumptions can be confirmed immediately with the DOE NOFO in hand."
+      },
+      {
+        "program": "Critical Minerals & Materials Accelerator Topic Area 3",
+        "sponsor": "U.S. Department of Energy",
+        "source_url": "https://eere-exchange.energy.gov/Default.aspx?Search=3589&SearchType=",
+        "status": "soon",
+        "deadline": "2026-07-23; 30 days remaining as of 2026-06-23",
+        "score": 0.286,
+        "fit_level": "promising",
+        "matched_terms": [
+          "critical materials",
+          "lithium extraction"
+        ],
+        "next_action": "Convene critical-materials, separations, geothermal, and technoeconomic-analysis candidates for a one-hour fit check."
+      },
+      {
+        "program": "ECosystem for Leading Innovation in Plasma Science and Engineering (ECLIPSE)",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/eclipse-ecosystem-leading-innovation-plasma-science-engineering",
+        "status": "planning",
+        "deadline": "2026-08-11; 49 days remaining as of 2026-06-23",
+        "score": 0.143,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "energy"
+        ],
+        "next_action": "Confirm whether any MEEG team has a credible plasma, high-temperature, aerospace, or materials-processing angle before outreach."
+      },
+      {
+        "program": "FY26 SBIR/STTR Phase II Applications from FY26 Phase I Awards",
+        "sponsor": "U.S. Department of Energy Office of Science",
+        "source_url": "https://science.osti.gov/grants/FOAs/Open",
+        "status": "watch",
+        "deadline": "2026-12-17; 177 days remaining as of 2026-06-23",
+        "score": 0.125,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "energy"
+        ],
+        "next_action": "Forward only to faculty with eligible small-business partners that hold relevant FY26 Phase I awards."
+      }
+    ]
+  }
+]

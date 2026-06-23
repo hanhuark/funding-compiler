@@ -51,7 +51,7 @@ $env:PYTHONPATH='src'
 python tools/sync_site_data.py
 ```
 
-Regenerate the current screening report, action inbox, timeline, and homepage screening summary:
+Regenerate the current screening report, action inbox, faculty briefs, timeline, and homepage screening summary:
 
 ```powershell
 $env:FUNDING_COMPILER_TODAY='2026-06-20'  # optional, for reproducible reports
@@ -65,6 +65,7 @@ python tools/generate_screening_report.py
 - `data/funding_sources.yaml` - Curated registry of funding portals and discovery sources.
 - `data/uark_meeg_faculty_sources.yaml` - Seed registry for UArk MEEG faculty directories, profiles, and lab sites.
 - `data/screenings/*/opportunity_actions.yaml` - Curated action metadata for deadline semantics, internal review dates, next actions, and risk notes.
+- `site/data/screening_summary.json` and `site/data/faculty_action_summary.json` - Generated dashboard data for current screening and per-faculty opportunity briefs.
 - `examples/` - Sample opportunity and faculty data.
 - `docs/` - Architecture, data schema, and reporting workflow notes.
 - `tests/` - Unit tests for loaders, matching, and reports.

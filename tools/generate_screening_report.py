@@ -45,6 +45,11 @@ def main() -> int:
         json.dumps(summary, indent=2) + "\n",
         encoding="utf-8",
     )
+    faculty_summary = build_faculty_action_summary(opportunities, matches, actions, as_of)
+    (SITE_DATA_DIR / "faculty_action_summary.json").write_text(
+        json.dumps(faculty_summary, indent=2) + "\n",
+        encoding="utf-8",
+    )
     site_page = render_site_page(opportunities, matches, actions, timeline_svg, as_of)
     (SITE_DIR / "2026-06-11.html").write_text(site_page, encoding="utf-8")
     return 0
@@ -76,6 +81,8 @@ def write_alignment_csv(path: Path, matches) -> None:
                 "faculty_id",
                 "faculty_name",
                 "score",
+                "fit_level",
+                "matched_keyword_count",
                 "matched_keywords",
                 "rationale",
             ],
@@ -83,6 +90,8 @@ def write_alignment_csv(path: Path, matches) -> None:
         writer.writeheader()
         for match in matches:
             row = asdict(match)
+            row["fit_level"] = fit_level(match.score)
+            row["matched_keyword_count"] = len(match.matched_keywords)
             row["matched_keywords"] = "; ".join(match.matched_keywords)
             writer.writerow(row)
 
@@ -267,6 +276,100 @@ def top_matches_by_opportunity(matches, limit: int = 3):
     return {key: sorted(value, key=lambda item: (-item.score, item.faculty_name))[:limit] for key, value in grouped.items()}
 
 
+def fit_level(score: float) -> str:
+    if score >= 0.5:
+        return "strong"
+    if score >= 0.25:
+        return "promising"
+    return "exploratory"
+
+
+def match_terms(match, limit: int = 5) -> str:
+    if not match.matched_keywords:
+        return "manual review"
+    terms = match.matched_keywords[:limit]
+    suffix = "" if len(match.matched_keywords) <= limit else f"; +{len(match.matched_keywords) - limit} more"
+    return ", ".join(terms) + suffix
+
+
+def match_evidence_text(matches) -> str:
+    if not matches:
+        return "Manual review"
+    return "; ".join(
+        f"{match.faculty_name} ({fit_level(match.score)}, score {match.score:.3f}): {match_terms(match)}"
+        for match in matches
+    )
+
+
+def match_evidence_html(matches) -> str:
+    if not matches:
+        return "Manual review"
+    parts = []
+    for match in matches:
+        parts.append(
+            f"<strong>{html.escape(match.faculty_name)}</strong>"
+            f"<br><span>{html.escape(fit_level(match.score).title())} fit; score {match.score:.3f}; terms: {match_terms(match)}</span>"
+        )
+    return "<br><br>".join(parts)
+
+
+def action_priority(status: str) -> int:
+    order = {
+        "internal review overdue": 0,
+        "urgent": 1,
+        "soon": 2,
+        "planning": 3,
+        "accepted anytime": 4,
+        "watch": 5,
+        "rolling": 6,
+        "past due": 7,
+    }
+    return order.get(status, 9)
+
+
+def build_faculty_action_summary(opportunities, matches, actions: dict[str, dict[str, str]], as_of: date) -> list[dict[str, object]]:
+    opportunity_by_id = {opportunity.id: opportunity for opportunity in opportunities}
+    grouped = defaultdict(list)
+    for match in matches:
+        opportunity = opportunity_by_id.get(match.opportunity_id)
+        if opportunity:
+            grouped[match.faculty_name].append((match, opportunity))
+
+    summary = []
+    for faculty_name, records in sorted(grouped.items()):
+        ranked = sorted(
+            records,
+            key=lambda record: (
+                action_priority(action_status(record[1], actions, as_of)),
+                -record[0].score,
+                record[1].program,
+            ),
+        )
+        opportunities_summary = []
+        for match, opportunity in ranked[:4]:
+            opportunities_summary.append(
+                {
+                    "program": opportunity.program,
+                    "sponsor": opportunity.sponsor,
+                    "source_url": opportunity.source_url,
+                    "status": action_status(opportunity, actions, as_of),
+                    "deadline": deadline_context(opportunity, actions, as_of),
+                    "score": match.score,
+                    "fit_level": fit_level(match.score),
+                    "matched_terms": match.matched_keywords,
+                    "next_action": next_action(opportunity, actions),
+                }
+            )
+        summary.append(
+            {
+                "faculty_name": faculty_name,
+                "opportunity_count": len(records),
+                "priority_opportunities": opportunities_summary,
+            }
+        )
+    return summary
+
+
 def build_screening_summary(opportunities, matches, actions: dict[str, dict[str, str]], as_of: date) -> dict[str, object]:
     future_dated = [
         (days_remaining(opp, actions, as_of), opp)
@@ -330,11 +433,11 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
         "",
         "## Faculty Action Inbox",
         "",
-        "| Action status | Sponsor | Program | Public deadline | Internal review by | Top aligned faculty/labs | Next action |",
+        "| Action status | Sponsor | Program | Public deadline | Internal review by | Match evidence | Next action |",
         "| --- | --- | --- | --- | --- | --- | --- |",
     ]
     for opp in sort_opportunities(opportunities, actions):
-        names = ", ".join(match.faculty_name for match in top.get(opp.id, [])[:3]) or "Manual review"
+        evidence = match_evidence_text(top.get(opp.id, [])[:3])
         lines.append(
             "| "
             + " | ".join(
@@ -345,7 +448,7 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
                     f"[{opp.program}]({opp.source_url})",
                     deadline_context(opp, actions, as_of),
                     internal_review_display(opp, actions, as_of),
-                    names,
+                    evidence,
                     next_action(opp, actions),
                 ]
             )
@@ -382,6 +485,38 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
                     deadline_context(opp, actions, as_of),
                     names,
                     risk_notes(opp, actions),
+                ]
+            )
+            + " |"
+        )
+
+    lines.extend(["", "## Faculty Briefs", ""])
+    lines.extend(
+        [
+            "| Faculty | Priority opportunities | Evidence to verify | Suggested follow-up |",
+            "| --- | --- | --- | --- |",
+        ]
+    )
+    for brief in build_faculty_action_summary(opportunities, matches, actions, as_of):
+        items = brief["priority_opportunities"]
+        priority = "; ".join(
+            f"[{item['program']}]({item['source_url']}) ({item['status']}; {item['deadline']})"
+            for item in items[:4]
+        )
+        evidence = "; ".join(
+            f"{item['fit_level']} fit, score {item['score']:.3f}, terms: {', '.join(item['matched_terms'][:5]) or 'manual review'}"
+            for item in items[:4]
+        )
+        follow_up = items[0]["next_action"] if items else "Manual review"
+        lines.append(
+            "| "
+            + " | ".join(
+                markdown_cell(value)
+                for value in [
+                    brief["faculty_name"],
+                    priority,
+                    evidence,
+                    follow_up,
                 ]
             )
             + " |"
@@ -427,19 +562,43 @@ def deadline_html(opportunity, actions: dict[str, dict[str, str]], as_of: date) 
     return f"{escaped_display}<br><span>{html.escape(phrase)}</span>"
 
 
+def render_faculty_briefs(opportunities, matches, actions: dict[str, dict[str, str]], as_of: date) -> str:
+    cards = []
+    for brief in build_faculty_action_summary(opportunities, matches, actions, as_of):
+        items = []
+        for item in brief["priority_opportunities"][:4]:
+            terms = ", ".join(item["matched_terms"][:5]) if item["matched_terms"] else "manual review"
+            items.append(
+                "<li>"
+                f"<a href=\"{html.escape(item['source_url'])}\">{html.escape(item['program'])}</a>"
+                f"<span class=\"status-pill {html.escape(status_class(item['status']))}\">{html.escape(item['status'].title())}</span>"
+                f"<p>{html.escape(item['deadline'])}</p>"
+                f"<p>{html.escape(item['fit_level'].title())} fit; score {item['score']:.3f}; terms: {html.escape(terms)}</p>"
+                "</li>"
+            )
+        cards.append(
+            "<article class=\"faculty-brief\">"
+            f"<h3>{html.escape(brief['faculty_name'])}</h3>"
+            f"<p>{brief['opportunity_count']} matched {'opportunity' if brief['opportunity_count'] == 1 else 'opportunities'} in this screening.</p>"
+            f"<ul>{''.join(items)}</ul>"
+            "</article>"
+        )
+    return "".join(cards)
+
+
 def render_site_page(opportunities, matches, actions: dict[str, dict[str, str]], timeline_svg: str, as_of: date) -> str:
     top = top_matches_by_opportunity(matches)
     summary = build_screening_summary(opportunities, matches, actions, as_of)
     rows = []
     for opp in sort_opportunities(opportunities, actions):
-        names = ", ".join(match.faculty_name for match in top.get(opp.id, [])[:3]) or "Manual review"
+        evidence = match_evidence_html(top.get(opp.id, [])[:3])
         rows.append(
             "<tr>"
             f"<td><span class=\"status-pill {html.escape(status_class(action_status(opp, actions, as_of)))}\">{html.escape(action_status(opp, actions, as_of).title())}</span></td>"
             f"<td><a href=\"{html.escape(opp.source_url)}\">{html.escape(opp.program)}</a><br><span>{html.escape(opp.sponsor)}</span></td>"
             f"<td>{deadline_html(opp, actions, as_of)}</td>"
             f"<td>{html.escape(internal_review_display(opp, actions, as_of))}</td>"
-            f"<td>{html.escape(names)}</td>"
+            f"<td>{evidence}</td>"
             f"<td>{html.escape(next_action(opp, actions))}</td>"
             f"<td>{html.escape(risk_notes(opp, actions))}</td>"
             "</tr>"
@@ -488,9 +647,13 @@ def render_site_page(opportunities, matches, actions: dict[str, dict[str, str]],
     <section class="panel">
       <div class="section-heading"><p class="eyebrow">Action Inbox</p><h2>Faculty-facing triage table</h2></div>
       <div class="table-wrap"><table class="report-table">
-        <thead><tr><th>Status</th><th>Opportunity</th><th>Public deadline</th><th>Internal review</th><th>Top aligned faculty/labs</th><th>Next action</th><th>Risk notes</th></tr></thead>
+        <thead><tr><th>Status</th><th>Opportunity</th><th>Public deadline</th><th>Internal review</th><th>Match evidence</th><th>Next action</th><th>Risk notes</th></tr></thead>
         <tbody>{''.join(rows)}</tbody>
       </table></div>
+    </section>
+    <section class="panel">
+      <div class="section-heading"><p class="eyebrow">Faculty Briefs</p><h2>Who should look at what</h2></div>
+      <div class="faculty-briefs">{render_faculty_briefs(opportunities, matches, actions, as_of)}</div>
     </section>
   </main>
 </body>

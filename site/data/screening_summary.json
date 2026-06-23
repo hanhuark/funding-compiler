@@ -1,13 +1,13 @@
 {
   "snapshot_date": "2026-06-11",
-  "refreshed_on": "2026-06-20",
+  "refreshed_on": "2026-06-23",
   "report_url": "screenings/2026-06-11.html",
   "opportunity_count": 10,
   "alignment_count": 35,
   "urgent_action_count": 1,
   "overdue_internal_review_count": 1,
   "rolling_count": 2,
-  "nearest_deadline_days": 5,
+  "nearest_deadline_days": 2,
   "nearest_deadline_program": "Critical Minerals & Materials Accelerator Topic Area 2",
   "nearest_deadline_label": "2026-06-25",
   "nearest_deadline_status": "internal review overdue"
