@@ -38,7 +38,7 @@ Generated screening artifacts also include:
 
 | File | Description |
 | --- | --- |
-| `site/data/screening_summary.json` | Homepage summary with snapshot date, refresh date, nearest deadline, urgent action count, and rolling-item count. |
+| `site/data/screening_summary.json` | Homepage summary with snapshot date, refresh date, active opportunity count, passed-deadline count, nearest active deadline, urgent action count, and rolling-item count. |
 | `site/data/faculty_action_summary.json` | Per-faculty opportunity brief data with status, deadline context, fit level, score, matched terms, and next action. |
 | `docs/screenings/*/alignment_matrix.csv` | Match matrix with score, fit level, matched keyword count, matched terms, and rationale. |
 

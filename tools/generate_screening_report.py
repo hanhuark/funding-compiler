@@ -152,6 +152,19 @@ def action_status(opportunity, actions: dict[str, dict[str, str]], as_of: date) 
     return urgency(opportunity, actions, as_of)
 
 
+def is_past_due(opportunity, actions: dict[str, dict[str, str]], as_of: date) -> bool:
+    days = days_remaining(opportunity, actions, as_of)
+    return days is not None and days < 0
+
+
+def active_opportunities(opportunities, actions: dict[str, dict[str, str]], as_of: date):
+    return [opportunity for opportunity in opportunities if not is_past_due(opportunity, actions, as_of)]
+
+
+def past_due_opportunities(opportunities, actions: dict[str, dict[str, str]], as_of: date):
+    return [opportunity for opportunity in opportunities if is_past_due(opportunity, actions, as_of)]
+
+
 def deadline_display(opportunity, actions: dict[str, dict[str, str]]) -> str:
     metadata = actions.get(opportunity.id, {})
     if metadata.get("display_deadline"):
@@ -174,7 +187,9 @@ def days_phrase(opportunity, actions: dict[str, dict[str, str]], as_of: date) ->
             return "rolling while open"
         return kind.replace("_", " ")
     if days < 0:
-        return f"passed {abs(days)} days ago as of {as_of.isoformat()}"
+        count = abs(days)
+        unit = "day" if count == 1 else "days"
+        return f"passed {count} {unit} ago as of {as_of.isoformat()}"
     if days == 0:
         return f"due today as of {as_of.isoformat()}"
     return f"{days} days remaining as of {as_of.isoformat()}"
@@ -332,7 +347,7 @@ def build_faculty_action_summary(opportunities, matches, actions: dict[str, dict
     grouped = defaultdict(list)
     for match in matches:
         opportunity = opportunity_by_id.get(match.opportunity_id)
-        if opportunity:
+        if opportunity and not is_past_due(opportunity, actions, as_of):
             grouped[match.faculty_name].append((match, opportunity))
 
     summary = []
@@ -371,20 +386,22 @@ def build_faculty_action_summary(opportunities, matches, actions: dict[str, dict
 
 
 def build_screening_summary(opportunities, matches, actions: dict[str, dict[str, str]], as_of: date) -> dict[str, object]:
+    active = active_opportunities(opportunities, actions, as_of)
+    past_due = past_due_opportunities(opportunities, actions, as_of)
     future_dated = [
         (days_remaining(opp, actions, as_of), opp)
-        for opp in opportunities
+        for opp in active
         if days_remaining(opp, actions, as_of) is not None and days_remaining(opp, actions, as_of) >= 0
     ]
     nearest_days, nearest = min(future_dated, key=lambda item: item[0]) if future_dated else (None, None)
     overdue_reviews = [
         opp
-        for opp in opportunities
+        for opp in active
         if action_status(opp, actions, as_of) == "internal review overdue"
     ]
     urgent_items = [
         opp
-        for opp in opportunities
+        for opp in active
         if action_status(opp, actions, as_of) in {"urgent", "internal review overdue"}
     ]
     rolling_items = [
@@ -397,6 +414,8 @@ def build_screening_summary(opportunities, matches, actions: dict[str, dict[str,
         "refreshed_on": as_of.isoformat(),
         "report_url": REPORT_URL,
         "opportunity_count": len(opportunities),
+        "active_opportunity_count": len(active),
+        "past_due_count": len(past_due),
         "alignment_count": len(matches),
         "urgent_action_count": len(urgent_items),
         "overdue_internal_review_count": len(overdue_reviews),
@@ -415,6 +434,8 @@ def markdown_cell(value: str) -> str:
 def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, str]], as_of: date) -> str:
     top = top_matches_by_opportunity(matches)
     summary = build_screening_summary(opportunities, matches, actions, as_of)
+    active = active_opportunities(opportunities, actions, as_of)
+    past_due = past_due_opportunities(opportunities, actions, as_of)
     lines = [
         "# Current Funding Opportunity Screening",
         "",
@@ -426,6 +447,8 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
         "## Decision Summary",
         "",
         f"- Opportunities screened: {summary['opportunity_count']}",
+        f"- Active opportunities: {summary['active_opportunity_count']}",
+        f"- Passed public deadlines: {summary['past_due_count']}",
         f"- Faculty alignments found: {summary['alignment_count']}",
         f"- Urgent or overdue action items: {summary['urgent_action_count']}",
         f"- Internal review dates already overdue: {summary['overdue_internal_review_count']}",
@@ -436,7 +459,7 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
         "| Action status | Sponsor | Program | Public deadline | Internal review by | Match evidence | Next action |",
         "| --- | --- | --- | --- | --- | --- | --- |",
     ]
-    for opp in sort_opportunities(opportunities, actions):
+    for opp in sort_opportunities(active, actions):
         evidence = match_evidence_text(top.get(opp.id, [])[:3])
         lines.append(
             "| "
@@ -473,6 +496,8 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
         ]
     )
     for opp in sort_opportunities(opportunities, actions):
+        if is_past_due(opp, actions, as_of):
+            continue
         names = ", ".join(match.faculty_name for match in top.get(opp.id, [])[:3]) or "Manual review"
         lines.append(
             "| "
@@ -489,6 +514,32 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
             )
             + " |"
         )
+
+    if past_due:
+        lines.extend(
+            [
+                "",
+                "## Passed Deadlines",
+                "",
+                "| Sponsor | Program | Deadline | Prior match evidence | Follow-up |",
+                "| --- | --- | --- | --- | --- |",
+            ]
+        )
+        for opp in sort_opportunities(past_due, actions):
+            lines.append(
+                "| "
+                + " | ".join(
+                    markdown_cell(value)
+                    for value in [
+                        opp.sponsor,
+                        f"[{opp.program}]({opp.source_url})",
+                        deadline_context(opp, actions, as_of),
+                        match_evidence_text(top.get(opp.id, [])[:3]),
+                        "Archive for lessons learned or mark as recurring only after the sponsor posts a new cycle.",
+                    ]
+                )
+                + " |"
+            )
 
     lines.extend(["", "## Faculty Briefs", ""])
     lines.extend(
@@ -586,11 +637,40 @@ def render_faculty_briefs(opportunities, matches, actions: dict[str, dict[str, s
     return "".join(cards)
 
 
+def render_passed_deadlines(opportunities, matches, actions: dict[str, dict[str, str]], as_of: date) -> str:
+    past_due = past_due_opportunities(opportunities, actions, as_of)
+    if not past_due:
+        return ""
+    top = top_matches_by_opportunity(matches)
+    rows = []
+    for opp in sort_opportunities(past_due, actions):
+        rows.append(
+            "<tr>"
+            f"<td><span class=\"status-pill past-due\">Past Due</span></td>"
+            f"<td><a href=\"{html.escape(opp.source_url)}\">{html.escape(opp.program)}</a><br><span>{html.escape(opp.sponsor)}</span></td>"
+            f"<td>{deadline_html(opp, actions, as_of)}</td>"
+            f"<td>{match_evidence_html(top.get(opp.id, [])[:3])}</td>"
+            "<td>Archive for lessons learned or mark as recurring only after the sponsor posts a new cycle.</td>"
+            "</tr>"
+        )
+    return f"""
+    <section class="panel">
+      <div class="section-heading"><p class="eyebrow">Passed Deadlines</p><h2>Archive, do not route</h2></div>
+      <div class="table-wrap"><table class="report-table">
+        <thead><tr><th>Status</th><th>Opportunity</th><th>Public deadline</th><th>Prior match evidence</th><th>Follow-up</th></tr></thead>
+        <tbody>{''.join(rows)}</tbody>
+      </table></div>
+    </section>
+"""
+
+
 def render_site_page(opportunities, matches, actions: dict[str, dict[str, str]], timeline_svg: str, as_of: date) -> str:
     top = top_matches_by_opportunity(matches)
     summary = build_screening_summary(opportunities, matches, actions, as_of)
+    active = active_opportunities(opportunities, actions, as_of)
+    passed_deadline_section = render_passed_deadlines(opportunities, matches, actions, as_of)
     rows = []
-    for opp in sort_opportunities(opportunities, actions):
+    for opp in sort_opportunities(active, actions):
         evidence = match_evidence_html(top.get(opp.id, [])[:3])
         rows.append(
             "<tr>"
@@ -635,8 +715,9 @@ def render_site_page(opportunities, matches, actions: dict[str, dict[str, str]],
     <section class="panel">
       <div class="section-heading"><p class="eyebrow">Decision Summary</p><h2>What needs attention first</h2></div>
       <div class="summary-grid">
+        <article><span>{summary['active_opportunity_count']}</span><p>Active opportunities</p><strong>{summary['opportunity_count']} total screened</strong></article>
         <article><span>{summary['nearest_deadline_days']}</span><p>Days to nearest dated deadline</p><strong>{html.escape(summary['nearest_deadline_program'])}</strong></article>
-        <article><span>{summary['overdue_internal_review_count']}</span><p>Internal reviews overdue</p><strong>Check routing before outreach</strong></article>
+        <article><span>{summary['past_due_count']}</span><p>Passed public deadlines</p><strong>Move out of active routing</strong></article>
         <article><span>{summary['rolling_count']}</span><p>Rolling or accepted-anytime items</p><strong>Track separately from fixed deadlines</strong></article>
       </div>
     </section>
@@ -651,6 +732,7 @@ def render_site_page(opportunities, matches, actions: dict[str, dict[str, str]],
         <tbody>{''.join(rows)}</tbody>
       </table></div>
     </section>
+{passed_deadline_section}
     <section class="panel">
       <div class="section-heading"><p class="eyebrow">Faculty Briefs</p><h2>Who should look at what</h2></div>
       <div class="faculty-briefs">{render_faculty_briefs(opportunities, matches, actions, as_of)}</div>

@@ -14,9 +14,11 @@ A detailed department report can include all active opportunities, ranked facult
 
 Screening reports should lead with a triage table, not just a source list. For each opportunity, include deadline type, days remaining as of the report refresh date, internal review date, match evidence, next action, and risk notes. Rolling or accepted-anytime programs should be labeled as such rather than forced into artificial deadline dates.
 
+Passed public deadlines should move out of the active action inbox and into a separate archive section. Keep their match evidence for lessons learned, but do not present them as items to route unless a sponsor posts a new cycle.
+
 ## Faculty Briefs
 
-Faculty-facing outputs should answer "what should I look at, and why me?" Include a per-faculty brief that ranks matched opportunities by action urgency, fit level, score, and matched terms. Strong evergreen fits should remain visible even when they do not have an immediate deadline.
+Faculty-facing outputs should answer "what should I look at, and why me?" Include a per-faculty brief that ranks active matched opportunities by action urgency, fit level, score, and matched terms. Strong evergreen fits should remain visible even when they do not have an immediate deadline; passed-deadline items should be omitted from these active faculty briefs.
 
 ## Review Loop
 

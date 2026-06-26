@@ -136,17 +136,19 @@ function renderScreeningSummary() {
   }
 
   setText("#screening-count", summary.opportunity_count);
+  setText("#active-opportunity-count", summary.active_opportunity_count);
   setText("#alignment-count", summary.alignment_count);
   setText("#nearest-deadline-count", summary.nearest_deadline_days);
+  setText("#past-deadline-count", summary.past_due_count);
   setText("#urgent-action-count", summary.urgent_action_count);
   setText(
     "#screening-as-of",
     `Public sponsor pages checked on ${summary.snapshot_date}. Action status refreshed on ${summary.refreshed_on}.`,
   );
-  setText(
-    "#nearest-deadline-copy",
-    `${summary.nearest_deadline_program} is the nearest dated deadline (${summary.nearest_deadline_label}).`,
-  );
+  const nearestCopy = summary.nearest_deadline_program
+    ? `${summary.nearest_deadline_program} is the nearest active dated deadline (${summary.nearest_deadline_label}).`
+    : "No active dated deadlines remain in this screening.";
+  setText("#nearest-deadline-copy", nearestCopy);
 }
 
 async function init() {

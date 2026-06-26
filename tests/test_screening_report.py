@@ -5,7 +5,7 @@ from tools.generate_screening_report import main
 
 
 def test_generate_screening_report_outputs_expected_files(monkeypatch):
-    monkeypatch.setenv("FUNDING_COMPILER_TODAY", "2026-06-23")
+    monkeypatch.setenv("FUNDING_COMPILER_TODAY", "2026-06-26")
 
     assert main() == 0
 
@@ -33,15 +33,25 @@ def test_generate_screening_report_outputs_expected_files(monkeypatch):
     assert "Faculty Action Inbox" in report_text
     assert "Faculty Briefs" in report_text
     assert "Match evidence" in report_text
-    assert "2 days remaining as of 2026-06-23" in report_text
+    assert "26 days remaining as of 2026-06-26" in report_text
+    assert "Passed Deadlines" in report_text
+    assert "passed 1 day ago as of 2026-06-26" in report_text
     assert "Accepted anytime; no fixed deadline" in report_text
     assert "Critical Minerals &amp; Materials Accelerator Topic Area 2" in site_text
     assert "Sponsor pages remain authoritative" in site_text
-    assert "Internal Review Overdue" in site_text
+    assert "Past Due" in site_text
+    assert "Archive, do not route" in site_text
     assert "Who should look at what" in site_text
     assert "Strong fit; score 0.600" in site_text
     assert "fit_level" in alignment_text
-    assert summary_data["nearest_deadline_days"] == 2
-    assert summary_data["overdue_internal_review_count"] == 1
+    assert summary_data["active_opportunity_count"] == 9
+    assert summary_data["past_due_count"] == 1
+    assert summary_data["nearest_deadline_days"] == 26
+    assert summary_data["overdue_internal_review_count"] == 0
     assert summary_data["rolling_count"] == 2
     assert any(record["faculty_name"] == "Han Hu" for record in faculty_summary_data)
+    assert all(
+        item["program"] != "Critical Minerals & Materials Accelerator Topic Area 2"
+        for record in faculty_summary_data
+        for item in record["priority_opportunities"]
+    )

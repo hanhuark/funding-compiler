@@ -2,6 +2,34 @@
 
 This log supports the recurring faculty-perspective improvement workflow. Each run should compare its critique against the prior entry; repeated concerns mean the previous implementation was not deep enough.
 
+## 2026-06-26 - Day 3
+
+### Comparison With Prior Run
+
+- Day 2 addressed evidence-backed matching and per-faculty "why me?" briefs.
+- The Day 3 critique is not a repeat of that matching-evidence issue. The new issue is lifecycle handling: the June 25 CMMA Topic Area 2 deadline has now passed, so the tool must stop treating it as active faculty routing work.
+- The live GitHub Pages site remains stale because local commits have not been pushed or deployed. This remains an operations gap outside the local commit workflow requested by the automation.
+
+### Faculty-Perspective Critique
+
+- A faculty member should not see an expired call mixed into the same active action inbox as submit-ready opportunities.
+- Homepage metrics should distinguish active opportunities from total screened items and passed public deadlines.
+- Per-faculty briefs should omit passed-deadline items so PIs are not nudged toward opportunities they can no longer act on.
+- Passed opportunities should remain visible for lessons learned, recurrence tracking, and future-cycle planning.
+
+### Changes Made
+
+- Added lifecycle helpers for active versus past-due opportunities.
+- Updated generated screening summary data with `active_opportunity_count` and `past_due_count`.
+- Moved passed-deadline opportunities into a separate web/Markdown archive section.
+- Updated faculty briefs to omit past-due opportunities while keeping match evidence in the archive.
+- Updated homepage summary metrics, docs, and tests for the lifecycle behavior.
+
+### Validation Notes
+
+- Generated artifacts were refreshed with `FUNDING_COMPILER_TODAY=2026-06-26`.
+- Tests should be run with Python 3.12 because the project requires Python >=3.10.
+
 ## 2026-06-23 - Day 2
 
 ### Comparison With Prior Run
