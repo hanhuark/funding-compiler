@@ -2,6 +2,34 @@
 
 This log supports the recurring faculty-perspective improvement workflow. Each run should compare its critique against the prior entry; repeated concerns mean the previous implementation was not deep enough.
 
+## 2026-06-29 - Day 4
+
+### Comparison With Prior Run
+
+- Day 3 addressed opportunity lifecycle handling by separating passed public deadlines from active faculty routing.
+- The Day 4 critique is not the same lifecycle issue. The new issue is source verification age: as of 2026-06-29, active opportunities were last checked against sponsor pages on 2026-06-11, so the report needed to distinguish report refresh from sponsor-source verification before faculty outreach.
+- The live GitHub Pages site remains stale because local commits have not been pushed or deployed. This remains an operations gap outside the local commit workflow requested by the automation.
+
+### Faculty-Perspective Critique
+
+- A faculty member should not infer that sponsor pages were rechecked just because the report was regenerated.
+- Opportunities older than a reasonable verification window should be queued for source recheck before faculty are asked to spend proposal-planning time.
+- The homepage should expose source-verification risk next to deadline urgency, active opportunity count, and passed-deadline count.
+- Archived passed-deadline items should preserve source-verification context so recurrence reviews do not rely on stale assumptions.
+
+### Changes Made
+
+- Added source-verification age helpers and a 14-day stale-verification threshold to the screening report generator.
+- Added source-verification status columns to the active action inbox and passed-deadline archive.
+- Added a source recheck queue to the Markdown and web screening reports.
+- Extended `site/data/screening_summary.json` and the homepage with source recheck count, oldest active verification age, and verification threshold fields.
+- Updated reporting/schema docs and regression tests for the source-verification workflow.
+
+### Validation Notes
+
+- Generated artifacts were refreshed with `FUNDING_COMPILER_TODAY=2026-06-29`.
+- Tests should be run with Python 3.12 because the project requires Python >=3.10.
+
 ## 2026-06-26 - Day 3
 
 ### Comparison With Prior Run

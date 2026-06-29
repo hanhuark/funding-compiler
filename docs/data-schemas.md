@@ -26,19 +26,19 @@ Curated screening folders may include an `opportunity_actions.yaml` sidecar. Thi
 | --- | --- |
 | `deadline_type` | Deadline semantics: `fixed`, `window`, `rolling`, or `accepted_anytime`. |
 | `display_deadline` | Optional faculty-facing deadline label when the raw date is a window close date or placeholder. |
-| `verified_on` | Date the sponsor page or source evidence was last checked. |
+| `verified_on` | Date the sponsor page or source evidence was last checked; this is separate from the report refresh date. |
 | `internal_review_by` | Suggested local go/no-go or routing date before the public sponsor deadline. |
 | `decision_stage` | Short workflow state, such as eligibility screen, team formation, or partner watch. |
 | `next_action` | Concrete action a research development lead or faculty member should take next. |
 | `risk_notes` | Eligibility, cost share, partner, limited-submission, or fit concerns that should be checked before outreach. |
 
-The generated screening report uses this sidecar to distinguish real deadlines from rolling programs, show current days remaining, and build the faculty-facing action inbox.
+The generated screening report uses this sidecar to distinguish real deadlines from rolling programs, show current days remaining, flag stale sponsor-source verification, and build the faculty-facing action inbox.
 
 Generated screening artifacts also include:
 
 | File | Description |
 | --- | --- |
-| `site/data/screening_summary.json` | Homepage summary with snapshot date, refresh date, active opportunity count, passed-deadline count, nearest active deadline, urgent action count, and rolling-item count. |
+| `site/data/screening_summary.json` | Homepage summary with snapshot date, refresh date, active opportunity count, passed-deadline count, nearest active deadline, urgent action count, source recheck count, oldest active verification age, verification staleness threshold, and rolling-item count. |
 | `site/data/faculty_action_summary.json` | Per-faculty opportunity brief data with status, deadline context, fit level, score, matched terms, and next action. |
 | `docs/screenings/*/alignment_matrix.csv` | Match matrix with score, fit level, matched keyword count, matched terms, and rationale. |
 

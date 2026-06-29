@@ -1,6 +1,6 @@
 {
   "snapshot_date": "2026-06-11",
-  "refreshed_on": "2026-06-26",
+  "refreshed_on": "2026-06-29",
   "report_url": "screenings/2026-06-11.html",
   "opportunity_count": 10,
   "active_opportunity_count": 9,
@@ -8,8 +8,11 @@
   "alignment_count": 35,
   "urgent_action_count": 0,
   "overdue_internal_review_count": 0,
+  "source_recheck_count": 9,
+  "oldest_verification_age_days": 18,
+  "verification_stale_after_days": 14,
   "rolling_count": 2,
-  "nearest_deadline_days": 26,
+  "nearest_deadline_days": 23,
   "nearest_deadline_program": "Faculty Early Career Development Program (CAREER)",
   "nearest_deadline_label": "2026-07-22",
   "nearest_deadline_status": "soon"

@@ -51,10 +51,10 @@ $env:PYTHONPATH='src'
 python tools/sync_site_data.py
 ```
 
-Regenerate the current screening report, active action inbox, passed-deadline archive, faculty briefs, timeline, and homepage screening summary:
+Regenerate the current screening report, active action inbox, source recheck queue, passed-deadline archive, faculty briefs, timeline, and homepage screening summary:
 
 ```powershell
-$env:FUNDING_COMPILER_TODAY='2026-06-20'  # optional, for reproducible reports
+$env:FUNDING_COMPILER_TODAY='2026-06-29'  # optional, for reproducible reports
 python tools/generate_screening_report.py
 ```
 

@@ -5,7 +5,7 @@ from tools.generate_screening_report import main
 
 
 def test_generate_screening_report_outputs_expected_files(monkeypatch):
-    monkeypatch.setenv("FUNDING_COMPILER_TODAY", "2026-06-26")
+    monkeypatch.setenv("FUNDING_COMPILER_TODAY", "2026-06-29")
 
     assert main() == 0
 
@@ -33,21 +33,29 @@ def test_generate_screening_report_outputs_expected_files(monkeypatch):
     assert "Faculty Action Inbox" in report_text
     assert "Faculty Briefs" in report_text
     assert "Match evidence" in report_text
-    assert "26 days remaining as of 2026-06-26" in report_text
+    assert "23 days remaining as of 2026-06-29" in report_text
     assert "Passed Deadlines" in report_text
-    assert "passed 1 day ago as of 2026-06-26" in report_text
+    assert "passed 4 days ago as of 2026-06-29" in report_text
+    assert "Source Recheck Queue" in report_text
+    assert "Last checked 2026-06-11; 18 days old; recheck before action" in report_text
+    assert "Active opportunities needing sponsor-source recheck: 9" in report_text
     assert "Accepted anytime; no fixed deadline" in report_text
     assert "Critical Minerals &amp; Materials Accelerator Topic Area 2" in site_text
     assert "Sponsor pages remain authoritative" in site_text
     assert "Past Due" in site_text
+    assert "Needs Recheck" in site_text
+    assert "Verify before outreach" in site_text
     assert "Archive, do not route" in site_text
     assert "Who should look at what" in site_text
     assert "Strong fit; score 0.600" in site_text
     assert "fit_level" in alignment_text
     assert summary_data["active_opportunity_count"] == 9
     assert summary_data["past_due_count"] == 1
-    assert summary_data["nearest_deadline_days"] == 26
+    assert summary_data["nearest_deadline_days"] == 23
     assert summary_data["overdue_internal_review_count"] == 0
+    assert summary_data["source_recheck_count"] == 9
+    assert summary_data["oldest_verification_age_days"] == 18
+    assert summary_data["verification_stale_after_days"] == 14
     assert summary_data["rolling_count"] == 2
     assert any(record["faculty_name"] == "Han Hu" for record in faculty_summary_data)
     assert all(

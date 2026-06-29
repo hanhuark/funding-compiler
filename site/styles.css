@@ -446,6 +446,14 @@ select:focus {
   background: var(--gold);
 }
 
+.status-pill.source-recheck {
+  background: var(--gold);
+}
+
+.status-pill.source-current {
+  background: var(--teal);
+}
+
 .status-pill.planning {
   background: var(--blue);
 }

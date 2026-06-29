@@ -22,6 +22,7 @@ DOCS_DIR = Path("docs/screenings/2026-06-11")
 SITE_DIR = Path("site/screenings")
 SITE_DATA_DIR = Path("site/data")
 REPORT_URL = "screenings/2026-06-11.html"
+VERIFICATION_STALE_AFTER_DAYS = 14
 
 
 def main() -> int:
@@ -225,6 +226,40 @@ def verified_on(opportunity, actions: dict[str, dict[str, str]]) -> str:
     return actions.get(opportunity.id, {}).get("verified_on", "")
 
 
+def verified_date(opportunity, actions: dict[str, dict[str, str]]) -> date | None:
+    return parse_date(verified_on(opportunity, actions))
+
+
+def verification_age_days(opportunity, actions: dict[str, dict[str, str]], as_of: date) -> int | None:
+    value = verified_date(opportunity, actions)
+    if value is None:
+        return None
+    return (as_of - value).days
+
+
+def needs_source_recheck(opportunity, actions: dict[str, dict[str, str]], as_of: date) -> bool:
+    age = verification_age_days(opportunity, actions, as_of)
+    return age is None or age > VERIFICATION_STALE_AFTER_DAYS
+
+
+def verification_context(opportunity, actions: dict[str, dict[str, str]], as_of: date) -> str:
+    value = verified_on(opportunity, actions)
+    age = verification_age_days(opportunity, actions, as_of)
+    if age is None:
+        return "Not recorded; recheck before action"
+    suffix = "recheck before action" if needs_source_recheck(opportunity, actions, as_of) else "current enough for triage"
+    return f"Last checked {value}; {age} days old; {suffix}"
+
+
+def verification_html(opportunity, actions: dict[str, dict[str, str]], as_of: date) -> str:
+    status = "Needs Recheck" if needs_source_recheck(opportunity, actions, as_of) else "Recently Checked"
+    class_name = "source-recheck" if needs_source_recheck(opportunity, actions, as_of) else "source-current"
+    return (
+        f"<span class=\"status-pill {class_name}\">{status}</span>"
+        f"<br><span>{html.escape(verification_context(opportunity, actions, as_of))}</span>"
+    )
+
+
 def sort_opportunities(opportunities, actions: dict[str, dict[str, str]]):
     def key(opportunity):
         parsed = parse_date(opportunity.deadline)
@@ -388,6 +423,16 @@ def build_faculty_action_summary(opportunities, matches, actions: dict[str, dict
 def build_screening_summary(opportunities, matches, actions: dict[str, dict[str, str]], as_of: date) -> dict[str, object]:
     active = active_opportunities(opportunities, actions, as_of)
     past_due = past_due_opportunities(opportunities, actions, as_of)
+    active_recheck = [
+        opportunity
+        for opportunity in active
+        if needs_source_recheck(opportunity, actions, as_of)
+    ]
+    verification_ages = [
+        age
+        for opportunity in active
+        if (age := verification_age_days(opportunity, actions, as_of)) is not None
+    ]
     future_dated = [
         (days_remaining(opp, actions, as_of), opp)
         for opp in active
@@ -419,6 +464,9 @@ def build_screening_summary(opportunities, matches, actions: dict[str, dict[str,
         "alignment_count": len(matches),
         "urgent_action_count": len(urgent_items),
         "overdue_internal_review_count": len(overdue_reviews),
+        "source_recheck_count": len(active_recheck),
+        "oldest_verification_age_days": max(verification_ages) if verification_ages else None,
+        "verification_stale_after_days": VERIFICATION_STALE_AFTER_DAYS,
         "rolling_count": len(rolling_items),
         "nearest_deadline_days": nearest_days,
         "nearest_deadline_program": nearest.program if nearest else "",
@@ -452,12 +500,19 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
         f"- Faculty alignments found: {summary['alignment_count']}",
         f"- Urgent or overdue action items: {summary['urgent_action_count']}",
         f"- Internal review dates already overdue: {summary['overdue_internal_review_count']}",
+        f"- Active opportunities needing sponsor-source recheck: {summary['source_recheck_count']}",
+        "- Oldest active source verification age: "
+        + (
+            f"{summary['oldest_verification_age_days']} days"
+            if summary["oldest_verification_age_days"] is not None
+            else "Not recorded"
+        ),
         f"- Rolling or accepted-anytime items tracked separately: {summary['rolling_count']}",
         "",
         "## Faculty Action Inbox",
         "",
-        "| Action status | Sponsor | Program | Public deadline | Internal review by | Match evidence | Next action |",
-        "| --- | --- | --- | --- | --- | --- | --- |",
+        "| Action status | Sponsor | Program | Public deadline | Source verification | Internal review by | Match evidence | Next action |",
+        "| --- | --- | --- | --- | --- | --- | --- | --- |",
     ]
     for opp in sort_opportunities(active, actions):
         evidence = match_evidence_text(top.get(opp.id, [])[:3])
@@ -470,6 +525,7 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
                     opp.sponsor,
                     f"[{opp.program}]({opp.source_url})",
                     deadline_context(opp, actions, as_of),
+                    verification_context(opp, actions, as_of),
                     internal_review_display(opp, actions, as_of),
                     evidence,
                     next_action(opp, actions),
@@ -477,6 +533,38 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
             )
             + " |"
         )
+
+    source_recheck = [
+        opportunity
+        for opportunity in sort_opportunities(active, actions)
+        if needs_source_recheck(opportunity, actions, as_of)
+    ]
+    if source_recheck:
+        lines.extend(
+            [
+                "",
+                "## Source Recheck Queue",
+                "",
+                "| Sponsor | Program | Last checked | Age | Recheck reason |",
+                "| --- | --- | --- | ---: | --- |",
+            ]
+        )
+        for opp in source_recheck:
+            age = verification_age_days(opp, actions, as_of)
+            lines.append(
+                "| "
+                + " | ".join(
+                    markdown_cell(value)
+                    for value in [
+                        opp.sponsor,
+                        f"[{opp.program}]({opp.source_url})",
+                        verified_on(opp, actions) or "Not recorded",
+                        "" if age is None else str(age),
+                        f"Older than {VERIFICATION_STALE_AFTER_DAYS} days; verify sponsor page before faculty outreach.",
+                    ]
+                )
+                + " |"
+            )
 
     lines.extend(
         [
@@ -521,8 +609,8 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
                 "",
                 "## Passed Deadlines",
                 "",
-                "| Sponsor | Program | Deadline | Prior match evidence | Follow-up |",
-                "| --- | --- | --- | --- | --- |",
+                "| Sponsor | Program | Deadline | Source verification | Prior match evidence | Follow-up |",
+                "| --- | --- | --- | --- | --- | --- |",
             ]
         )
         for opp in sort_opportunities(past_due, actions):
@@ -534,6 +622,7 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
                         opp.sponsor,
                         f"[{opp.program}]({opp.source_url})",
                         deadline_context(opp, actions, as_of),
+                        verification_context(opp, actions, as_of),
                         match_evidence_text(top.get(opp.id, [])[:3]),
                         "Archive for lessons learned or mark as recurring only after the sponsor posts a new cycle.",
                     ]
@@ -649,6 +738,7 @@ def render_passed_deadlines(opportunities, matches, actions: dict[str, dict[str,
             f"<td><span class=\"status-pill past-due\">Past Due</span></td>"
             f"<td><a href=\"{html.escape(opp.source_url)}\">{html.escape(opp.program)}</a><br><span>{html.escape(opp.sponsor)}</span></td>"
             f"<td>{deadline_html(opp, actions, as_of)}</td>"
+            f"<td>{verification_html(opp, actions, as_of)}</td>"
             f"<td>{match_evidence_html(top.get(opp.id, [])[:3])}</td>"
             "<td>Archive for lessons learned or mark as recurring only after the sponsor posts a new cycle.</td>"
             "</tr>"
@@ -657,7 +747,37 @@ def render_passed_deadlines(opportunities, matches, actions: dict[str, dict[str,
     <section class="panel">
       <div class="section-heading"><p class="eyebrow">Passed Deadlines</p><h2>Archive, do not route</h2></div>
       <div class="table-wrap"><table class="report-table">
-        <thead><tr><th>Status</th><th>Opportunity</th><th>Public deadline</th><th>Prior match evidence</th><th>Follow-up</th></tr></thead>
+        <thead><tr><th>Status</th><th>Opportunity</th><th>Public deadline</th><th>Source verification</th><th>Prior match evidence</th><th>Follow-up</th></tr></thead>
+        <tbody>{''.join(rows)}</tbody>
+      </table></div>
+    </section>
+"""
+
+
+def render_source_recheck_queue(opportunities, actions: dict[str, dict[str, str]], as_of: date) -> str:
+    recheck = [
+        opportunity
+        for opportunity in sort_opportunities(active_opportunities(opportunities, actions, as_of), actions)
+        if needs_source_recheck(opportunity, actions, as_of)
+    ]
+    if not recheck:
+        return ""
+    rows = []
+    for opp in recheck:
+        age = verification_age_days(opp, actions, as_of)
+        rows.append(
+            "<tr>"
+            f"<td><a href=\"{html.escape(opp.source_url)}\">{html.escape(opp.program)}</a><br><span>{html.escape(opp.sponsor)}</span></td>"
+            f"<td>{html.escape(verified_on(opp, actions) or 'Not recorded')}</td>"
+            f"<td>{'' if age is None else age}</td>"
+            f"<td>Older than {VERIFICATION_STALE_AFTER_DAYS} days; verify sponsor page before faculty outreach.</td>"
+            "</tr>"
+        )
+    return f"""
+    <section class="panel">
+      <div class="section-heading"><p class="eyebrow">Source Recheck Queue</p><h2>Verify before outreach</h2></div>
+      <div class="table-wrap"><table class="report-table">
+        <thead><tr><th>Opportunity</th><th>Last checked</th><th>Age in days</th><th>Recheck reason</th></tr></thead>
         <tbody>{''.join(rows)}</tbody>
       </table></div>
     </section>
@@ -669,6 +789,7 @@ def render_site_page(opportunities, matches, actions: dict[str, dict[str, str]],
     summary = build_screening_summary(opportunities, matches, actions, as_of)
     active = active_opportunities(opportunities, actions, as_of)
     passed_deadline_section = render_passed_deadlines(opportunities, matches, actions, as_of)
+    source_recheck_section = render_source_recheck_queue(opportunities, actions, as_of)
     rows = []
     for opp in sort_opportunities(active, actions):
         evidence = match_evidence_html(top.get(opp.id, [])[:3])
@@ -677,6 +798,7 @@ def render_site_page(opportunities, matches, actions: dict[str, dict[str, str]],
             f"<td><span class=\"status-pill {html.escape(status_class(action_status(opp, actions, as_of)))}\">{html.escape(action_status(opp, actions, as_of).title())}</span></td>"
             f"<td><a href=\"{html.escape(opp.source_url)}\">{html.escape(opp.program)}</a><br><span>{html.escape(opp.sponsor)}</span></td>"
             f"<td>{deadline_html(opp, actions, as_of)}</td>"
+            f"<td>{verification_html(opp, actions, as_of)}</td>"
             f"<td>{html.escape(internal_review_display(opp, actions, as_of))}</td>"
             f"<td>{evidence}</td>"
             f"<td>{html.escape(next_action(opp, actions))}</td>"
@@ -718,6 +840,7 @@ def render_site_page(opportunities, matches, actions: dict[str, dict[str, str]],
         <article><span>{summary['active_opportunity_count']}</span><p>Active opportunities</p><strong>{summary['opportunity_count']} total screened</strong></article>
         <article><span>{summary['nearest_deadline_days']}</span><p>Days to nearest dated deadline</p><strong>{html.escape(summary['nearest_deadline_program'])}</strong></article>
         <article><span>{summary['past_due_count']}</span><p>Passed public deadlines</p><strong>Move out of active routing</strong></article>
+        <article><span>{summary['source_recheck_count']}</span><p>Need source recheck</p><strong>Oldest check is {summary['oldest_verification_age_days']} days old</strong></article>
         <article><span>{summary['rolling_count']}</span><p>Rolling or accepted-anytime items</p><strong>Track separately from fixed deadlines</strong></article>
       </div>
     </section>
@@ -728,10 +851,11 @@ def render_site_page(opportunities, matches, actions: dict[str, dict[str, str]],
     <section class="panel">
       <div class="section-heading"><p class="eyebrow">Action Inbox</p><h2>Faculty-facing triage table</h2></div>
       <div class="table-wrap"><table class="report-table">
-        <thead><tr><th>Status</th><th>Opportunity</th><th>Public deadline</th><th>Internal review</th><th>Match evidence</th><th>Next action</th><th>Risk notes</th></tr></thead>
+        <thead><tr><th>Status</th><th>Opportunity</th><th>Public deadline</th><th>Source verification</th><th>Internal review</th><th>Match evidence</th><th>Next action</th><th>Risk notes</th></tr></thead>
         <tbody>{''.join(rows)}</tbody>
       </table></div>
     </section>
+{source_recheck_section}
 {passed_deadline_section}
     <section class="panel">
       <div class="section-heading"><p class="eyebrow">Faculty Briefs</p><h2>Who should look at what</h2></div>

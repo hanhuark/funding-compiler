@@ -16,6 +16,8 @@ Screening reports should lead with a triage table, not just a source list. For e
 
 Passed public deadlines should move out of the active action inbox and into a separate archive section. Keep their match evidence for lessons learned, but do not present them as items to route unless a sponsor posts a new cycle.
 
+Report refresh dates are not sponsor verification dates. Active opportunities whose `verified_on` date is more than 14 days old should appear in a source recheck queue, and faculty outreach should wait until the sponsor page, deadline, eligibility, and routing constraints have been rechecked.
+
 ## Faculty Briefs
 
 Faculty-facing outputs should answer "what should I look at, and why me?" Include a per-faculty brief that ranks active matched opportunities by action urgency, fit level, score, and matched terms. Strong evergreen fits should remain visible even when they do not have an immediate deadline; passed-deadline items should be omitted from these active faculty briefs.
