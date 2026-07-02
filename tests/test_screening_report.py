@@ -5,7 +5,7 @@ from tools.generate_screening_report import main
 
 
 def test_generate_screening_report_outputs_expected_files(monkeypatch):
-    monkeypatch.setenv("FUNDING_COMPILER_TODAY", "2026-06-29")
+    monkeypatch.setenv("FUNDING_COMPILER_TODAY", "2026-07-02")
 
     assert main() == 0
 
@@ -15,6 +15,7 @@ def test_generate_screening_report_outputs_expected_files(monkeypatch):
     site_page = Path("site/screenings/2026-06-11.html")
     summary = Path("site/data/screening_summary.json")
     faculty_summary = Path("site/data/faculty_action_summary.json")
+    source_recheck_queue = Path("site/data/source_recheck_queue.json")
 
     assert report.exists()
     assert timeline.exists()
@@ -22,23 +23,29 @@ def test_generate_screening_report_outputs_expected_files(monkeypatch):
     assert site_page.exists()
     assert summary.exists()
     assert faculty_summary.exists()
+    assert source_recheck_queue.exists()
 
     report_text = report.read_text(encoding="utf-8")
     site_text = site_page.read_text(encoding="utf-8")
     alignment_text = alignment.read_text(encoding="utf-8")
     summary_data = json.loads(summary.read_text(encoding="utf-8"))
     faculty_summary_data = json.loads(faculty_summary.read_text(encoding="utf-8"))
+    source_recheck_data = json.loads(source_recheck_queue.read_text(encoding="utf-8"))
 
     assert "Current Funding Opportunity Screening" in report_text
     assert "Faculty Action Inbox" in report_text
     assert "Faculty Briefs" in report_text
     assert "Match evidence" in report_text
-    assert "23 days remaining as of 2026-06-29" in report_text
+    assert "20 days remaining as of 2026-07-02" in report_text
     assert "Passed Deadlines" in report_text
-    assert "passed 4 days ago as of 2026-06-29" in report_text
+    assert "passed 7 days ago as of 2026-07-02" in report_text
     assert "Source Recheck Queue" in report_text
-    assert "Last checked 2026-06-11; 18 days old; recheck before action" in report_text
+    assert "Last checked 2026-06-11; 21 days old; recheck before action" in report_text
     assert "Active opportunities needing sponsor-source recheck: 9" in report_text
+    assert "Source rechecks overdue: 9" in report_text
+    assert "Faculty outreach blocked pending source recheck: 3" in report_text
+    assert "Research development lead" in report_text
+    assert "Block near-term faculty outreach until sponsor page is rechecked." in report_text
     assert "Accepted anytime; no fixed deadline" in report_text
     assert "Critical Minerals &amp; Materials Accelerator Topic Area 2" in site_text
     assert "Sponsor pages remain authoritative" in site_text
@@ -51,12 +58,20 @@ def test_generate_screening_report_outputs_expected_files(monkeypatch):
     assert "fit_level" in alignment_text
     assert summary_data["active_opportunity_count"] == 9
     assert summary_data["past_due_count"] == 1
-    assert summary_data["nearest_deadline_days"] == 23
-    assert summary_data["overdue_internal_review_count"] == 0
+    assert summary_data["nearest_deadline_days"] == 20
+    assert summary_data["overdue_internal_review_count"] == 2
     assert summary_data["source_recheck_count"] == 9
-    assert summary_data["oldest_verification_age_days"] == 18
+    assert summary_data["source_recheck_overdue_count"] == 9
+    assert summary_data["faculty_outreach_blocked_count"] == 3
+    assert summary_data["oldest_verification_age_days"] == 21
     assert summary_data["verification_stale_after_days"] == 14
     assert summary_data["rolling_count"] == 2
+    assert len(source_recheck_data) == 9
+    assert source_recheck_data[0]["program"] == "Faculty Early Career Development Program (CAREER)"
+    assert source_recheck_data[0]["source_recheck_by"] == "2026-06-25"
+    assert source_recheck_data[0]["source_recheck_days_overdue"] == 7
+    assert source_recheck_data[0]["routing_gate"].startswith("Block")
+    assert "PI eligibility" in source_recheck_data[0]["verification_focus"]
     assert any(record["faculty_name"] == "Han Hu" for record in faculty_summary_data)
     assert all(
         item["program"] != "Critical Minerals & Materials Accelerator Topic Area 2"

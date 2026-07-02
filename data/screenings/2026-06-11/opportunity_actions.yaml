@@ -3,6 +3,9 @@ records:
   opp-nsf-career-2026:
     deadline_type: fixed
     verified_on: "2026-06-11"
+    source_recheck_owner: Research development lead
+    source_recheck_by: "2026-06-25"
+    source_recheck_focus: Confirm the 2026 directorate deadline, PI eligibility, education-plan expectations, and any limited-submission or institutional routing requirements before contacting early-career faculty.
     internal_review_by: "2026-07-01"
     decision_stage: eligibility screen
     next_action: Identify eligible untenured tenure-track faculty, confirm the relevant NSF directorate window, and start the education-integration outline before committing proposal-development time.
@@ -10,6 +13,9 @@ records:
   opp-doe-cmma-ta2-2026:
     deadline_type: fixed
     verified_on: "2026-06-11"
+    source_recheck_owner: Research development lead
+    source_recheck_by: "2026-06-25"
+    source_recheck_focus: Confirm whether this topic area is closed, capture lessons learned, and watch for a future-cycle posting before any faculty follow-up.
     internal_review_by: "2026-06-18"
     decision_stage: rapid go/no-go
     next_action: Pursue only if a PI team, partner roles, and cost-share assumptions can be confirmed immediately with the DOE NOFO in hand.
@@ -17,6 +23,9 @@ records:
   opp-doe-cmma-ta3-2026:
     deadline_type: fixed
     verified_on: "2026-06-11"
+    source_recheck_owner: Research development lead
+    source_recheck_by: "2026-06-25"
+    source_recheck_focus: Recheck DOE Exchange for amendments, cost-share language, teaming requirements, and the July 23 deadline before convening faculty.
     internal_review_by: "2026-07-02"
     decision_stage: team formation
     next_action: Convene critical-materials, separations, geothermal, and technoeconomic-analysis candidates for a one-hour fit check.
@@ -25,6 +34,9 @@ records:
     deadline_type: accepted_anytime
     display_deadline: Accepted anytime
     verified_on: "2026-06-11"
+    source_recheck_owner: Research development lead
+    source_recheck_by: "2026-06-25"
+    source_recheck_focus: Confirm the program still accepts proposals anytime, check program-director guidance, and verify whether a concept summary should precede PI outreach.
     internal_review_by: ""
     decision_stage: evergreen fit
     next_action: Use as a standing target for mature fluid-dynamics concepts; schedule program-director contact once a two-page concept is ready.
@@ -32,6 +44,9 @@ records:
   opp-nsf-cdse-cbet-cmmi-2026:
     deadline_type: window
     verified_on: "2026-06-11"
+    source_recheck_owner: Research development lead
+    source_recheck_by: "2026-06-25"
+    source_recheck_focus: Confirm the participating NSF divisions, September window, computational-science expectations, and whether the matched PI's topic belongs in CBET or CMMI.
     internal_review_by: "2026-08-15"
     decision_stage: concept shaping
     next_action: Identify projects where computation or data-enabled methods are the intellectual core, not only a tool layered onto another proposal.
@@ -39,6 +54,9 @@ records:
   opp-nsf-eclipse-2026:
     deadline_type: fixed
     verified_on: "2026-06-11"
+    source_recheck_owner: Research development lead
+    source_recheck_by: "2026-06-25"
+    source_recheck_focus: Recheck the solicitation for plasma-science scope, eligibility, team composition expectations, and whether materials/manufacturing overlap is sufficient.
     internal_review_by: "2026-07-15"
     decision_stage: credibility check
     next_action: Confirm whether any MEEG team has a credible plasma, high-temperature, aerospace, or materials-processing angle before outreach.
@@ -47,6 +65,9 @@ records:
     deadline_type: window
     display_deadline: ROSES-25 close date
     verified_on: "2026-06-11"
+    source_recheck_owner: Research development lead
+    source_recheck_by: "2026-06-25"
+    source_recheck_focus: Identify the specific ROSES element, confirm whether a rapid-response event or dataset is required, and verify that the close date is not being treated as a normal deadline.
     internal_review_by: "2026-08-01"
     decision_stage: sponsor-text verification
     next_action: Read the specific ROSES element before contacting faculty; only forward if the rapid-response mechanism matches an active earth-science event or dataset.
@@ -54,6 +75,9 @@ records:
   opp-nasa-roses-2026-smex:
     deadline_type: fixed
     verified_on: "2026-06-11"
+    source_recheck_owner: Research development lead
+    source_recheck_by: "2026-06-25"
+    source_recheck_focus: Confirm NOI, proposal, and mission-team requirements; verify whether UArk can play a credible role before routing to faculty.
     internal_review_by: "2026-07-01"
     decision_stage: mission-scale triage
     next_action: Treat as a strategic aerospace/systems opportunity; verify NOI requirements and whether UArk has a realistic mission-team role.
@@ -62,6 +86,9 @@ records:
     deadline_type: rolling
     display_deadline: Rolling while open
     verified_on: "2026-06-11"
+    source_recheck_owner: Research development lead
+    source_recheck_by: "2026-06-25"
+    source_recheck_focus: Confirm the rolling opportunity is still open, check technology-readiness and prior ARPA-E requirements, and identify partner prerequisites.
     internal_review_by: ""
     decision_stage: partner watch
     next_action: Track for faculty with prior ARPA-E or energy-technology commercialization partners rather than broad distribution.
@@ -69,6 +96,9 @@ records:
   opp-doe-sc-sbir-phaseii-2026:
     deadline_type: fixed
     verified_on: "2026-06-11"
+    source_recheck_owner: Research development lead
+    source_recheck_by: "2026-06-25"
+    source_recheck_focus: Confirm the Phase II eligibility rule, required small-business lead, current close date, and whether any matched faculty have qualified Phase I partners.
     internal_review_by: "2026-11-17"
     decision_stage: company-partner watch
     next_action: Forward only to faculty with eligible small-business partners that hold relevant FY26 Phase I awards.

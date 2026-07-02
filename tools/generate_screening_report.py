@@ -6,7 +6,7 @@ import json
 import os
 from collections import defaultdict
 from dataclasses import asdict
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 import yaml
@@ -44,6 +44,11 @@ def main() -> int:
     summary = build_screening_summary(opportunities, matches, actions, as_of)
     (SITE_DATA_DIR / "screening_summary.json").write_text(
         json.dumps(summary, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    source_recheck_queue = build_source_recheck_queue(opportunities, actions, as_of)
+    (SITE_DATA_DIR / "source_recheck_queue.json").write_text(
+        json.dumps(source_recheck_queue, indent=2) + "\n",
         encoding="utf-8",
     )
     faculty_summary = build_faculty_action_summary(opportunities, matches, actions, as_of)
@@ -260,6 +265,84 @@ def verification_html(opportunity, actions: dict[str, dict[str, str]], as_of: da
     )
 
 
+def source_recheck_owner(opportunity, actions: dict[str, dict[str, str]]) -> str:
+    return actions.get(opportunity.id, {}).get("source_recheck_owner", "Research development lead")
+
+
+def source_recheck_focus(opportunity, actions: dict[str, dict[str, str]]) -> str:
+    return actions.get(opportunity.id, {}).get(
+        "source_recheck_focus",
+        "Confirm deadline, eligibility, sponsor text, and internal routing constraints before faculty outreach.",
+    )
+
+
+def source_recheck_by(opportunity, actions: dict[str, dict[str, str]]) -> date | None:
+    metadata = actions.get(opportunity.id, {})
+    explicit = parse_date(metadata.get("source_recheck_by"))
+    if explicit:
+        return explicit
+    checked = verified_date(opportunity, actions)
+    if checked:
+        return checked + timedelta(days=VERIFICATION_STALE_AFTER_DAYS)
+    return None
+
+
+def source_recheck_days_overdue(opportunity, actions: dict[str, dict[str, str]], as_of: date) -> int | None:
+    due = source_recheck_by(opportunity, actions)
+    if due is None:
+        return None
+    return max((as_of - due).days, 0)
+
+
+def routing_gate(opportunity, actions: dict[str, dict[str, str]], as_of: date) -> str:
+    if not needs_source_recheck(opportunity, actions, as_of):
+        return "Open for routing"
+    status = action_status(opportunity, actions, as_of)
+    remaining = days_remaining(opportunity, actions, as_of)
+    if status == "internal review overdue":
+        return "Block faculty outreach until source and internal-review status are rechecked."
+    if remaining is not None and remaining <= 30:
+        return "Block near-term faculty outreach until sponsor page is rechecked."
+    if remaining is not None and remaining <= 90:
+        return "Verify before concept-routing outreach."
+    return "Verify before watchlist forwarding."
+
+
+def build_source_recheck_queue(opportunities, actions: dict[str, dict[str, str]], as_of: date) -> list[dict[str, object]]:
+    queue = []
+    for opportunity in active_opportunities(opportunities, actions, as_of):
+        if not needs_source_recheck(opportunity, actions, as_of):
+            continue
+        due = source_recheck_by(opportunity, actions)
+        remaining = days_remaining(opportunity, actions, as_of)
+        queue.append(
+            {
+                "program": opportunity.program,
+                "sponsor": opportunity.sponsor,
+                "source_url": opportunity.source_url,
+                "status": action_status(opportunity, actions, as_of),
+                "deadline": deadline_context(opportunity, actions, as_of),
+                "deadline_days_remaining": remaining,
+                "verified_on": verified_on(opportunity, actions) or "",
+                "verification_age_days": verification_age_days(opportunity, actions, as_of),
+                "source_recheck_by": due.isoformat() if due else "",
+                "source_recheck_days_overdue": source_recheck_days_overdue(opportunity, actions, as_of),
+                "source_recheck_owner": source_recheck_owner(opportunity, actions),
+                "routing_gate": routing_gate(opportunity, actions, as_of),
+                "verification_focus": source_recheck_focus(opportunity, actions),
+            }
+        )
+    return sorted(
+        queue,
+        key=lambda item: (
+            action_priority(str(item["status"])),
+            item["deadline_days_remaining"] is None,
+            item["deadline_days_remaining"] if item["deadline_days_remaining"] is not None else 9999,
+            str(item["program"]),
+        ),
+    )
+
+
 def sort_opportunities(opportunities, actions: dict[str, dict[str, str]]):
     def key(opportunity):
         parsed = parse_date(opportunity.deadline)
@@ -423,11 +506,7 @@ def build_faculty_action_summary(opportunities, matches, actions: dict[str, dict
 def build_screening_summary(opportunities, matches, actions: dict[str, dict[str, str]], as_of: date) -> dict[str, object]:
     active = active_opportunities(opportunities, actions, as_of)
     past_due = past_due_opportunities(opportunities, actions, as_of)
-    active_recheck = [
-        opportunity
-        for opportunity in active
-        if needs_source_recheck(opportunity, actions, as_of)
-    ]
+    source_recheck_queue = build_source_recheck_queue(opportunities, actions, as_of)
     verification_ages = [
         age
         for opportunity in active
@@ -464,7 +543,17 @@ def build_screening_summary(opportunities, matches, actions: dict[str, dict[str,
         "alignment_count": len(matches),
         "urgent_action_count": len(urgent_items),
         "overdue_internal_review_count": len(overdue_reviews),
-        "source_recheck_count": len(active_recheck),
+        "source_recheck_count": len(source_recheck_queue),
+        "source_recheck_overdue_count": sum(
+            1
+            for item in source_recheck_queue
+            if item["source_recheck_days_overdue"] is not None and item["source_recheck_days_overdue"] > 0
+        ),
+        "faculty_outreach_blocked_count": sum(
+            1
+            for item in source_recheck_queue
+            if str(item["routing_gate"]).startswith("Block")
+        ),
         "oldest_verification_age_days": max(verification_ages) if verification_ages else None,
         "verification_stale_after_days": VERIFICATION_STALE_AFTER_DAYS,
         "rolling_count": len(rolling_items),
@@ -501,6 +590,8 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
         f"- Urgent or overdue action items: {summary['urgent_action_count']}",
         f"- Internal review dates already overdue: {summary['overdue_internal_review_count']}",
         f"- Active opportunities needing sponsor-source recheck: {summary['source_recheck_count']}",
+        f"- Source rechecks overdue: {summary['source_recheck_overdue_count']}",
+        f"- Faculty outreach blocked pending source recheck: {summary['faculty_outreach_blocked_count']}",
         "- Oldest active source verification age: "
         + (
             f"{summary['oldest_verification_age_days']} days"
@@ -534,33 +625,33 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
             + " |"
         )
 
-    source_recheck = [
-        opportunity
-        for opportunity in sort_opportunities(active, actions)
-        if needs_source_recheck(opportunity, actions, as_of)
-    ]
+    source_recheck = build_source_recheck_queue(opportunities, actions, as_of)
     if source_recheck:
         lines.extend(
             [
                 "",
                 "## Source Recheck Queue",
                 "",
-                "| Sponsor | Program | Last checked | Age | Recheck reason |",
-                "| --- | --- | --- | ---: | --- |",
+                "| Status | Sponsor | Program | Last checked | Age | Recheck by | Overdue days | Owner | Routing gate | Verification focus |",
+                "| --- | --- | --- | --- | ---: | --- | ---: | --- | --- | --- |",
             ]
         )
-        for opp in source_recheck:
-            age = verification_age_days(opp, actions, as_of)
+        for item in source_recheck:
             lines.append(
                 "| "
                 + " | ".join(
                     markdown_cell(value)
                     for value in [
-                        opp.sponsor,
-                        f"[{opp.program}]({opp.source_url})",
-                        verified_on(opp, actions) or "Not recorded",
-                        "" if age is None else str(age),
-                        f"Older than {VERIFICATION_STALE_AFTER_DAYS} days; verify sponsor page before faculty outreach.",
+                        item["status"],
+                        item["sponsor"],
+                        f"[{item['program']}]({item['source_url']})",
+                        item["verified_on"] or "Not recorded",
+                        "" if item["verification_age_days"] is None else str(item["verification_age_days"]),
+                        item["source_recheck_by"] or "Not set",
+                        "" if item["source_recheck_days_overdue"] is None else str(item["source_recheck_days_overdue"]),
+                        item["source_recheck_owner"],
+                        item["routing_gate"],
+                        item["verification_focus"],
                     ]
                 )
                 + " |"
@@ -755,29 +846,27 @@ def render_passed_deadlines(opportunities, matches, actions: dict[str, dict[str,
 
 
 def render_source_recheck_queue(opportunities, actions: dict[str, dict[str, str]], as_of: date) -> str:
-    recheck = [
-        opportunity
-        for opportunity in sort_opportunities(active_opportunities(opportunities, actions, as_of), actions)
-        if needs_source_recheck(opportunity, actions, as_of)
-    ]
+    recheck = build_source_recheck_queue(opportunities, actions, as_of)
     if not recheck:
         return ""
     rows = []
-    for opp in recheck:
-        age = verification_age_days(opp, actions, as_of)
+    for item in recheck:
         rows.append(
             "<tr>"
-            f"<td><a href=\"{html.escape(opp.source_url)}\">{html.escape(opp.program)}</a><br><span>{html.escape(opp.sponsor)}</span></td>"
-            f"<td>{html.escape(verified_on(opp, actions) or 'Not recorded')}</td>"
-            f"<td>{'' if age is None else age}</td>"
-            f"<td>Older than {VERIFICATION_STALE_AFTER_DAYS} days; verify sponsor page before faculty outreach.</td>"
+            f"<td><span class=\"status-pill {html.escape(status_class(str(item['status'])))}\">{html.escape(str(item['status']).title())}</span></td>"
+            f"<td><a href=\"{html.escape(str(item['source_url']))}\">{html.escape(str(item['program']))}</a><br><span>{html.escape(str(item['sponsor']))}</span></td>"
+            f"<td>{html.escape(str(item['verified_on']) or 'Not recorded')}<br><span>{html.escape(str(item['verification_age_days']) if item['verification_age_days'] is not None else 'unknown')} days old</span></td>"
+            f"<td>{html.escape(str(item['source_recheck_by']) or 'Not set')}<br><span>{html.escape(str(item['source_recheck_days_overdue']) if item['source_recheck_days_overdue'] is not None else 'unknown')} days overdue</span></td>"
+            f"<td>{html.escape(str(item['source_recheck_owner']))}</td>"
+            f"<td>{html.escape(str(item['routing_gate']))}</td>"
+            f"<td>{html.escape(str(item['verification_focus']))}</td>"
             "</tr>"
         )
     return f"""
     <section class="panel">
       <div class="section-heading"><p class="eyebrow">Source Recheck Queue</p><h2>Verify before outreach</h2></div>
       <div class="table-wrap"><table class="report-table">
-        <thead><tr><th>Opportunity</th><th>Last checked</th><th>Age in days</th><th>Recheck reason</th></tr></thead>
+        <thead><tr><th>Status</th><th>Opportunity</th><th>Last checked</th><th>Recheck due</th><th>Owner</th><th>Routing gate</th><th>Verification focus</th></tr></thead>
         <tbody>{''.join(rows)}</tbody>
       </table></div>
     </section>
@@ -840,7 +929,7 @@ def render_site_page(opportunities, matches, actions: dict[str, dict[str, str]],
         <article><span>{summary['active_opportunity_count']}</span><p>Active opportunities</p><strong>{summary['opportunity_count']} total screened</strong></article>
         <article><span>{summary['nearest_deadline_days']}</span><p>Days to nearest dated deadline</p><strong>{html.escape(summary['nearest_deadline_program'])}</strong></article>
         <article><span>{summary['past_due_count']}</span><p>Passed public deadlines</p><strong>Move out of active routing</strong></article>
-        <article><span>{summary['source_recheck_count']}</span><p>Need source recheck</p><strong>Oldest check is {summary['oldest_verification_age_days']} days old</strong></article>
+        <article><span>{summary['source_recheck_count']}</span><p>Need source recheck</p><strong>{summary['source_recheck_overdue_count']} overdue; {summary['faculty_outreach_blocked_count']} block outreach</strong></article>
         <article><span>{summary['rolling_count']}</span><p>Rolling or accepted-anytime items</p><strong>Track separately from fixed deadlines</strong></article>
       </div>
     </section>

@@ -2,6 +2,34 @@
 
 This log supports the recurring faculty-perspective improvement workflow. Each run should compare its critique against the prior entry; repeated concerns mean the previous implementation was not deep enough.
 
+## 2026-07-02 - Day 5
+
+### Comparison With Prior Run
+
+- Day 4 added source verification age, stale-source summary metrics, and a source recheck queue.
+- The Day 5 critique overlaps Day 4 on data freshness, which means the prior change was not deep enough operationally: it showed that sources needed recheck but did not define ownership, due dates, routing gates, or the specific checks needed to clear each item.
+- The live GitHub Pages site remains stale. It still shows the pre-Day-1 static June 11 deadline math, including the June 25 CMMA Topic Area 2 item as urgent, because local commits have not been pushed or deployed.
+
+### Faculty-Perspective Critique
+
+- A faculty member deciding whether to act needs to know not only that a source is stale, but whether outreach is blocked until staff recheck sponsor text.
+- Research development staff need an owner, due date, overdue count, and program-specific verification focus for each stale item.
+- Near-term and internally overdue items should sort ahead of lower-urgency watchlist items in the source recheck queue.
+- The homepage should distinguish source recheck volume from operational severity: overdue checks and outreach-blocking checks are different signals.
+
+### Changes Made
+
+- Added source recheck owner, due date, and verification focus metadata for each screening opportunity.
+- Generated `site/data/source_recheck_queue.json` with status, deadline context, verification age, source recheck due date, overdue days, owner, routing gate, and verification focus.
+- Expanded the Markdown and web source recheck queue into an operational worklist sorted by action urgency.
+- Added summary fields for overdue source checks and faculty outreach blocked pending source recheck.
+- Updated homepage copy, docs, generated artifacts, and tests for the operational source recheck workflow.
+
+### Validation Notes
+
+- Generated artifacts were refreshed with `FUNDING_COMPILER_TODAY=2026-07-02`.
+- Tests should be run with Python 3.12 because the project requires Python >=3.10.
+
 ## 2026-06-29 - Day 4
 
 ### Comparison With Prior Run

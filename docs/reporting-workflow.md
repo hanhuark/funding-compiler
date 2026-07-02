@@ -18,6 +18,8 @@ Passed public deadlines should move out of the active action inbox and into a se
 
 Report refresh dates are not sponsor verification dates. Active opportunities whose `verified_on` date is more than 14 days old should appear in a source recheck queue, and faculty outreach should wait until the sponsor page, deadline, eligibility, and routing constraints have been rechecked.
 
+The source recheck queue should be operational, not just informational. Include a responsible owner, recheck due date, overdue-days count, routing gate, and program-specific verification focus so research development staff can clear the queue before contacting faculty.
+
 ## Faculty Briefs
 
 Faculty-facing outputs should answer "what should I look at, and why me?" Include a per-faculty brief that ranks active matched opportunities by action urgency, fit level, score, and matched terms. Strong evergreen fits should remain visible even when they do not have an immediate deadline; passed-deadline items should be omitted from these active faculty briefs.

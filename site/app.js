@@ -152,7 +152,7 @@ function renderScreeningSummary() {
   setText("#nearest-deadline-copy", nearestCopy);
   const sourceRecheckCopy = summary.oldest_verification_age_days == null
     ? `Recheck active opportunities without recorded sponsor-source verification before outreach.`
-    : `Oldest active source check is ${summary.oldest_verification_age_days} days old; recheck items older than ${summary.verification_stale_after_days} days.`;
+    : `${summary.source_recheck_overdue_count} overdue source checks; ${summary.faculty_outreach_blocked_count} block faculty outreach. Oldest check is ${summary.oldest_verification_age_days} days old.`;
   setText("#source-recheck-copy", sourceRecheckCopy);
 }
 
