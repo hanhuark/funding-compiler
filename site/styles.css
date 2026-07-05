@@ -437,9 +437,18 @@ select:focus {
 }
 
 .status-pill.internal-review-overdue,
+.status-pill.outreach-blocked,
 .status-pill.past-due,
 .status-pill.urgent {
   background: var(--rose);
+}
+
+.status-pill.verify-first {
+  background: var(--gold);
+}
+
+.status-pill.ready-after-normal-review {
+  background: var(--teal);
 }
 
 .status-pill.soon {

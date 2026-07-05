@@ -54,7 +54,7 @@ python tools/sync_site_data.py
 Regenerate the current screening report, active action inbox, source recheck worklist, passed-deadline archive, faculty briefs, timeline, and homepage screening summary:
 
 ```powershell
-$env:FUNDING_COMPILER_TODAY='2026-07-02'  # optional, for reproducible reports
+$env:FUNDING_COMPILER_TODAY='2026-07-05'  # optional, for reproducible reports
 python tools/generate_screening_report.py
 ```
 

@@ -308,6 +308,15 @@ def routing_gate(opportunity, actions: dict[str, dict[str, str]], as_of: date) -
     return "Verify before watchlist forwarding."
 
 
+def outreach_readiness(opportunity, actions: dict[str, dict[str, str]], as_of: date) -> str:
+    gate = routing_gate(opportunity, actions, as_of)
+    if gate.startswith("Block"):
+        return "outreach blocked"
+    if needs_source_recheck(opportunity, actions, as_of):
+        return "verify first"
+    return "ready after normal review"
+
+
 def build_source_recheck_queue(opportunities, actions: dict[str, dict[str, str]], as_of: date) -> list[dict[str, object]]:
     queue = []
     for opportunity in active_opportunities(opportunities, actions, as_of):
@@ -480,6 +489,7 @@ def build_faculty_action_summary(opportunities, matches, actions: dict[str, dict
         )
         opportunities_summary = []
         for match, opportunity in ranked[:4]:
+            due = source_recheck_by(opportunity, actions)
             opportunities_summary.append(
                 {
                     "program": opportunity.program,
@@ -487,6 +497,12 @@ def build_faculty_action_summary(opportunities, matches, actions: dict[str, dict
                     "source_url": opportunity.source_url,
                     "status": action_status(opportunity, actions, as_of),
                     "deadline": deadline_context(opportunity, actions, as_of),
+                    "outreach_readiness": outreach_readiness(opportunity, actions, as_of),
+                    "routing_gate": routing_gate(opportunity, actions, as_of),
+                    "source_recheck_required": needs_source_recheck(opportunity, actions, as_of),
+                    "source_recheck_by": due.isoformat() if due else "",
+                    "source_recheck_days_overdue": source_recheck_days_overdue(opportunity, actions, as_of),
+                    "verification_focus": source_recheck_focus(opportunity, actions),
                     "score": match.score,
                     "fit_level": fit_level(match.score),
                     "matched_terms": match.matched_keywords,
@@ -724,14 +740,23 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
     lines.extend(["", "## Faculty Briefs", ""])
     lines.extend(
         [
-            "| Faculty | Priority opportunities | Evidence to verify | Suggested follow-up |",
-            "| --- | --- | --- | --- |",
+            "| Faculty | Priority opportunities | Readiness gate | Evidence to verify | Suggested follow-up |",
+            "| --- | --- | --- | --- | --- |",
         ]
     )
     for brief in build_faculty_action_summary(opportunities, matches, actions, as_of):
         items = brief["priority_opportunities"]
         priority = "; ".join(
             f"[{item['program']}]({item['source_url']}) ({item['status']}; {item['deadline']})"
+            for item in items[:4]
+        )
+        readiness = "; ".join(
+            f"{item['program']}: {item['outreach_readiness']}; {item['routing_gate']}"
+            + (
+                f" Source recheck by {item['source_recheck_by']}; {item['source_recheck_days_overdue']} days overdue."
+                if item["source_recheck_required"]
+                else ""
+            )
             for item in items[:4]
         )
         evidence = "; ".join(
@@ -746,6 +771,7 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
                 for value in [
                     brief["faculty_name"],
                     priority,
+                    readiness,
                     evidence,
                     follow_up,
                 ]
@@ -799,12 +825,24 @@ def render_faculty_briefs(opportunities, matches, actions: dict[str, dict[str, s
         items = []
         for item in brief["priority_opportunities"][:4]:
             terms = ", ".join(item["matched_terms"][:5]) if item["matched_terms"] else "manual review"
+            recheck_due = item["source_recheck_by"] or "Not set"
+            overdue = item["source_recheck_days_overdue"]
+            overdue_context = f"{overdue} days overdue" if overdue is not None else "overdue status unknown"
+            recheck_context = (
+                f"Source recheck by {recheck_due}; {overdue_context}."
+                if item["source_recheck_required"]
+                else "Source verification current enough for routing."
+            )
             items.append(
                 "<li>"
                 f"<a href=\"{html.escape(item['source_url'])}\">{html.escape(item['program'])}</a>"
                 f"<span class=\"status-pill {html.escape(status_class(item['status']))}\">{html.escape(item['status'].title())}</span>"
+                f"<span class=\"status-pill {html.escape(status_class(item['outreach_readiness']))}\">{html.escape(item['outreach_readiness'].title())}</span>"
                 f"<p>{html.escape(item['deadline'])}</p>"
+                f"<p>{html.escape(item['routing_gate'])}</p>"
+                f"<p>{html.escape(recheck_context)}</p>"
                 f"<p>{html.escape(item['fit_level'].title())} fit; score {item['score']:.3f}; terms: {html.escape(terms)}</p>"
+                f"<p>Verify: {html.escape(item['verification_focus'])}</p>"
                 "</li>"
             )
         cards.append(

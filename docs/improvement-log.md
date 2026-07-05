@@ -2,6 +2,34 @@
 
 This log supports the recurring faculty-perspective improvement workflow. Each run should compare its critique against the prior entry; repeated concerns mean the previous implementation was not deep enough.
 
+## 2026-07-05 - Day 6
+
+### Comparison With Prior Run
+
+- Day 5 converted stale source checks into an operational staff worklist with owner, due date, overdue days, routing gate, and verification focus.
+- The Day 6 critique still overlaps source gating, which means the prior fix was not deep enough at the faculty-facing layer: faculty briefs could still read like proposal-action recommendations without showing the same outreach readiness gate.
+- The live GitHub Pages site remains stale. It still shows the pre-Day-1 June 11 view, including 14 days to the now-passed June 25 CMMA Topic Area 2 deadline, because local commits have not been pushed or deployed.
+
+### Faculty-Perspective Critique
+
+- Faculty should not have to cross-reference a staff worklist to know whether a matched opportunity is safe to act on.
+- A per-faculty match should clearly distinguish "interesting fit" from "ready for outreach."
+- Source-gated opportunities should show whether outreach is blocked or verification should happen first, along with the recheck due date and verification focus.
+- Faculty-facing JSON should preserve those readiness fields so downstream dashboards or emails do not strip the gate.
+
+### Changes Made
+
+- Added an `outreach_readiness` model with `outreach blocked`, `verify first`, and `ready after normal review` states.
+- Added routing gate, source recheck due date, overdue days, verification focus, and recheck-required fields to `site/data/faculty_action_summary.json`.
+- Expanded Markdown and web Faculty Briefs with readiness gates and source recheck context beside each matched opportunity.
+- Added report styling for outreach readiness badges and updated schema/workflow docs.
+- Refreshed generated artifacts and tests for the 2026-07-05 screening state.
+
+### Validation Notes
+
+- Generated artifacts were refreshed with `FUNDING_COMPILER_TODAY=2026-07-05`.
+- Tests should be run with Python 3.12 because the project requires Python >=3.10.
+
 ## 2026-07-02 - Day 5
 
 ### Comparison With Prior Run

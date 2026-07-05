@@ -24,6 +24,8 @@ The source recheck queue should be operational, not just informational. Include 
 
 Faculty-facing outputs should answer "what should I look at, and why me?" Include a per-faculty brief that ranks active matched opportunities by action urgency, fit level, score, and matched terms. Strong evergreen fits should remain visible even when they do not have an immediate deadline; passed-deadline items should be omitted from these active faculty briefs.
 
+Per-faculty briefs should carry the same source gate used by the staff worklist. If outreach is blocked or source verification must happen first, show that readiness state directly beside the opportunity so faculty do not interpret a match as a request to start proposal work.
+
 ## Review Loop
 
 The match score is a starting point, not a final decision. Research administrators or faculty leads should review matched keywords, eligibility constraints, deadline fit, and team balance before acting on recommendations.
