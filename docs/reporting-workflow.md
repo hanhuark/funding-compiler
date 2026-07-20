@@ -26,6 +26,8 @@ Faculty-facing outputs should answer "what should I look at, and why me?" Includ
 
 Per-faculty briefs should carry the same source gate used by the staff worklist. If outreach is blocked or source verification must happen first, show that readiness state directly beside the opportunity so faculty do not interpret a match as a request to start proposal work.
 
+Near-deadline opportunities need proposal-runway triage in addition to source gating. When an active dated deadline is inside the emergency runway, mark whether the opportunity is "do not start new proposal" or "emergency only" so faculty are not pulled into unrealistic last-minute proposal work.
+
 ## Review Loop
 
 The match score is a starting point, not a final decision. Research administrators or faculty leads should review matched keywords, eligibility constraints, deadline fit, and team balance before acting on recommendations.

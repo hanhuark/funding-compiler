@@ -140,6 +140,7 @@ function renderScreeningSummary() {
   setText("#alignment-count", summary.alignment_count);
   setText("#nearest-deadline-count", summary.nearest_deadline_days);
   setText("#past-deadline-count", summary.past_due_count);
+  setText("#do-not-start-count", summary.do_not_start_count);
   setText("#source-recheck-count", summary.source_recheck_count);
   setText("#urgent-action-count", summary.urgent_action_count);
   setText(
@@ -150,6 +151,10 @@ function renderScreeningSummary() {
     ? `${summary.nearest_deadline_program} is the nearest active dated deadline (${summary.nearest_deadline_label}).`
     : "No active dated deadlines remain in this screening.";
   setText("#nearest-deadline-copy", nearestCopy);
+  setText(
+    "#do-not-start-copy",
+    `${summary.near_deadline_count} active dated deadlines are inside the ${summary.emergency_runway_days}-day emergency runway.`,
+  );
   const sourceRecheckCopy = summary.oldest_verification_age_days == null
     ? `Recheck active opportunities without recorded sponsor-source verification before outreach.`
     : `${summary.source_recheck_overdue_count} overdue source checks; ${summary.faculty_outreach_blocked_count} block faculty outreach. Oldest check is ${summary.oldest_verification_age_days} days old.`;

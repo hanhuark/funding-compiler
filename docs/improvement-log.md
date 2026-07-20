@@ -2,6 +2,34 @@
 
 This log supports the recurring faculty-perspective improvement workflow. Each run should compare its critique against the prior entry; repeated concerns mean the previous implementation was not deep enough.
 
+## 2026-07-20 - Day 7
+
+### Comparison With Prior Run
+
+- Day 6 pushed source gates into per-faculty briefs so matched opportunities no longer looked automatically outreach-ready.
+- The Day 7 critique is related but more time-sensitive: with CAREER two days away and CMMA Topic Area 3 three days away, faculty need proposal-runway triage, not only source/outreach gating.
+- The live GitHub Pages site remains stale. It still shows the pre-Day-1 June 11 view and does not include the local source-gate or proposal-runway improvements because local commits have not been pushed or deployed.
+
+### Faculty-Perspective Critique
+
+- A faculty member should not be recruited into a new proposal when a deadline is only days away and source/internal gates are unresolved.
+- The report should distinguish "do not start a new proposal" from "verify before planning" and "blocked until gate cleared."
+- Homepage metrics should surface near-deadline proposal-runway risk alongside stale-source and outreach-block counts.
+- Staff and faculty JSON should preserve proposal-runway decisions so downstream dashboards, emails, or briefings do not strip this go/no-go signal.
+
+### Changes Made
+
+- Added proposal-runway decisions with `do not start new proposal`, `emergency only`, `blocked until gate cleared`, `expedited go/no-go`, `verify before planning`, `standing program`, and `normal planning` states.
+- Added proposal-runway reasons to the active action inbox, source recheck queue, per-faculty summaries, web Faculty Briefs, and generated JSON.
+- Added summary counts for near-deadline items, do-not-start items, expedited go/no-go items, and runway thresholds.
+- Added homepage and report styling for proposal-runway badges.
+- Refreshed generated artifacts and tests for the 2026-07-20 screening state.
+
+### Validation Notes
+
+- Generated artifacts were refreshed with `FUNDING_COMPILER_TODAY=2026-07-20`.
+- Tests should be run with Python 3.12 because the project requires Python >=3.10.
+
 ## 2026-07-05 - Day 6
 
 ### Comparison With Prior Run

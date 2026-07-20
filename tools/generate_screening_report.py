@@ -23,6 +23,8 @@ SITE_DIR = Path("site/screenings")
 SITE_DATA_DIR = Path("site/data")
 REPORT_URL = "screenings/2026-06-11.html"
 VERIFICATION_STALE_AFTER_DAYS = 14
+EMERGENCY_RUNWAY_DAYS = 7
+EXPEDITED_RUNWAY_DAYS = 21
 
 
 def main() -> int:
@@ -317,6 +319,49 @@ def outreach_readiness(opportunity, actions: dict[str, dict[str, str]], as_of: d
     return "ready after normal review"
 
 
+def proposal_runway(opportunity, actions: dict[str, dict[str, str]], as_of: date) -> str:
+    if is_past_due(opportunity, actions, as_of):
+        return "closed"
+    days = days_remaining(opportunity, actions, as_of)
+    blocked = routing_gate(opportunity, actions, as_of).startswith("Block")
+    if days is not None and days <= EMERGENCY_RUNWAY_DAYS:
+        if blocked or needs_source_recheck(opportunity, actions, as_of):
+            return "do not start new proposal"
+        return "emergency only"
+    if blocked:
+        return "blocked until gate cleared"
+    if days is not None and days <= EXPEDITED_RUNWAY_DAYS:
+        return "expedited go/no-go"
+    if needs_source_recheck(opportunity, actions, as_of):
+        return "verify before planning"
+    if days is None:
+        return "standing program"
+    return "normal planning"
+
+
+def proposal_runway_reason(opportunity, actions: dict[str, dict[str, str]], as_of: date) -> str:
+    decision = proposal_runway(opportunity, actions, as_of)
+    days = days_remaining(opportunity, actions, as_of)
+    if decision == "closed":
+        return "Public deadline has passed; archive unless a new sponsor cycle is posted."
+    if decision == "do not start new proposal":
+        return (
+            f"Public deadline is {days} days away and source or internal gates are unresolved; "
+            "do not recruit faculty for a new proposal unless a verified team is already in motion."
+        )
+    if decision == "emergency only":
+        return f"Public deadline is {days} days away; continue only with a confirmed team and sponsor text in hand."
+    if decision == "blocked until gate cleared":
+        return "Outreach is blocked until source verification and internal review status are cleared."
+    if decision == "expedited go/no-go":
+        return f"Public deadline is {days} days away; run a fast go/no-go before asking faculty for proposal work."
+    if decision == "verify before planning":
+        return "Sponsor source verification is stale; verify before faculty planning or watchlist forwarding."
+    if decision == "standing program":
+        return "No fixed deadline; treat as a standing target after source verification and normal concept review."
+    return "Normal planning runway after sponsor source and internal review checks."
+
+
 def build_source_recheck_queue(opportunities, actions: dict[str, dict[str, str]], as_of: date) -> list[dict[str, object]]:
     queue = []
     for opportunity in active_opportunities(opportunities, actions, as_of):
@@ -339,6 +384,8 @@ def build_source_recheck_queue(opportunities, actions: dict[str, dict[str, str]]
                 "source_recheck_owner": source_recheck_owner(opportunity, actions),
                 "routing_gate": routing_gate(opportunity, actions, as_of),
                 "verification_focus": source_recheck_focus(opportunity, actions),
+                "proposal_runway": proposal_runway(opportunity, actions, as_of),
+                "proposal_runway_reason": proposal_runway_reason(opportunity, actions, as_of),
             }
         )
     return sorted(
@@ -503,6 +550,8 @@ def build_faculty_action_summary(opportunities, matches, actions: dict[str, dict
                     "source_recheck_by": due.isoformat() if due else "",
                     "source_recheck_days_overdue": source_recheck_days_overdue(opportunity, actions, as_of),
                     "verification_focus": source_recheck_focus(opportunity, actions),
+                    "proposal_runway": proposal_runway(opportunity, actions, as_of),
+                    "proposal_runway_reason": proposal_runway_reason(opportunity, actions, as_of),
                     "score": match.score,
                     "fit_level": fit_level(match.score),
                     "matched_terms": match.matched_keywords,
@@ -544,6 +593,21 @@ def build_screening_summary(opportunities, matches, actions: dict[str, dict[str,
         for opp in active
         if action_status(opp, actions, as_of) in {"urgent", "internal review overdue"}
     ]
+    near_deadline_items = [
+        opp
+        for opp in active
+        if (remaining := days_remaining(opp, actions, as_of)) is not None and remaining <= EMERGENCY_RUNWAY_DAYS
+    ]
+    do_not_start_items = [
+        opp
+        for opp in active
+        if proposal_runway(opp, actions, as_of) == "do not start new proposal"
+    ]
+    expedited_items = [
+        opp
+        for opp in active
+        if proposal_runway(opp, actions, as_of) == "expedited go/no-go"
+    ]
     rolling_items = [
         opp
         for opp in opportunities
@@ -559,6 +623,11 @@ def build_screening_summary(opportunities, matches, actions: dict[str, dict[str,
         "alignment_count": len(matches),
         "urgent_action_count": len(urgent_items),
         "overdue_internal_review_count": len(overdue_reviews),
+        "near_deadline_count": len(near_deadline_items),
+        "do_not_start_count": len(do_not_start_items),
+        "expedited_go_no_go_count": len(expedited_items),
+        "emergency_runway_days": EMERGENCY_RUNWAY_DAYS,
+        "expedited_runway_days": EXPEDITED_RUNWAY_DAYS,
         "source_recheck_count": len(source_recheck_queue),
         "source_recheck_overdue_count": sum(
             1
@@ -605,6 +674,9 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
         f"- Faculty alignments found: {summary['alignment_count']}",
         f"- Urgent or overdue action items: {summary['urgent_action_count']}",
         f"- Internal review dates already overdue: {summary['overdue_internal_review_count']}",
+        f"- Active dated deadlines within {summary['emergency_runway_days']} days: {summary['near_deadline_count']}",
+        f"- Do not start new-proposal items: {summary['do_not_start_count']}",
+        f"- Expedited go/no-go items: {summary['expedited_go_no_go_count']}",
         f"- Active opportunities needing sponsor-source recheck: {summary['source_recheck_count']}",
         f"- Source rechecks overdue: {summary['source_recheck_overdue_count']}",
         f"- Faculty outreach blocked pending source recheck: {summary['faculty_outreach_blocked_count']}",
@@ -618,8 +690,8 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
         "",
         "## Faculty Action Inbox",
         "",
-        "| Action status | Sponsor | Program | Public deadline | Source verification | Internal review by | Match evidence | Next action |",
-        "| --- | --- | --- | --- | --- | --- | --- | --- |",
+        "| Action status | Sponsor | Program | Public deadline | Proposal runway | Source verification | Internal review by | Match evidence | Next action |",
+        "| --- | --- | --- | --- | --- | --- | --- | --- | --- |",
     ]
     for opp in sort_opportunities(active, actions):
         evidence = match_evidence_text(top.get(opp.id, [])[:3])
@@ -632,6 +704,7 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
                     opp.sponsor,
                     f"[{opp.program}]({opp.source_url})",
                     deadline_context(opp, actions, as_of),
+                    f"{proposal_runway(opp, actions, as_of)}; {proposal_runway_reason(opp, actions, as_of)}",
                     verification_context(opp, actions, as_of),
                     internal_review_display(opp, actions, as_of),
                     evidence,
@@ -648,8 +721,8 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
                 "",
                 "## Source Recheck Queue",
                 "",
-                "| Status | Sponsor | Program | Last checked | Age | Recheck by | Overdue days | Owner | Routing gate | Verification focus |",
-                "| --- | --- | --- | --- | ---: | --- | ---: | --- | --- | --- |",
+                "| Status | Sponsor | Program | Proposal runway | Last checked | Age | Recheck by | Overdue days | Owner | Routing gate | Verification focus |",
+                "| --- | --- | --- | --- | --- | ---: | --- | ---: | --- | --- | --- |",
             ]
         )
         for item in source_recheck:
@@ -661,6 +734,7 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
                         item["status"],
                         item["sponsor"],
                         f"[{item['program']}]({item['source_url']})",
+                        f"{item['proposal_runway']}; {item['proposal_runway_reason']}",
                         item["verified_on"] or "Not recorded",
                         "" if item["verification_age_days"] is None else str(item["verification_age_days"]),
                         item["source_recheck_by"] or "Not set",
@@ -757,6 +831,7 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
                 if item["source_recheck_required"]
                 else ""
             )
+            + f" Runway: {item['proposal_runway']}; {item['proposal_runway_reason']}"
             for item in items[:4]
         )
         evidence = "; ".join(
@@ -838,8 +913,10 @@ def render_faculty_briefs(opportunities, matches, actions: dict[str, dict[str, s
                 f"<a href=\"{html.escape(item['source_url'])}\">{html.escape(item['program'])}</a>"
                 f"<span class=\"status-pill {html.escape(status_class(item['status']))}\">{html.escape(item['status'].title())}</span>"
                 f"<span class=\"status-pill {html.escape(status_class(item['outreach_readiness']))}\">{html.escape(item['outreach_readiness'].title())}</span>"
+                f"<span class=\"status-pill {html.escape(status_class(item['proposal_runway']))}\">{html.escape(item['proposal_runway'].title())}</span>"
                 f"<p>{html.escape(item['deadline'])}</p>"
                 f"<p>{html.escape(item['routing_gate'])}</p>"
+                f"<p>{html.escape(item['proposal_runway_reason'])}</p>"
                 f"<p>{html.escape(recheck_context)}</p>"
                 f"<p>{html.escape(item['fit_level'].title())} fit; score {item['score']:.3f}; terms: {html.escape(terms)}</p>"
                 f"<p>Verify: {html.escape(item['verification_focus'])}</p>"
@@ -893,6 +970,7 @@ def render_source_recheck_queue(opportunities, actions: dict[str, dict[str, str]
             "<tr>"
             f"<td><span class=\"status-pill {html.escape(status_class(str(item['status'])))}\">{html.escape(str(item['status']).title())}</span></td>"
             f"<td><a href=\"{html.escape(str(item['source_url']))}\">{html.escape(str(item['program']))}</a><br><span>{html.escape(str(item['sponsor']))}</span></td>"
+            f"<td><span class=\"status-pill {html.escape(status_class(str(item['proposal_runway'])))}\">{html.escape(str(item['proposal_runway']).title())}</span><br><span>{html.escape(str(item['proposal_runway_reason']))}</span></td>"
             f"<td>{html.escape(str(item['verified_on']) or 'Not recorded')}<br><span>{html.escape(str(item['verification_age_days']) if item['verification_age_days'] is not None else 'unknown')} days old</span></td>"
             f"<td>{html.escape(str(item['source_recheck_by']) or 'Not set')}<br><span>{html.escape(str(item['source_recheck_days_overdue']) if item['source_recheck_days_overdue'] is not None else 'unknown')} days overdue</span></td>"
             f"<td>{html.escape(str(item['source_recheck_owner']))}</td>"
@@ -904,7 +982,7 @@ def render_source_recheck_queue(opportunities, actions: dict[str, dict[str, str]
     <section class="panel">
       <div class="section-heading"><p class="eyebrow">Source Recheck Queue</p><h2>Verify before outreach</h2></div>
       <div class="table-wrap"><table class="report-table">
-        <thead><tr><th>Status</th><th>Opportunity</th><th>Last checked</th><th>Recheck due</th><th>Owner</th><th>Routing gate</th><th>Verification focus</th></tr></thead>
+        <thead><tr><th>Status</th><th>Opportunity</th><th>Proposal runway</th><th>Last checked</th><th>Recheck due</th><th>Owner</th><th>Routing gate</th><th>Verification focus</th></tr></thead>
         <tbody>{''.join(rows)}</tbody>
       </table></div>
     </section>
@@ -925,6 +1003,7 @@ def render_site_page(opportunities, matches, actions: dict[str, dict[str, str]],
             f"<td><span class=\"status-pill {html.escape(status_class(action_status(opp, actions, as_of)))}\">{html.escape(action_status(opp, actions, as_of).title())}</span></td>"
             f"<td><a href=\"{html.escape(opp.source_url)}\">{html.escape(opp.program)}</a><br><span>{html.escape(opp.sponsor)}</span></td>"
             f"<td>{deadline_html(opp, actions, as_of)}</td>"
+            f"<td><span class=\"status-pill {html.escape(status_class(proposal_runway(opp, actions, as_of)))}\">{html.escape(proposal_runway(opp, actions, as_of).title())}</span><br><span>{html.escape(proposal_runway_reason(opp, actions, as_of))}</span></td>"
             f"<td>{verification_html(opp, actions, as_of)}</td>"
             f"<td>{html.escape(internal_review_display(opp, actions, as_of))}</td>"
             f"<td>{evidence}</td>"
@@ -967,6 +1046,7 @@ def render_site_page(opportunities, matches, actions: dict[str, dict[str, str]],
         <article><span>{summary['active_opportunity_count']}</span><p>Active opportunities</p><strong>{summary['opportunity_count']} total screened</strong></article>
         <article><span>{summary['nearest_deadline_days']}</span><p>Days to nearest dated deadline</p><strong>{html.escape(summary['nearest_deadline_program'])}</strong></article>
         <article><span>{summary['past_due_count']}</span><p>Passed public deadlines</p><strong>Move out of active routing</strong></article>
+        <article><span>{summary['do_not_start_count']}</span><p>Do not start new proposals</p><strong>{summary['near_deadline_count']} inside {summary['emergency_runway_days']}-day runway</strong></article>
         <article><span>{summary['source_recheck_count']}</span><p>Need source recheck</p><strong>{summary['source_recheck_overdue_count']} overdue; {summary['faculty_outreach_blocked_count']} block outreach</strong></article>
         <article><span>{summary['rolling_count']}</span><p>Rolling or accepted-anytime items</p><strong>Track separately from fixed deadlines</strong></article>
       </div>
@@ -978,7 +1058,7 @@ def render_site_page(opportunities, matches, actions: dict[str, dict[str, str]],
     <section class="panel">
       <div class="section-heading"><p class="eyebrow">Action Inbox</p><h2>Faculty-facing triage table</h2></div>
       <div class="table-wrap"><table class="report-table">
-        <thead><tr><th>Status</th><th>Opportunity</th><th>Public deadline</th><th>Source verification</th><th>Internal review</th><th>Match evidence</th><th>Next action</th><th>Risk notes</th></tr></thead>
+        <thead><tr><th>Status</th><th>Opportunity</th><th>Public deadline</th><th>Proposal runway</th><th>Source verification</th><th>Internal review</th><th>Match evidence</th><th>Next action</th><th>Risk notes</th></tr></thead>
         <tbody>{''.join(rows)}</tbody>
       </table></div>
     </section>

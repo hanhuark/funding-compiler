@@ -437,18 +437,31 @@ select:focus {
 }
 
 .status-pill.internal-review-overdue,
+.status-pill.do-not-start-new-proposal,
 .status-pill.outreach-blocked,
 .status-pill.past-due,
 .status-pill.urgent {
   background: var(--rose);
 }
 
+.status-pill.blocked-until-gate-cleared,
+.status-pill.emergency-only {
+  background: var(--rose);
+}
+
+.status-pill.expedited-go-no-go,
 .status-pill.verify-first {
   background: var(--gold);
 }
 
+.status-pill.normal-planning,
 .status-pill.ready-after-normal-review {
   background: var(--teal);
+}
+
+.status-pill.standing-program,
+.status-pill.verify-before-planning {
+  background: #5b6472;
 }
 
 .status-pill.soon {

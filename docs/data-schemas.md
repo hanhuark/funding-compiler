@@ -41,9 +41,9 @@ Generated screening artifacts also include:
 
 | File | Description |
 | --- | --- |
-| `site/data/screening_summary.json` | Homepage summary with snapshot date, refresh date, active opportunity count, passed-deadline count, nearest active deadline, urgent action count, source recheck count, overdue source recheck count, faculty outreach block count, oldest active verification age, verification staleness threshold, and rolling-item count. |
-| `site/data/faculty_action_summary.json` | Per-faculty opportunity brief data with status, deadline context, outreach readiness, routing gate, source recheck requirement, verification focus, fit level, score, matched terms, and next action. |
-| `site/data/source_recheck_queue.json` | Operational worklist for active opportunities needing source recheck, including owner, recheck due date, overdue days, routing gate, verification focus, and deadline context. |
+| `site/data/screening_summary.json` | Homepage summary with snapshot date, refresh date, active opportunity count, passed-deadline count, nearest active deadline, urgent action count, emergency-runway count, do-not-start count, expedited go/no-go count, source recheck count, overdue source recheck count, faculty outreach block count, oldest active verification age, verification staleness threshold, and rolling-item count. |
+| `site/data/faculty_action_summary.json` | Per-faculty opportunity brief data with status, deadline context, outreach readiness, routing gate, source recheck requirement, verification focus, proposal runway, proposal runway reason, fit level, score, matched terms, and next action. |
+| `site/data/source_recheck_queue.json` | Operational worklist for active opportunities needing source recheck, including owner, recheck due date, overdue days, routing gate, proposal runway, verification focus, and deadline context. |
 | `docs/screenings/*/alignment_matrix.csv` | Match matrix with score, fit level, matched keyword count, matched terms, and rationale. |
 
 ## Faculty Profiles
