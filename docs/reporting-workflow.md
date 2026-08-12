@@ -28,6 +28,17 @@ Per-faculty briefs should carry the same source gate used by the staff worklist.
 
 Near-deadline opportunities need proposal-runway triage in addition to source gating. When an active dated deadline is inside the emergency runway, mark whether the opportunity is "do not start new proposal" or "emergency only" so faculty are not pulled into unrealistic last-minute proposal work.
 
+## Proposal Campaign Board
+
+Do not move directly from a ranked match to faculty outreach. For every opportunity considered worth attention, create or update a campaign record that separates four questions:
+
+1. Is the sponsor record current, and what facts were checked?
+2. Is the applicant or partner structure plausibly eligible?
+3. Is the research contribution scientifically central rather than adjacent keyword overlap?
+4. Does the team have the required roles, partner structure, facilities, concept owner, and proposal runway?
+
+The static campaign board is a decision aid, not a commitment tracker. `Unassigned` means no owner is recorded. A green or ready state means only that recorded gates are clear enough for a faculty decision; it does not establish sponsor eligibility, faculty availability, or scientific merit. Capture faculty interest, no-fit reasons, concept status, and submission outcomes in a private system if the workflow expands beyond public planning data.
+
 ## Review Loop
 
 The match score is a starting point, not a final decision. Research administrators or faculty leads should review matched keywords, eligibility constraints, deadline fit, and team balance before acting on recommendations.

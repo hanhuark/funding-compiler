@@ -1,0 +1,511 @@
+{
+  "generated_on": "2026-08-12",
+  "evidence_note": "Campaign fields are local planning judgments. Official sponsor records remain authoritative.",
+  "records": [
+    {
+      "opportunity_id": "opp-nasa-roses-2026-smex",
+      "program": "Astrophysics Explorers Program 2026 SMEX AO",
+      "sponsor": "NASA",
+      "official_source_url": "https://science.nasa.gov/researchers/sara/grant-solicitations/",
+      "sponsor_evidence_scope": "NOI, mission-team requirements, solicitation status, and realistic institutional role.",
+      "source_checked_on": "2026-06-11",
+      "source_recheck_required": true,
+      "deadline": "2026-09-09; 28 days remaining as of 2026-08-12",
+      "proposal_runway": "blocked until gate cleared",
+      "campaign_status": "mission-scale triage",
+      "campaign_readiness": "blocked by source verification",
+      "eligibility_disposition": "manual review required",
+      "scientific_fit_disposition": "manual mission-role review required",
+      "meeg_lanes": [
+        "aerospace-systems",
+        "diagnostics-ai"
+      ],
+      "concept_owner": "Unassigned",
+      "proposed_roles": [
+        "mission lead",
+        "systems engineering lead",
+        "institutional partner"
+      ],
+      "team_gap": "A mission-scale call requires an existing credible mission team; no such team is recorded.",
+      "next_decision": "Route only if an externally confirmed mission team seeks MEEG capability.",
+      "matched_faculty": [
+        {
+          "name": "Neelakshi Majumdar",
+          "score": 0.667,
+          "fit_level": "strong",
+          "matched_terms": [
+            "aerospace systems",
+            "mission design",
+            "nasa",
+            "systems engineering"
+          ]
+        },
+        {
+          "name": "Anthony Gunderman",
+          "score": 0.333,
+          "fit_level": "promising",
+          "matched_terms": [
+            "aerospace systems",
+            "systems engineering"
+          ]
+        },
+        {
+          "name": "David Jensen",
+          "score": 0.167,
+          "fit_level": "exploratory",
+          "matched_terms": [
+            "systems engineering"
+          ]
+        }
+      ],
+      "match_evidence_limit": "Keyword overlap is screening evidence only; confirm scientific centrality, role, and availability with the faculty member."
+    },
+    {
+      "opportunity_id": "opp-nsf-cdse-cbet-cmmi-2026",
+      "program": "Computational and Data-Enabled Science and Engineering (CDS&E)",
+      "sponsor": "National Science Foundation",
+      "official_source_url": "https://www.nsf.gov/funding/opportunities/cdse-computational-data-enabled-science-engineering",
+      "sponsor_evidence_scope": "Participating divisions, submission window, computational intellectual core, and proposal limits.",
+      "source_checked_on": "2026-06-11",
+      "source_recheck_required": true,
+      "deadline": "2026-09-15; 34 days remaining as of 2026-08-12",
+      "proposal_runway": "verify before planning",
+      "campaign_status": "concept shaping",
+      "campaign_readiness": "blocked by source verification",
+      "eligibility_disposition": "manual review required",
+      "scientific_fit_disposition": "manual computational-core review required",
+      "meeg_lanes": [
+        "diagnostics-ai",
+        "thermal-fluids",
+        "advanced-manufacturing",
+        "materials"
+      ],
+      "concept_owner": "Unassigned",
+      "proposed_roles": [
+        "domain-science PI",
+        "computation lead",
+        "validation lead"
+      ],
+      "team_gap": "Need a central computational-science advance and a validation plan beyond applying AI to a domain problem.",
+      "next_decision": "Confirm directorate and intellectual-core fit before asking faculty to draft.",
+      "matched_faculty": [
+        {
+          "name": "David Jensen",
+          "score": 0.375,
+          "fit_level": "promising",
+          "matched_terms": [
+            "ai",
+            "computational modeling",
+            "data-enabled science"
+          ]
+        },
+        {
+          "name": "David Huitink",
+          "score": 0.25,
+          "fit_level": "promising",
+          "matched_terms": [
+            "manufacturing",
+            "materials"
+          ]
+        },
+        {
+          "name": "Han Hu",
+          "score": 0.25,
+          "fit_level": "promising",
+          "matched_terms": [
+            "ai",
+            "machine learning"
+          ]
+        }
+      ],
+      "match_evidence_limit": "Keyword overlap is screening evidence only; confirm scientific centrality, role, and availability with the faculty member."
+    },
+    {
+      "opportunity_id": "opp-doe-sc-sbir-phaseii-2026",
+      "program": "FY26 SBIR/STTR Phase II Applications from FY26 Phase I Awards",
+      "sponsor": "U.S. Department of Energy Office of Science",
+      "official_source_url": "https://science.osti.gov/grants/FOAs/Open",
+      "sponsor_evidence_scope": "Phase II eligibility, required Phase I lineage, small-business lead, and close date.",
+      "source_checked_on": "2026-06-11",
+      "source_recheck_required": true,
+      "deadline": "2026-12-17; 127 days remaining as of 2026-08-12",
+      "proposal_runway": "verify before planning",
+      "campaign_status": "company-partner watch",
+      "campaign_readiness": "blocked by source verification",
+      "eligibility_disposition": "eligible only through qualified small-business partner",
+      "scientific_fit_disposition": "manual company-partner and technical-fit review required",
+      "meeg_lanes": [
+        "energy-systems",
+        "diagnostics-ai",
+        "advanced-manufacturing",
+        "materials"
+      ],
+      "concept_owner": "Unassigned",
+      "proposed_roles": [
+        "qualified small-business lead",
+        "university technical partner"
+      ],
+      "team_gap": "No qualified FY26 Phase I small-business partner is recorded.",
+      "next_decision": "Route only after an eligible company lead is identified and verified.",
+      "matched_faculty": [
+        {
+          "name": "David Huitink",
+          "score": 0.125,
+          "fit_level": "exploratory",
+          "matched_terms": [
+            "materials"
+          ]
+        },
+        {
+          "name": "Han Hu",
+          "score": 0.125,
+          "fit_level": "exploratory",
+          "matched_terms": [
+            "instrumentation"
+          ]
+        },
+        {
+          "name": "Min Zou",
+          "score": 0.125,
+          "fit_level": "exploratory",
+          "matched_terms": [
+            "materials"
+          ]
+        }
+      ],
+      "match_evidence_limit": "Keyword overlap is screening evidence only; confirm scientific centrality, role, and availability with the faculty member."
+    },
+    {
+      "opportunity_id": "opp-nsf-fluid-dynamics-2026",
+      "program": "Fluid Dynamics",
+      "sponsor": "National Science Foundation",
+      "official_source_url": "https://www.nsf.gov/funding/opportunities/fluid-dynamics-pd-21-1273",
+      "sponsor_evidence_scope": "Program acceptance status, directorate fit, program-officer guidance, and concept maturity.",
+      "source_checked_on": "2026-06-11",
+      "source_recheck_required": true,
+      "deadline": "Accepted anytime; no fixed deadline",
+      "proposal_runway": "verify before planning",
+      "campaign_status": "standing concept development",
+      "campaign_readiness": "blocked by source verification",
+      "eligibility_disposition": "manual review required",
+      "scientific_fit_disposition": "standing target; manual intellectual-contribution review required",
+      "meeg_lanes": [
+        "thermal-fluids",
+        "diagnostics-ai"
+      ],
+      "concept_owner": "Unassigned",
+      "proposed_roles": [
+        "PI",
+        "experimental or computational validation lead"
+      ],
+      "team_gap": "Need a mature central fluid-mechanics question and a short concept for program-officer discussion.",
+      "next_decision": "After recheck, invite only faculty with a defined fluid-mechanics contribution.",
+      "matched_faculty": [
+        {
+          "name": "Han Hu",
+          "score": 0.6,
+          "fit_level": "strong",
+          "matched_terms": [
+            "ai",
+            "bubble dynamics",
+            "flow diagnostics",
+            "instrumentation",
+            "machine learning",
+            "multiphase flow"
+          ]
+        },
+        {
+          "name": "David Jensen",
+          "score": 0.1,
+          "fit_level": "exploratory",
+          "matched_terms": [
+            "ai"
+          ]
+        }
+      ],
+      "match_evidence_limit": "Keyword overlap is screening evidence only; confirm scientific centrality, role, and availability with the faculty member."
+    },
+    {
+      "opportunity_id": "opp-nasa-roses-2025-rapid-response",
+      "program": "ROSES-2025 Rapid Response and Novel Research in Earth Science",
+      "sponsor": "NASA",
+      "official_source_url": "https://simpler.grants.gov/opportunity/f412520b-5594-4ff2-ae51-9de1b8d8efef",
+      "sponsor_evidence_scope": "Specific ROSES element, event or dataset trigger, eligibility, and close-date semantics.",
+      "source_checked_on": "2026-06-11",
+      "source_recheck_required": true,
+      "deadline": "ROSES-25 close date; 19 days remaining as of 2026-08-12",
+      "proposal_runway": "blocked until gate cleared",
+      "campaign_status": "sponsor-text verification",
+      "campaign_readiness": "blocked by source verification",
+      "eligibility_disposition": "manual review required",
+      "scientific_fit_disposition": "manual earth-science trigger review required",
+      "meeg_lanes": [
+        "diagnostics-ai",
+        "robotics-controls"
+      ],
+      "concept_owner": "Unassigned",
+      "proposed_roles": [
+        "earth-science lead",
+        "sensing or inference lead"
+      ],
+      "team_gap": "Need an active earth-science event or dataset and a science lead; generic sensing overlap is insufficient.",
+      "next_decision": "Read the element text before any faculty routing.",
+      "matched_faculty": [
+        {
+          "name": "Neelakshi Majumdar",
+          "score": 0.25,
+          "fit_level": "promising",
+          "matched_terms": [
+            "nasa",
+            "sensing"
+          ]
+        },
+        {
+          "name": "Anthony Gunderman",
+          "score": 0.125,
+          "fit_level": "exploratory",
+          "matched_terms": [
+            "sensing"
+          ]
+        }
+      ],
+      "match_evidence_limit": "Keyword overlap is screening evidence only; confirm scientific centrality, role, and availability with the faculty member."
+    },
+    {
+      "opportunity_id": "opp-arpae-scaleup-ready-2026",
+      "program": "SCALEUP Ready",
+      "sponsor": "ARPA-E",
+      "official_source_url": "https://arpa-e-foa.energy.gov/",
+      "sponsor_evidence_scope": "Open status, technology readiness, award structure, commercialization requirements, and partner prerequisites.",
+      "source_checked_on": "2026-06-11",
+      "source_recheck_required": true,
+      "deadline": "Rolling while open",
+      "proposal_runway": "verify before planning",
+      "campaign_status": "partner watch",
+      "campaign_readiness": "blocked by source verification",
+      "eligibility_disposition": "manual review required",
+      "scientific_fit_disposition": "manual technology-readiness and market-pathway review required",
+      "meeg_lanes": [
+        "energy-systems",
+        "thermal-fluids",
+        "advanced-manufacturing"
+      ],
+      "concept_owner": "Unassigned",
+      "proposed_roles": [
+        "technology lead",
+        "commercialization lead",
+        "industry partner"
+      ],
+      "team_gap": "Need a deployment-ready technology, commercialization owner, and eligible partner structure.",
+      "next_decision": "Do not treat as a standard PI-led grant; verify readiness and partner requirements first.",
+      "matched_faculty": [],
+      "match_evidence_limit": "Keyword overlap is screening evidence only; confirm scientific centrality, role, and availability with the faculty member."
+    },
+    {
+      "opportunity_id": "opp-doe-cmma-ta2-2026",
+      "program": "Critical Minerals & Materials Accelerator Topic Area 2",
+      "sponsor": "U.S. Department of Energy",
+      "official_source_url": "https://eere-exchange.energy.gov/Default.aspx?Search=3589&SearchType=",
+      "sponsor_evidence_scope": "Topic-area status, amendment history, cost share, teaming, and eligibility.",
+      "source_checked_on": "2026-06-11",
+      "source_recheck_required": true,
+      "deadline": "2026-06-25; passed 48 days ago as of 2026-08-12",
+      "proposal_runway": "closed",
+      "campaign_status": "archive and recurrence watch",
+      "campaign_readiness": "archive or recurrence watch",
+      "eligibility_disposition": "closed or recurrence watch",
+      "scientific_fit_disposition": "manual critical-materials pathway review required",
+      "meeg_lanes": [
+        "advanced-manufacturing",
+        "materials",
+        "energy-systems"
+      ],
+      "concept_owner": "Unassigned",
+      "proposed_roles": [
+        "materials lead",
+        "process-manufacturing lead",
+        "partner lead"
+      ],
+      "team_gap": "Need feedstock access, an eligible lead structure, and credible deployment or industry pathway.",
+      "next_decision": "Do not route as an active campaign; retain lessons for a future DOE cycle.",
+      "matched_faculty": [
+        {
+          "name": "David Huitink",
+          "score": 0.571,
+          "fit_level": "strong",
+          "matched_terms": [
+            "advanced materials",
+            "manufacturing",
+            "process technology",
+            "semiconductors"
+          ]
+        },
+        {
+          "name": "Min Zou",
+          "score": 0.429,
+          "fit_level": "promising",
+          "matched_terms": [
+            "advanced materials",
+            "critical materials",
+            "manufacturing"
+          ]
+        },
+        {
+          "name": "Xiangbo Meng",
+          "score": 0.429,
+          "fit_level": "promising",
+          "matched_terms": [
+            "advanced materials",
+            "critical materials",
+            "semiconductors"
+          ]
+        }
+      ],
+      "match_evidence_limit": "Keyword overlap is screening evidence only; confirm scientific centrality, role, and availability with the faculty member."
+    },
+    {
+      "opportunity_id": "opp-doe-cmma-ta3-2026",
+      "program": "Critical Minerals & Materials Accelerator Topic Area 3",
+      "sponsor": "U.S. Department of Energy",
+      "official_source_url": "https://eere-exchange.energy.gov/Default.aspx?Search=3589&SearchType=",
+      "sponsor_evidence_scope": "Current topic text, cost share, teaming rules, deadline, and eligible applicant roles.",
+      "source_checked_on": "2026-06-11",
+      "source_recheck_required": true,
+      "deadline": "2026-07-23; passed 20 days ago as of 2026-08-12",
+      "proposal_runway": "closed",
+      "campaign_status": "team formation",
+      "campaign_readiness": "archive or recurrence watch",
+      "eligibility_disposition": "manual review required",
+      "scientific_fit_disposition": "manual critical-materials pathway review required",
+      "meeg_lanes": [
+        "advanced-manufacturing",
+        "materials",
+        "energy-systems"
+      ],
+      "concept_owner": "Unassigned",
+      "proposed_roles": [
+        "materials lead",
+        "separations or process lead",
+        "technoeconomic lead",
+        "external partner"
+      ],
+      "team_gap": "Need a verified feedstock-to-product pathway, cost-share plan, and committed partner role.",
+      "next_decision": "Clear sponsor evidence before scheduling a team-forming conversation.",
+      "matched_faculty": [
+        {
+          "name": "Xiangbo Meng",
+          "score": 0.286,
+          "fit_level": "promising",
+          "matched_terms": [
+            "critical materials",
+            "lithium extraction"
+          ]
+        },
+        {
+          "name": "Darin Nutter",
+          "score": 0.143,
+          "fit_level": "exploratory",
+          "matched_terms": [
+            "technoeconomic analysis"
+          ]
+        },
+        {
+          "name": "Min Zou",
+          "score": 0.143,
+          "fit_level": "exploratory",
+          "matched_terms": [
+            "critical materials"
+          ]
+        }
+      ],
+      "match_evidence_limit": "Keyword overlap is screening evidence only; confirm scientific centrality, role, and availability with the faculty member."
+    },
+    {
+      "opportunity_id": "opp-nsf-eclipse-2026",
+      "program": "ECosystem for Leading Innovation in Plasma Science and Engineering (ECLIPSE)",
+      "sponsor": "National Science Foundation",
+      "official_source_url": "https://www.nsf.gov/funding/opportunities/eclipse-ecosystem-leading-innovation-plasma-science-engineering",
+      "sponsor_evidence_scope": "Scope, team composition, eligibility, and whether MEEG has a credible plasma-science role.",
+      "source_checked_on": "2026-06-11",
+      "source_recheck_required": true,
+      "deadline": "2026-08-11; passed 1 day ago as of 2026-08-12",
+      "proposal_runway": "closed",
+      "campaign_status": "credibility screen",
+      "campaign_readiness": "archive or recurrence watch",
+      "eligibility_disposition": "manual review required",
+      "scientific_fit_disposition": "weak evidence; manual plasma-science role review required",
+      "meeg_lanes": [
+        "advanced-manufacturing",
+        "materials"
+      ],
+      "concept_owner": "Unassigned",
+      "proposed_roles": [
+        "plasma-science lead",
+        "MEEG application lead",
+        "facilities partner"
+      ],
+      "team_gap": "No verified plasma-science lead or facility is represented in the current MEEG profile set.",
+      "next_decision": "Do not recruit from keyword overlap alone; identify a committed plasma-science collaborator first.",
+      "matched_faculty": [
+        {
+          "name": "David Huitink",
+          "score": 0.286,
+          "fit_level": "promising",
+          "matched_terms": [
+            "manufacturing",
+            "materials"
+          ]
+        },
+        {
+          "name": "Min Zou",
+          "score": 0.286,
+          "fit_level": "promising",
+          "matched_terms": [
+            "manufacturing",
+            "materials"
+          ]
+        },
+        {
+          "name": "Wenchao Zhou",
+          "score": 0.286,
+          "fit_level": "promising",
+          "matched_terms": [
+            "manufacturing",
+            "materials"
+          ]
+        }
+      ],
+      "match_evidence_limit": "Keyword overlap is screening evidence only; confirm scientific centrality, role, and availability with the faculty member."
+    },
+    {
+      "opportunity_id": "opp-nsf-career-2026",
+      "program": "Faculty Early Career Development Program (CAREER)",
+      "sponsor": "National Science Foundation",
+      "official_source_url": "https://www.nsf.gov/funding/opportunities/career-faculty-early-career-development-program",
+      "sponsor_evidence_scope": "Directorate deadline, PI career-stage eligibility, education integration, and institutional routing.",
+      "source_checked_on": "2026-06-11",
+      "source_recheck_required": true,
+      "deadline": "2026-07-22; passed 21 days ago as of 2026-08-12",
+      "proposal_runway": "closed",
+      "campaign_status": "eligibility screen",
+      "campaign_readiness": "archive or recurrence watch",
+      "eligibility_disposition": "manual review required",
+      "scientific_fit_disposition": "manual research-and-education fit review required",
+      "meeg_lanes": [
+        "thermal-fluids",
+        "energy-systems",
+        "advanced-manufacturing",
+        "robotics-controls"
+      ],
+      "concept_owner": "Unassigned",
+      "proposed_roles": [
+        "eligible PI",
+        "research-development reviewer"
+      ],
+      "team_gap": "Confirm tenure-track status, directorate assignment, and a five-year research-education arc.",
+      "next_decision": "Route only after the official NSF record and PI eligibility are rechecked.",
+      "matched_faculty": [],
+      "match_evidence_limit": "Keyword overlap is screening evidence only; confirm scientific centrality, role, and availability with the faculty member."
+    }
+  ]
+}

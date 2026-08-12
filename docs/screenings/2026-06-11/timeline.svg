@@ -1,30 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1120" height="386" viewBox="0 0 1120 386" role="img" aria-label="Funding opportunity timeline">
 <rect width="100%" height="100%" fill="#ffffff"/>
-<text x="24" y="28" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#1b2a32">Funding opportunity timeline as of 2026-07-20</text>
+<text x="24" y="28" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#1b2a32">Funding opportunity timeline as of 2026-08-12</text>
 <line x1="300" y1="32" x2="1000" y2="32" stroke="#cbd5dc" stroke-width="1"/>
 <text x="24" y="60" font-family="Arial, sans-serif" font-size="12" fill="#33444e">Critical Minerals &amp; Materials Accelerator </text>
 <rect x="300" y="44" width="8" height="18" rx="4" fill="#64748b"/>
-<text x="316" y="58" font-family="Arial, sans-serif" font-size="12" fill="#33444e">2026-06-25 (passed 25 days ago as of 2026-07-20)</text>
+<text x="316" y="58" font-family="Arial, sans-serif" font-size="12" fill="#33444e">2026-06-25 (passed 48 days ago as of 2026-08-12)</text>
 <text x="24" y="94" font-family="Arial, sans-serif" font-size="12" fill="#33444e">Faculty Early Career Development Program (</text>
-<rect x="300" y="78" width="9" height="18" rx="4" fill="#be123c"/>
-<text x="317" y="92" font-family="Arial, sans-serif" font-size="12" fill="#33444e">2026-07-22 (2 days remaining as of 2026-07-20)</text>
+<rect x="300" y="78" width="8" height="18" rx="4" fill="#64748b"/>
+<text x="316" y="92" font-family="Arial, sans-serif" font-size="12" fill="#33444e">2026-07-22 (passed 21 days ago as of 2026-08-12)</text>
 <text x="24" y="128" font-family="Arial, sans-serif" font-size="12" fill="#33444e">Critical Minerals &amp; Materials Accelerator </text>
-<rect x="300" y="112" width="14" height="18" rx="4" fill="#be123c"/>
-<text x="322" y="126" font-family="Arial, sans-serif" font-size="12" fill="#33444e">2026-07-23 (3 days remaining as of 2026-07-20)</text>
+<rect x="300" y="112" width="8" height="18" rx="4" fill="#64748b"/>
+<text x="316" y="126" font-family="Arial, sans-serif" font-size="12" fill="#33444e">2026-07-23 (passed 20 days ago as of 2026-08-12)</text>
 <text x="24" y="162" font-family="Arial, sans-serif" font-size="12" fill="#33444e">ECosystem for Leading Innovation in Plasma</text>
-<rect x="300" y="146" width="102" height="18" rx="4" fill="#b7791f"/>
-<text x="410" y="160" font-family="Arial, sans-serif" font-size="12" fill="#33444e">2026-08-11 (22 days remaining as of 2026-07-20)</text>
+<rect x="300" y="146" width="8" height="18" rx="4" fill="#64748b"/>
+<text x="316" y="160" font-family="Arial, sans-serif" font-size="12" fill="#33444e">2026-08-11 (passed 1 day ago as of 2026-08-12)</text>
 <text x="24" y="196" font-family="Arial, sans-serif" font-size="12" fill="#33444e">ROSES-2025 Rapid Response and Novel Resear</text>
-<rect x="300" y="180" width="196" height="18" rx="4" fill="#2563eb"/>
-<text x="504" y="194" font-family="Arial, sans-serif" font-size="12" fill="#33444e">ROSES-25 close date (42 days remaining as of 2026-07-20)</text>
+<rect x="300" y="180" width="104" height="18" rx="4" fill="#b7791f"/>
+<text x="412" y="194" font-family="Arial, sans-serif" font-size="12" fill="#33444e">ROSES-25 close date (19 days remaining as of 2026-08-12)</text>
 <text x="24" y="230" font-family="Arial, sans-serif" font-size="12" fill="#33444e">Astrophysics Explorers Program 2026 SMEX A</text>
-<rect x="300" y="214" width="238" height="18" rx="4" fill="#2563eb"/>
-<text x="546" y="228" font-family="Arial, sans-serif" font-size="12" fill="#33444e">2026-09-09 (51 days remaining as of 2026-07-20)</text>
+<rect x="300" y="214" width="154" height="18" rx="4" fill="#b7791f"/>
+<text x="462" y="228" font-family="Arial, sans-serif" font-size="12" fill="#33444e">2026-09-09 (28 days remaining as of 2026-08-12)</text>
 <text x="24" y="264" font-family="Arial, sans-serif" font-size="12" fill="#33444e">Computational and Data-Enabled Science and</text>
-<rect x="300" y="248" width="266" height="18" rx="4" fill="#2563eb"/>
-<text x="574" y="262" font-family="Arial, sans-serif" font-size="12" fill="#33444e">2026-09-15 (57 days remaining as of 2026-07-20)</text>
+<rect x="300" y="248" width="187" height="18" rx="4" fill="#2563eb"/>
+<text x="495" y="262" font-family="Arial, sans-serif" font-size="12" fill="#33444e">2026-09-15 (34 days remaining as of 2026-08-12)</text>
 <text x="24" y="298" font-family="Arial, sans-serif" font-size="12" fill="#33444e">FY26 SBIR/STTR Phase II Applications from </text>
 <rect x="300" y="282" width="700" height="18" rx="4" fill="#0f766e"/>
-<text x="1008" y="296" font-family="Arial, sans-serif" font-size="12" fill="#33444e">2026-12-17 (150 days remaining as of 2026-07-20)</text>
+<text x="1008" y="296" font-family="Arial, sans-serif" font-size="12" fill="#33444e">2026-12-17 (127 days remaining as of 2026-08-12)</text>
 <text x="24" y="340" font-family="Arial, sans-serif" font-size="12" fill="#61717b">Rolling and accepted-anytime items are tracked in the action table instead of shown as fixed deadline bars.</text>
 </svg>

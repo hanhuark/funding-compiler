@@ -13,6 +13,7 @@ Latest screening report: https://hanhuark.github.io/funding-compiler/screenings/
 1. **Compile funding opportunities** from federal agencies, state agencies, foundations, and private companies. Examples include RFPs, NOFOs, FOAs, solicitations, prize calls, and recurring programs.
 2. **Summarize faculty capabilities** for a department, including research interests, methods, facilities, keywords, and profile links.
 3. **Align opportunities with faculty** using a transparent keyword-overlap baseline that produces ranked matches and rationale text.
+4. **Gate proposal campaigns** with explicit sponsor-evidence scope, MEEG planning lanes, eligibility and scientific-fit review states, team gaps, and next decisions.
 
 ## Quick Start
 
@@ -65,6 +66,7 @@ python tools/generate_screening_report.py
 - `data/funding_sources.yaml` - Curated registry of funding portals and discovery sources.
 - `data/uark_meeg_faculty_sources.yaml` - Seed registry for UArk MEEG faculty directories, profiles, and lab sites.
 - `data/screenings/*/opportunity_actions.yaml` - Curated action metadata for deadline semantics, internal review dates, next actions, and risk notes.
+- `data/screenings/*/proposal_campaigns.yaml` - Local campaign judgments that separate sponsor evidence, eligibility, scientific fit, team gaps, and proposal decisions.
 - `site/data/screening_summary.json`, `site/data/faculty_action_summary.json`, and `site/data/source_recheck_queue.json` - Generated dashboard data for current screening, per-faculty opportunity briefs, and source-recheck operations.
 - `examples/` - Sample opportunity and faculty data.
 - `docs/` - Architecture, data schema, and reporting workflow notes.
@@ -79,7 +81,7 @@ The MVP uses a readable scoring method:
 - compute an overlap score from 0 to 1;
 - generate rationale from matched terms.
 
-This baseline is easy to audit and can later be extended with semantic embeddings, sponsor-specific rules, eligibility checks, and human review workflows.
+This baseline is easy to audit, but it is only screening evidence. It does not establish scientific centrality, sponsor eligibility, team commitment, or faculty availability. The campaign board makes those gates explicit and can later be extended with semantic retrieval, sponsor-specific rules, and private human-review workflows.
 
 ## Planned Extensions
 

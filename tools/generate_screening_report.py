@@ -18,6 +18,7 @@ from funding_compiler.matching import match_opportunities
 SNAPSHOT_DATE = date(2026, 6, 11)
 SCREENING_DIR = Path("data/screenings/2026-06-11")
 ACTION_METADATA_PATH = SCREENING_DIR / "opportunity_actions.yaml"
+CAMPAIGN_METADATA_PATH = SCREENING_DIR / "proposal_campaigns.yaml"
 DOCS_DIR = Path("docs/screenings/2026-06-11")
 SITE_DIR = Path("site/screenings")
 SITE_DATA_DIR = Path("site/data")
@@ -32,6 +33,7 @@ def main() -> int:
     opportunities = load_opportunities(SCREENING_DIR / "opportunities.csv")
     faculty = load_faculty(SCREENING_DIR / "faculty_profiles.csv")
     actions = load_action_metadata(ACTION_METADATA_PATH)
+    campaigns = load_action_metadata(CAMPAIGN_METADATA_PATH)
     matches = match_opportunities(opportunities, faculty, min_score=0.1)
 
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
@@ -41,8 +43,6 @@ def main() -> int:
     write_alignment_csv(DOCS_DIR / "alignment_matrix.csv", matches)
     timeline_svg = render_timeline_svg(opportunities, actions, as_of)
     (DOCS_DIR / "timeline.svg").write_text(timeline_svg, encoding="utf-8")
-    report = render_markdown_report(opportunities, matches, actions, as_of)
-    (DOCS_DIR / "funding-screening-report.md").write_text(report, encoding="utf-8")
     summary = build_screening_summary(opportunities, matches, actions, as_of)
     (SITE_DATA_DIR / "screening_summary.json").write_text(
         json.dumps(summary, indent=2) + "\n",
@@ -58,7 +58,14 @@ def main() -> int:
         json.dumps(faculty_summary, indent=2) + "\n",
         encoding="utf-8",
     )
-    site_page = render_site_page(opportunities, matches, actions, timeline_svg, as_of)
+    campaign_board = build_campaign_board(opportunities, matches, actions, campaigns, as_of)
+    (SITE_DATA_DIR / "proposal_campaigns.json").write_text(
+        json.dumps(campaign_board, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    report = render_markdown_report(opportunities, matches, actions, as_of, campaigns)
+    (DOCS_DIR / "funding-screening-report.md").write_text(report, encoding="utf-8")
+    site_page = render_site_page(opportunities, matches, actions, campaigns, timeline_svg, as_of)
     (SITE_DIR / "2026-06-11.html").write_text(site_page, encoding="utf-8")
     return 0
 
@@ -516,6 +523,70 @@ def action_priority(status: str) -> int:
     return order.get(status, 9)
 
 
+def campaign_readiness(opportunity, actions: dict[str, dict[str, str]], campaign: dict[str, object], as_of: date) -> str:
+    if is_past_due(opportunity, actions, as_of):
+        return "archive or recurrence watch"
+    if needs_source_recheck(opportunity, actions, as_of):
+        return "blocked by source verification"
+    if campaign.get("eligibility_disposition", "").startswith("eligible only"):
+        return "blocked by partner eligibility"
+    if campaign.get("campaign_status") in {"credibility screen", "mission-scale triage"}:
+        return "needs scientific-role confirmation"
+    return "ready for faculty decision"
+
+
+def build_campaign_board(opportunities, matches, actions: dict[str, dict[str, str]], campaigns: dict[str, dict[str, object]], as_of: date) -> dict[str, object]:
+    top = top_matches_by_opportunity(matches)
+    records = []
+    for opportunity in sort_opportunities(opportunities, actions):
+        campaign = campaigns.get(opportunity.id, {})
+        records.append(
+            {
+                "opportunity_id": opportunity.id,
+                "program": opportunity.program,
+                "sponsor": opportunity.sponsor,
+                "official_source_url": campaign.get("official_source_url", opportunity.source_url),
+                "sponsor_evidence_scope": campaign.get("sponsor_evidence_scope", "Record sponsor evidence before routing."),
+                "source_checked_on": verified_on(opportunity, actions) or "",
+                "source_recheck_required": needs_source_recheck(opportunity, actions, as_of),
+                "deadline": deadline_context(opportunity, actions, as_of),
+                "proposal_runway": proposal_runway(opportunity, actions, as_of),
+                "campaign_status": campaign.get("campaign_status", "untriaged"),
+                "campaign_readiness": campaign_readiness(opportunity, actions, campaign, as_of),
+                "eligibility_disposition": campaign.get("eligibility_disposition", "manual review required"),
+                "scientific_fit_disposition": campaign.get("scientific_fit_disposition", "manual scientific fit review required"),
+                "meeg_lanes": campaign.get("meeg_lanes", []),
+                "concept_owner": campaign.get("concept_owner", "Unassigned"),
+                "proposed_roles": campaign.get("proposed_roles", []),
+                "team_gap": campaign.get("team_gap", "Team requirements not yet assessed."),
+                "next_decision": campaign.get("next_decision", "Review sponsor text and decide whether to create a campaign."),
+                "matched_faculty": [
+                    {
+                        "name": match.faculty_name,
+                        "score": match.score,
+                        "fit_level": fit_level(match.score),
+                        "matched_terms": match.matched_keywords,
+                    }
+                    for match in top.get(opportunity.id, [])[:3]
+                ],
+                "match_evidence_limit": "Keyword overlap is screening evidence only; confirm scientific centrality, role, and availability with the faculty member.",
+            }
+        )
+    readiness_order = {
+        "blocked by source verification": 0,
+        "blocked by partner eligibility": 1,
+        "needs scientific-role confirmation": 2,
+        "ready for faculty decision": 3,
+        "archive or recurrence watch": 4,
+    }
+    records.sort(key=lambda item: (readiness_order.get(str(item["campaign_readiness"]), 9), str(item["program"])))
+    return {
+        "generated_on": as_of.isoformat(),
+        "evidence_note": "Campaign fields are local planning judgments. Official sponsor records remain authoritative.",
+        "records": records,
+    }
+
+
 def build_faculty_action_summary(opportunities, matches, actions: dict[str, dict[str, str]], as_of: date) -> list[dict[str, object]]:
     opportunity_by_id = {opportunity.id: opportunity for opportunity in opportunities}
     grouped = defaultdict(list)
@@ -653,11 +724,12 @@ def markdown_cell(value: str) -> str:
     return str(value).replace("|", "\\|").replace("\n", " ")
 
 
-def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, str]], as_of: date) -> str:
+def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, str]], as_of: date, campaigns: dict[str, dict[str, object]] | None = None) -> str:
     top = top_matches_by_opportunity(matches)
     summary = build_screening_summary(opportunities, matches, actions, as_of)
     active = active_opportunities(opportunities, actions, as_of)
     past_due = past_due_opportunities(opportunities, actions, as_of)
+    campaign_board = build_campaign_board(opportunities, matches, actions, campaigns or {}, as_of)
     lines = [
         "# Current Funding Opportunity Screening",
         "",
@@ -709,6 +781,35 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
                     internal_review_display(opp, actions, as_of),
                     evidence,
                     next_action(opp, actions),
+                ]
+            )
+            + " |"
+        )
+
+    lines.extend(
+        [
+            "",
+            "## Proposal Campaign Board",
+            "",
+            "Campaign fields are local planning judgments. Keyword overlap is screening evidence only; official sponsor records remain authoritative.",
+            "",
+            "| Campaign readiness | MEEG lanes | Opportunity | Eligibility | Scientific fit | Team gap | Next decision |",
+            "| --- | --- | --- | --- | --- | --- | --- |",
+        ]
+    )
+    for item in campaign_board["records"]:
+        lines.append(
+            "| "
+            + " | ".join(
+                markdown_cell(value)
+                for value in [
+                    item["campaign_readiness"],
+                    ", ".join(item["meeg_lanes"]) or "Not classified",
+                    f"[{item['program']}]({item['official_source_url']})",
+                    item["eligibility_disposition"],
+                    item["scientific_fit_disposition"],
+                    item["team_gap"],
+                    item["next_decision"],
                 ]
             )
             + " |"
@@ -989,12 +1090,44 @@ def render_source_recheck_queue(opportunities, actions: dict[str, dict[str, str]
 """
 
 
-def render_site_page(opportunities, matches, actions: dict[str, dict[str, str]], timeline_svg: str, as_of: date) -> str:
+def render_campaign_board(opportunities, matches, actions, campaigns, as_of: date) -> str:
+    board = build_campaign_board(opportunities, matches, actions, campaigns, as_of)
+    rows = []
+    for item in board["records"]:
+        lanes = ", ".join(item["meeg_lanes"]) or "Not classified"
+        matched = "; ".join(
+            f"{match['name']} ({match['fit_level']}, {match['score']:.3f})"
+            for match in item["matched_faculty"]
+        ) or "No screening match"
+        rows.append(
+            "<tr>"
+            f"<td><span class=\"status-pill {html.escape(status_class(str(item['campaign_readiness'])))}\">{html.escape(str(item['campaign_readiness']).title())}</span><br><span>{html.escape(str(item['campaign_status']).title())}</span></td>"
+            f"<td><a href=\"{html.escape(str(item['official_source_url']))}\">{html.escape(str(item['program']))}</a><br><span>{html.escape(str(item['sponsor']))}</span></td>"
+            f"<td>{html.escape(lanes)}</td>"
+            f"<td>{html.escape(str(item['eligibility_disposition']))}<br><span>{html.escape(str(item['scientific_fit_disposition']))}</span></td>"
+            f"<td>{html.escape(matched)}<br><span>{html.escape(str(item['match_evidence_limit']))}</span></td>"
+            f"<td>{html.escape(str(item['team_gap']))}</td>"
+            f"<td>{html.escape(str(item['next_decision']))}</td>"
+            "</tr>"
+        )
+    return f"""
+    <section class=\"panel\">
+      <div class=\"section-heading\"><p class=\"eyebrow\">Proposal Campaign Board</p><h2>Scientific fit, eligibility, and team gaps before drafting</h2><p class=\"section-note\">Campaign fields are local planning judgments. They do not establish sponsor eligibility or faculty commitment.</p></div>
+      <div class=\"table-wrap\"><table class=\"report-table\">
+        <thead><tr><th>Campaign state</th><th>Opportunity</th><th>MEEG lane</th><th>Eligibility and fit gate</th><th>Faculty screening evidence</th><th>Team gap</th><th>Next decision</th></tr></thead>
+        <tbody>{''.join(rows)}</tbody>
+      </table></div>
+    </section>
+"""
+
+
+def render_site_page(opportunities, matches, actions: dict[str, dict[str, str]], campaigns: dict[str, dict[str, object]], timeline_svg: str, as_of: date) -> str:
     top = top_matches_by_opportunity(matches)
     summary = build_screening_summary(opportunities, matches, actions, as_of)
     active = active_opportunities(opportunities, actions, as_of)
     passed_deadline_section = render_passed_deadlines(opportunities, matches, actions, as_of)
     source_recheck_section = render_source_recheck_queue(opportunities, actions, as_of)
+    campaign_section = render_campaign_board(opportunities, matches, actions, campaigns, as_of)
     rows = []
     for opp in sort_opportunities(active, actions):
         evidence = match_evidence_html(top.get(opp.id, [])[:3])
@@ -1063,6 +1196,7 @@ def render_site_page(opportunities, matches, actions: dict[str, dict[str, str]],
       </table></div>
     </section>
 {source_recheck_section}
+{campaign_section}
 {passed_deadline_section}
     <section class="panel">
       <div class="section-heading"><p class="eyebrow">Faculty Briefs</p><h2>Who should look at what</h2></div>

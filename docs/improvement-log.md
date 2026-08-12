@@ -2,6 +2,30 @@
 
 This log supports the recurring faculty-perspective improvement workflow. Each run should compare its critique against the prior entry; repeated concerns mean the previous implementation was not deep enough.
 
+## 2026-08-12 - Faculty-grade campaign decision workflow
+
+### Comparison With Prior Run
+
+- Earlier cycles correctly added freshness, routing, and proposal-runway gates, but all still began with a keyword match and ended before a proposal campaign could be judged credible.
+- This is a deeper follow-through on the repeated adoption concern: it introduces structured evidence, eligibility, scientific-fit, team-gap, and decision fields instead of another dashboard warning.
+
+### Faculty-Perspective Critique
+
+- A MEEG faculty member needs to know whether a call is real and current, whether the proposed research is central to the solicitation, whether a plausible team exists, and what decision is needed next.
+- Literal keyword overlap can surface leads but must never be interpreted as scientific fit, eligibility, or commitment.
+- A public dashboard must make its local planning judgments visibly distinct from official sponsor evidence and private faculty-interest information.
+
+### Changes Made
+
+- Added a proposal campaign record for every screened opportunity with official sponsor record, evidence scope, MEEG lane, eligibility and scientific-fit disposition, team gap, concept-owner state, required roles, and next decision.
+- Added generated campaign-board JSON, a dashboard campaign board with MEEG-lane filtering, and a report table that exposes the gates before proposal work is requested.
+- Made stale sponsor verification automatically block campaign readiness and labeled keyword matches as screening evidence only.
+- Updated the README and workflow/schema documentation to define the campaign decision boundary and protect against unsupported eligibility or faculty-commitment claims.
+
+### Validation Notes
+
+- Generated artifacts should be refreshed with a fixed `FUNDING_COMPILER_TODAY` value for reproducible tests, then with the current date for operational use.
+
 ## 2026-07-20 - Day 7
 
 ### Comparison With Prior Run

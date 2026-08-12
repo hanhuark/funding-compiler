@@ -45,6 +45,26 @@ Generated screening artifacts also include:
 | `site/data/faculty_action_summary.json` | Per-faculty opportunity brief data with status, deadline context, outreach readiness, routing gate, source recheck requirement, verification focus, proposal runway, proposal runway reason, fit level, score, matched terms, and next action. |
 | `site/data/source_recheck_queue.json` | Operational worklist for active opportunities needing source recheck, including owner, recheck due date, overdue days, routing gate, proposal runway, verification focus, and deadline context. |
 | `docs/screenings/*/alignment_matrix.csv` | Match matrix with score, fit level, matched keyword count, matched terms, and rationale. |
+| `site/data/proposal_campaigns.json` | Proposal-campaign board with sponsor-evidence scope, MEEG lanes, eligibility and scientific-fit dispositions, team gaps, next decision, and clearly limited keyword-screening evidence. |
+
+## Proposal Campaign Metadata
+
+Each screening may include `proposal_campaigns.yaml`. These records are local planning judgments and must not be presented as sponsor facts, a faculty commitment, or a final eligibility determination.
+
+| Field | Description |
+| --- | --- |
+| `official_source_url` | Direct official sponsor record used to verify the opportunity. |
+| `sponsor_evidence_scope` | Sponsor facts that must be checked before routing. |
+| `eligibility_disposition` | Explicit screening state; use `manual review required` until verified. |
+| `scientific_fit_disposition` | Scientific-centrality judgment, separate from keyword overlap. |
+| `meeg_lanes` | Controlled MEEG planning lanes such as `thermal-fluids`, `diagnostics-ai`, `energy-systems`, `advanced-manufacturing`, `materials`, `robotics-controls`, and `aerospace-systems`. |
+| `campaign_status` | Local phase such as eligibility screen, concept shaping, team formation, or recurrence watch. |
+| `concept_owner` | Assigned owner, or `Unassigned`; do not infer a commitment. |
+| `proposed_roles` | Capabilities needed for a credible team. |
+| `team_gap` | Missing capability, partner, facility, or commitment that blocks a viable campaign. |
+| `next_decision` | Smallest specific go/no-go decision required before drafting. |
+
+The generated campaign board automatically blocks a campaign when sponsor-source verification is stale, and labels keyword matches as screening evidence only.
 
 ## Faculty Profiles
 

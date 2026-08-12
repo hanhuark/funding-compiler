@@ -4,11 +4,14 @@ const fundingSearch = document.querySelector("#funding-search");
 const facultySearch = document.querySelector("#faculty-search");
 const fundingCategory = document.querySelector("#funding-category");
 const facultyKind = document.querySelector("#faculty-kind");
+const campaignBoard = document.querySelector("#campaign-board");
+const campaignLane = document.querySelector("#campaign-lane");
 
 const state = {
   funding: [],
   faculty: [],
   screening: null,
+  campaigns: null,
 };
 
 async function loadJson(path) {
@@ -161,20 +164,66 @@ function renderScreeningSummary() {
   setText("#source-recheck-copy", sourceRecheckCopy);
 }
 
+function campaignCard(item) {
+  const card = document.createElement("article");
+  card.className = "campaign-card";
+  const matches = item.matched_faculty.length
+    ? item.matched_faculty.map((match) => `${match.name}: ${match.fit_level} keyword screen`).join("; ")
+    : "No screening match";
+  card.innerHTML = `
+    <header>
+      <span class="campaign-state ${item.campaign_readiness.replaceAll(" ", "-")}">${item.campaign_readiness}</span>
+      <span>${item.campaign_status}</span>
+    </header>
+    <h3>${item.program}</h3>
+    <p class="campaign-sponsor">${item.sponsor}</p>
+    <div class="tags">${item.meeg_lanes.map((lane) => `<span class="tag">${lane}</span>`).join("")}</div>
+    <dl>
+      <div><dt>Eligibility</dt><dd>${item.eligibility_disposition}</dd></div>
+      <div><dt>Scientific fit</dt><dd>${item.scientific_fit_disposition}</dd></div>
+      <div><dt>Team gap</dt><dd>${item.team_gap}</dd></div>
+      <div><dt>Next decision</dt><dd>${item.next_decision}</dd></div>
+      <div><dt>Faculty evidence</dt><dd>${matches}</dd></div>
+    </dl>
+    <a class="card-link" href="${item.official_source_url}">Open official sponsor record</a>
+  `;
+  return card;
+}
+
+function renderCampaigns() {
+  if (!state.campaigns || !campaignBoard) {
+    return;
+  }
+  const lane = campaignLane.value;
+  const records = state.campaigns.records.filter((item) => !lane || item.meeg_lanes.includes(lane));
+  campaignBoard.replaceChildren(...records.map(campaignCard));
+  if (!records.length) {
+    campaignBoard.innerHTML = '<div class="empty">No campaign records match this MEEG lane.</div>';
+  }
+}
+
 async function init() {
-  const [funding, faculty, screening] = await Promise.all([
+  const [funding, faculty, screening, campaigns] = await Promise.all([
     loadJson("data/funding_sources.json"),
     loadJson("data/faculty_sources.json"),
     loadOptionalJson("data/screening_summary.json"),
+    loadOptionalJson("data/proposal_campaigns.json"),
   ]);
   state.funding = funding.sources;
   state.faculty = faculty.sources;
   state.screening = screening;
+  state.campaigns = campaigns;
 
   document.querySelector("#funding-count").textContent = state.funding.length;
   document.querySelector("#faculty-count").textContent = state.faculty.length;
   document.querySelector("#lab-count").textContent = state.faculty.filter((item) => item.kind === "lab website").length;
   renderScreeningSummary();
+  if (campaigns) {
+    setText("#campaign-note", `${campaigns.evidence_note} Generated ${campaigns.generated_on}.`);
+    optionize(campaignLane, [...new Set(campaigns.records.flatMap((item) => item.meeg_lanes))], "All MEEG lanes");
+    campaignLane.addEventListener("change", renderCampaigns);
+    renderCampaigns();
+  }
 
   optionize(fundingCategory, [...new Set(state.funding.map((source) => source.category))], "All categories");
   optionize(facultyKind, [...new Set(state.faculty.map((source) => source.kind))], "All kinds");

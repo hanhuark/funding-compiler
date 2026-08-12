@@ -15,6 +15,7 @@
     </div>
     <nav aria-label="Primary navigation">
       <a href="#workflow">Workflow</a>
+      <a href="#campaigns">Campaign Board</a>
       <a href="#sources">Funding Sources</a>
       <a href="#faculty">Faculty Sources</a>
       <a href="screenings/2026-06-11.html">Latest Screening</a>
@@ -28,7 +29,7 @@
         <p class="eyebrow">UArk MEEG seed registry</p>
         <h2 id="overview-title">Compile opportunities, profile expertise, and find proposal matches.</h2>
         <p>
-          This static dashboard turns the repository's funding and faculty-source registries into a browsable planning surface for research development.
+          A MEEG proposal-planning workspace that separates sponsor evidence, screening-level faculty matches, eligibility gates, and team-readiness decisions.
         </p>
       </div>
       <div class="metrics" aria-label="Registry summary">
@@ -124,6 +125,21 @@
           <p>View the action inbox, deadline semantics, and ranked faculty/lab matches.</p>
         </article>
       </div>
+    </section>
+
+    <section id="campaigns" class="panel" aria-labelledby="campaigns-title">
+      <div class="section-heading">
+        <p class="eyebrow">Proposal Campaigns</p>
+        <h2 id="campaigns-title">Do not turn a keyword match into proposal work prematurely.</h2>
+        <p id="campaign-note" class="section-note">Loading local campaign judgments and sponsor-evidence gates.</p>
+      </div>
+      <div class="toolbar">
+        <label>
+          <span>MEEG research lane</span>
+          <select id="campaign-lane"></select>
+        </label>
+      </div>
+      <div id="campaign-board" class="campaign-grid" aria-live="polite"></div>
     </section>
 
     <section id="sources" class="panel" aria-labelledby="sources-title">

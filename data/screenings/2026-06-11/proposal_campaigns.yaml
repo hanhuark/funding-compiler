@@ -1,0 +1,113 @@
+# Proposal-campaign metadata is local planning judgment, not sponsor evidence.
+# Keep sponsor facts, amendments, and eligibility evidence in the linked official source.
+records:
+  opp-nsf-career-2026:
+    official_source_url: https://www.nsf.gov/funding/opportunities/career-faculty-early-career-development-program
+    sponsor_evidence_scope: "Directorate deadline, PI career-stage eligibility, education integration, and institutional routing."
+    eligibility_disposition: "manual review required"
+    scientific_fit_disposition: "manual research-and-education fit review required"
+    meeg_lanes: [thermal-fluids, energy-systems, advanced-manufacturing, robotics-controls]
+    campaign_status: "eligibility screen"
+    concept_owner: "Unassigned"
+    proposed_roles: [eligible PI, research-development reviewer]
+    team_gap: "Confirm tenure-track status, directorate assignment, and a five-year research-education arc."
+    next_decision: "Route only after the official NSF record and PI eligibility are rechecked."
+  opp-doe-cmma-ta2-2026:
+    official_source_url: https://eere-exchange.energy.gov/Default.aspx?Search=3589&SearchType=
+    sponsor_evidence_scope: "Topic-area status, amendment history, cost share, teaming, and eligibility."
+    eligibility_disposition: "closed or recurrence watch"
+    scientific_fit_disposition: "manual critical-materials pathway review required"
+    meeg_lanes: [advanced-manufacturing, materials, energy-systems]
+    campaign_status: "archive and recurrence watch"
+    concept_owner: "Unassigned"
+    proposed_roles: [materials lead, process-manufacturing lead, partner lead]
+    team_gap: "Need feedstock access, an eligible lead structure, and credible deployment or industry pathway."
+    next_decision: "Do not route as an active campaign; retain lessons for a future DOE cycle."
+  opp-doe-cmma-ta3-2026:
+    official_source_url: https://eere-exchange.energy.gov/Default.aspx?Search=3589&SearchType=
+    sponsor_evidence_scope: "Current topic text, cost share, teaming rules, deadline, and eligible applicant roles."
+    eligibility_disposition: "manual review required"
+    scientific_fit_disposition: "manual critical-materials pathway review required"
+    meeg_lanes: [advanced-manufacturing, materials, energy-systems]
+    campaign_status: "team formation"
+    concept_owner: "Unassigned"
+    proposed_roles: [materials lead, separations or process lead, technoeconomic lead, external partner]
+    team_gap: "Need a verified feedstock-to-product pathway, cost-share plan, and committed partner role."
+    next_decision: "Clear sponsor evidence before scheduling a team-forming conversation."
+  opp-nsf-fluid-dynamics-2026:
+    official_source_url: https://www.nsf.gov/funding/opportunities/fluid-dynamics-pd-21-1273
+    sponsor_evidence_scope: "Program acceptance status, directorate fit, program-officer guidance, and concept maturity."
+    eligibility_disposition: "manual review required"
+    scientific_fit_disposition: "standing target; manual intellectual-contribution review required"
+    meeg_lanes: [thermal-fluids, diagnostics-ai]
+    campaign_status: "standing concept development"
+    concept_owner: "Unassigned"
+    proposed_roles: [PI, experimental or computational validation lead]
+    team_gap: "Need a mature central fluid-mechanics question and a short concept for program-officer discussion."
+    next_decision: "After recheck, invite only faculty with a defined fluid-mechanics contribution."
+  opp-nsf-cdse-cbet-cmmi-2026:
+    official_source_url: https://www.nsf.gov/funding/opportunities/cdse-computational-data-enabled-science-engineering
+    sponsor_evidence_scope: "Participating divisions, submission window, computational intellectual core, and proposal limits."
+    eligibility_disposition: "manual review required"
+    scientific_fit_disposition: "manual computational-core review required"
+    meeg_lanes: [diagnostics-ai, thermal-fluids, advanced-manufacturing, materials]
+    campaign_status: "concept shaping"
+    concept_owner: "Unassigned"
+    proposed_roles: [domain-science PI, computation lead, validation lead]
+    team_gap: "Need a central computational-science advance and a validation plan beyond applying AI to a domain problem."
+    next_decision: "Confirm directorate and intellectual-core fit before asking faculty to draft."
+  opp-nsf-eclipse-2026:
+    official_source_url: https://www.nsf.gov/funding/opportunities/eclipse-ecosystem-leading-innovation-plasma-science-engineering
+    sponsor_evidence_scope: "Scope, team composition, eligibility, and whether MEEG has a credible plasma-science role."
+    eligibility_disposition: "manual review required"
+    scientific_fit_disposition: "weak evidence; manual plasma-science role review required"
+    meeg_lanes: [advanced-manufacturing, materials]
+    campaign_status: "credibility screen"
+    concept_owner: "Unassigned"
+    proposed_roles: [plasma-science lead, MEEG application lead, facilities partner]
+    team_gap: "No verified plasma-science lead or facility is represented in the current MEEG profile set."
+    next_decision: "Do not recruit from keyword overlap alone; identify a committed plasma-science collaborator first."
+  opp-nasa-roses-2025-rapid-response:
+    official_source_url: https://simpler.grants.gov/opportunity/f412520b-5594-4ff2-ae51-9de1b8d8efef
+    sponsor_evidence_scope: "Specific ROSES element, event or dataset trigger, eligibility, and close-date semantics."
+    eligibility_disposition: "manual review required"
+    scientific_fit_disposition: "manual earth-science trigger review required"
+    meeg_lanes: [diagnostics-ai, robotics-controls]
+    campaign_status: "sponsor-text verification"
+    concept_owner: "Unassigned"
+    proposed_roles: [earth-science lead, sensing or inference lead]
+    team_gap: "Need an active earth-science event or dataset and a science lead; generic sensing overlap is insufficient."
+    next_decision: "Read the element text before any faculty routing."
+  opp-nasa-roses-2026-smex:
+    official_source_url: https://science.nasa.gov/researchers/sara/grant-solicitations/
+    sponsor_evidence_scope: "NOI, mission-team requirements, solicitation status, and realistic institutional role."
+    eligibility_disposition: "manual review required"
+    scientific_fit_disposition: "manual mission-role review required"
+    meeg_lanes: [aerospace-systems, diagnostics-ai]
+    campaign_status: "mission-scale triage"
+    concept_owner: "Unassigned"
+    proposed_roles: [mission lead, systems engineering lead, institutional partner]
+    team_gap: "A mission-scale call requires an existing credible mission team; no such team is recorded."
+    next_decision: "Route only if an externally confirmed mission team seeks MEEG capability."
+  opp-arpae-scaleup-ready-2026:
+    official_source_url: https://arpa-e-foa.energy.gov/
+    sponsor_evidence_scope: "Open status, technology readiness, award structure, commercialization requirements, and partner prerequisites."
+    eligibility_disposition: "manual review required"
+    scientific_fit_disposition: "manual technology-readiness and market-pathway review required"
+    meeg_lanes: [energy-systems, thermal-fluids, advanced-manufacturing]
+    campaign_status: "partner watch"
+    concept_owner: "Unassigned"
+    proposed_roles: [technology lead, commercialization lead, industry partner]
+    team_gap: "Need a deployment-ready technology, commercialization owner, and eligible partner structure."
+    next_decision: "Do not treat as a standard PI-led grant; verify readiness and partner requirements first."
+  opp-doe-sc-sbir-phaseii-2026:
+    official_source_url: https://science.osti.gov/grants/FOAs/Open
+    sponsor_evidence_scope: "Phase II eligibility, required Phase I lineage, small-business lead, and close date."
+    eligibility_disposition: "eligible only through qualified small-business partner"
+    scientific_fit_disposition: "manual company-partner and technical-fit review required"
+    meeg_lanes: [energy-systems, diagnostics-ai, advanced-manufacturing, materials]
+    campaign_status: "company-partner watch"
+    concept_owner: "Unassigned"
+    proposed_roles: [qualified small-business lead, university technical partner]
+    team_gap: "No qualified FY26 Phase I small-business partner is recorded."
+    next_decision: "Route only after an eligible company lead is identified and verified."

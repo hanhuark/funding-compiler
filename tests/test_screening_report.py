@@ -16,6 +16,7 @@ def test_generate_screening_report_outputs_expected_files(monkeypatch):
     summary = Path("site/data/screening_summary.json")
     faculty_summary = Path("site/data/faculty_action_summary.json")
     source_recheck_queue = Path("site/data/source_recheck_queue.json")
+    campaign_board = Path("site/data/proposal_campaigns.json")
 
     assert report.exists()
     assert timeline.exists()
@@ -24,6 +25,7 @@ def test_generate_screening_report_outputs_expected_files(monkeypatch):
     assert summary.exists()
     assert faculty_summary.exists()
     assert source_recheck_queue.exists()
+    assert campaign_board.exists()
 
     report_text = report.read_text(encoding="utf-8")
     site_text = site_page.read_text(encoding="utf-8")
@@ -31,6 +33,7 @@ def test_generate_screening_report_outputs_expected_files(monkeypatch):
     summary_data = json.loads(summary.read_text(encoding="utf-8"))
     faculty_summary_data = json.loads(faculty_summary.read_text(encoding="utf-8"))
     source_recheck_data = json.loads(source_recheck_queue.read_text(encoding="utf-8"))
+    campaign_board_data = json.loads(campaign_board.read_text(encoding="utf-8"))
 
     assert "Current Funding Opportunity Screening" in report_text
     assert "Faculty Action Inbox" in report_text
@@ -51,6 +54,8 @@ def test_generate_screening_report_outputs_expected_files(monkeypatch):
     assert "do not start new proposal" in report_text
     assert "Public deadline is 2 days away" in report_text
     assert "Research development lead" in report_text
+    assert "Proposal Campaign Board" in report_text
+    assert "Keyword overlap is screening evidence only" in report_text
     assert "Block faculty outreach until source and internal-review status are rechecked." in report_text
     assert "Accepted anytime; no fixed deadline" in report_text
     assert "Critical Minerals &amp; Materials Accelerator Topic Area 2" in site_text
@@ -62,6 +67,7 @@ def test_generate_screening_report_outputs_expected_files(monkeypatch):
     assert "Do Not Start New Proposal" in site_text
     assert "Archive, do not route" in site_text
     assert "Who should look at what" in site_text
+    assert "Scientific fit, eligibility, and team gaps before drafting" in site_text
     assert "Strong fit; score 0.600" in site_text
     assert "fit_level" in alignment_text
     assert summary_data["active_opportunity_count"] == 9
@@ -91,6 +97,14 @@ def test_generate_screening_report_outputs_expected_files(monkeypatch):
         for record in faculty_summary_data
         for item in record["priority_opportunities"]
     )
+    assert len(campaign_board_data["records"]) == 10
+    cdse_campaign = next(
+        item for item in campaign_board_data["records"]
+        if item["opportunity_id"] == "opp-nsf-cdse-cbet-cmmi-2026"
+    )
+    assert "diagnostics-ai" in cdse_campaign["meeg_lanes"]
+    assert cdse_campaign["campaign_readiness"] == "blocked by source verification"
+    assert "scientific centrality" in cdse_campaign["match_evidence_limit"]
     assert any(
         item["proposal_runway"] == "do not start new proposal"
         for record in faculty_summary_data
