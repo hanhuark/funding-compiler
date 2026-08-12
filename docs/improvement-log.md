@@ -38,6 +38,18 @@ This log supports the recurring faculty-perspective improvement workflow. Each r
 - Preserved relationship or invitation constraints as structured `access` values and exposed access plus expected source-recheck cadence in the dashboard cards.
 - Interpreted the request for `DIPS` as the NSF TIP entrepreneurial-research pathway because no unambiguous current federal funding program named DIPS was identified; the registry notes that interpretation explicitly.
 
+## 2026-08-12 - Maintainer-triggered screening refresh
+
+### Faculty-Perspective Need
+
+- A displayed screening date is only useful when an authorized maintainer can refresh the report without recreating the local development environment.
+
+### Changes Made
+
+- Added a dashboard `Run screening` command that routes maintainers to a manual GitHub Actions workflow.
+- The workflow accepts an optional reproducible as-of date, regenerates screening artifacts, validates whitespace, and commits changed reports and dashboard data back to `main`.
+- The action deliberately does not scrape sponsor sites or mark source evidence current; it preserves the source-verification gate.
+
 ## 2026-07-20 - Day 7
 
 ### Comparison With Prior Run

@@ -59,6 +59,8 @@ $env:FUNDING_COMPILER_TODAY='2026-07-20'  # optional, for reproducible reports
 python tools/generate_screening_report.py
 ```
 
+Maintainers can also use **Run screening** on the deployed dashboard. It opens the repository's manual GitHub Actions workflow, which regenerates the curated screening artifacts, commits only changed outputs, and triggers the Pages deployment. It does not fetch sponsor portals or bypass source verification; sponsor records must still be curated or rechecked before outreach.
+
 ## Repository Layout
 
 - `src/funding_compiler/` - Python package and CLI.
