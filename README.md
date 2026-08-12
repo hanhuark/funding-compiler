@@ -6,7 +6,7 @@ The first version is intentionally transparent: local CSV data, a Python CLI, si
 
 Project site: https://hanhuark.github.io/funding-compiler/
 
-Latest screening report: https://hanhuark.github.io/funding-compiler/screenings/2026-06-11.html
+Latest screening report: https://hanhuark.github.io/funding-compiler/screenings/2026-08-12.html
 
 ## What It Does
 
@@ -55,7 +55,7 @@ python tools/sync_site_data.py
 Regenerate the current screening report, active action inbox, source recheck worklist, passed-deadline archive, faculty briefs, timeline, and homepage screening summary:
 
 ```powershell
-$env:FUNDING_COMPILER_TODAY='2026-07-20'  # optional, for reproducible reports
+$env:FUNDING_COMPILER_TODAY='2026-08-12'  # optional, for reproducible reports
 python tools/generate_screening_report.py
 ```
 

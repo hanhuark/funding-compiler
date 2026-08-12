@@ -413,6 +413,10 @@ select:focus {
   background: var(--teal);
 }
 
+.campaign-state.needs-eligibility-confirmation {
+  background: var(--rose);
+}
+
 .campaign-state.archive-or-recurrence-watch {
   background: #5b6472;
 }

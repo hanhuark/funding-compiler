@@ -15,14 +15,17 @@ from funding_compiler.loaders import load_faculty, load_opportunities
 from funding_compiler.matching import match_opportunities
 
 
-SNAPSHOT_DATE = date(2026, 6, 11)
-SCREENING_DIR = Path("data/screenings/2026-06-11")
+SNAPSHOT_DATE = date(2026, 8, 12)
+SCREENING_DIR = Path("data/screenings/2026-08-12")
+# Faculty profiles change less frequently than sponsor calls; keep the reviewed
+# seed profiles as a shared input while each screening owns its opportunity data.
+FACULTY_PROFILES_PATH = Path("data/screenings/2026-06-11/faculty_profiles.csv")
 ACTION_METADATA_PATH = SCREENING_DIR / "opportunity_actions.yaml"
 CAMPAIGN_METADATA_PATH = SCREENING_DIR / "proposal_campaigns.yaml"
-DOCS_DIR = Path("docs/screenings/2026-06-11")
+DOCS_DIR = Path("docs/screenings/2026-08-12")
 SITE_DIR = Path("site/screenings")
 SITE_DATA_DIR = Path("site/data")
-REPORT_URL = "screenings/2026-06-11.html"
+REPORT_URL = "screenings/2026-08-12.html"
 VERIFICATION_STALE_AFTER_DAYS = 14
 EMERGENCY_RUNWAY_DAYS = 7
 EXPEDITED_RUNWAY_DAYS = 21
@@ -31,7 +34,7 @@ EXPEDITED_RUNWAY_DAYS = 21
 def main() -> int:
     as_of = current_date()
     opportunities = load_opportunities(SCREENING_DIR / "opportunities.csv")
-    faculty = load_faculty(SCREENING_DIR / "faculty_profiles.csv")
+    faculty = load_faculty(FACULTY_PROFILES_PATH)
     actions = load_action_metadata(ACTION_METADATA_PATH)
     campaigns = load_action_metadata(CAMPAIGN_METADATA_PATH)
     matches = match_opportunities(opportunities, faculty, min_score=0.1)
@@ -66,7 +69,7 @@ def main() -> int:
     report = render_markdown_report(opportunities, matches, actions, as_of, campaigns)
     (DOCS_DIR / "funding-screening-report.md").write_text(report, encoding="utf-8")
     site_page = render_site_page(opportunities, matches, actions, campaigns, timeline_svg, as_of)
-    (SITE_DIR / "2026-06-11.html").write_text(site_page, encoding="utf-8")
+    (SITE_DIR / "2026-08-12.html").write_text(site_page, encoding="utf-8")
     return 0
 
 
@@ -530,6 +533,8 @@ def campaign_readiness(opportunity, actions: dict[str, dict[str, str]], campaign
         return "blocked by source verification"
     if campaign.get("eligibility_disposition", "").startswith("eligible only"):
         return "blocked by partner eligibility"
+    if "confirmation required" in str(campaign.get("eligibility_disposition", "")).lower():
+        return "needs eligibility confirmation"
     if campaign.get("campaign_status") in {"credibility screen", "mission-scale triage"}:
         return "needs scientific-role confirmation"
     return "ready for faculty decision"
@@ -575,9 +580,10 @@ def build_campaign_board(opportunities, matches, actions: dict[str, dict[str, st
     readiness_order = {
         "blocked by source verification": 0,
         "blocked by partner eligibility": 1,
-        "needs scientific-role confirmation": 2,
-        "ready for faculty decision": 3,
-        "archive or recurrence watch": 4,
+        "needs eligibility confirmation": 2,
+        "needs scientific-role confirmation": 3,
+        "ready for faculty decision": 4,
+        "archive or recurrence watch": 5,
     }
     records.sort(key=lambda item: (readiness_order.get(str(item["campaign_readiness"]), 9), str(item["program"])))
     return {
@@ -733,7 +739,7 @@ def render_markdown_report(opportunities, matches, actions: dict[str, dict[str, 
     lines = [
         "# Current Funding Opportunity Screening",
         "",
-        "Snapshot date: 2026-06-11",
+        f"Snapshot date: {SNAPSHOT_DATE.isoformat()}",
         f"Report refreshed: {as_of.isoformat()}",
         "",
         "This screening is a curated scan of active or actionable opportunities from the source registry. Sponsor pages remain authoritative, and internal eligibility, cost share, and routing should be verified before action.",
@@ -1149,12 +1155,12 @@ def render_site_page(opportunities, matches, actions: dict[str, dict[str, str]],
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Funding Screening - 2026-06-11</title>
+  <title>Funding Screening - {SNAPSHOT_DATE.isoformat()}</title>
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
   <header class="topbar">
-    <div><p class="eyebrow">Funding Screening</p><h1>June 11, 2026</h1></div>
+    <div><p class="eyebrow">Funding Screening</p><h1>{SNAPSHOT_DATE.strftime('%B %d, %Y')}</h1></div>
     <nav><a href="../index.html">Dashboard</a><a href="https://github.com/hanhuark/funding-compiler">GitHub</a></nav>
   </header>
   <main>
@@ -1162,7 +1168,7 @@ def render_site_page(opportunities, matches, actions: dict[str, dict[str, str]],
       <div class="overview-copy">
         <p class="eyebrow">Current opportunity snapshot</p>
         <h2>Faculty action inbox for active funding opportunities.</h2>
-        <p>Curated scan of opportunities that appear actionable for UArk MEEG based on public sponsor pages checked on June 11, 2026 and refreshed on {as_of.isoformat()}.</p>
+        <p>Curated scan of opportunities that appear actionable for UArk MEEG based on public sponsor pages checked on {SNAPSHOT_DATE.isoformat()} and refreshed on {as_of.isoformat()}.</p>
       </div>
       <div class="metrics">
         <div class="metric"><span>{len(opportunities)}</span><p>Opportunities screened</p></div>

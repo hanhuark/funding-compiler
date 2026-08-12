@@ -2,6 +2,29 @@
 
 This log supports the recurring faculty-perspective improvement workflow. Each run should compare its critique against the prior entry; repeated concerns mean the previous implementation was not deep enough.
 
+## 2026-08-12 - Current opportunity screening and latest-page repair
+
+### Comparison With Prior Run
+
+- The preceding run created stronger campaign-decision fields, but the public latest-screening link still pointed to the June 11 snapshot. This is the same trust and freshness concern, so the implementation here changes the screening data lifecycle and the homepage linkage rather than adding another warning.
+
+### Faculty-Perspective Critique
+
+- A faculty member cannot use a proposal-planning dashboard if its most visible report describes calls checked two months earlier.
+- A current scan should distinguish a normal university-led route from company-led, agreement-gated, invitation-gated, and planning-only pathways before the faculty member spends time on a concept.
+- Current sponsor evidence must carry the call-specific bottleneck: Samsung agreement/IP review, AI Datasets readiness and governance, a named DOE Office of Science program, a shared DURIP equipment gap, an EPSCoR infrastructure case, or an eligible business partner.
+
+### Changes Made
+
+- Added a source-checked August 12 screening with eleven active or actionable routes: Samsung GRO, DOE Office of Science continuation, NSF AI Datasets, NSF SBIR/STTR, FY27 DURIP, NSF Transport Phenomena, Thermal Transport Processes, Fluid Dynamics, EPSCoR planning, NIST CHIPS CRDO BAA, and DOE Genesis Phase II partner watch.
+- Added per-opportunity verification dates, recheck owners, deadline semantics, internal decisions, risks, and campaign evidence. Relationship-gated and company-led routes are explicitly blocked pending the correct institutional or partner gate.
+- Moved the current generator, report URL, README link, and static homepage defaults to the August 12 snapshot. Homepage report links now take their target from generated summary data, so future screens do not leave an old hard-coded latest link.
+- Retained the June materials as an archive rather than reclassifying them as current opportunities.
+
+### Validation Notes
+
+- Generated the August artifacts with `FUNDING_COMPILER_TODAY=2026-08-12`; the screening contains 11 active opportunities, 47 screening-level faculty alignments, zero overdue source rechecks, and one expedited go/no-go item (Samsung GRO).
+
 ## 2026-08-12 - Faculty-grade campaign decision workflow
 
 ### Comparison With Prior Run

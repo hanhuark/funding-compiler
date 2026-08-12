@@ -4,312 +4,412 @@
     "opportunity_count": 2,
     "priority_opportunities": [
       {
-        "program": "Astrophysics Explorers Program 2026 SMEX AO",
-        "sponsor": "NASA",
-        "source_url": "https://science.nasa.gov/researchers/sara/grant-solicitations/",
-        "status": "internal review overdue",
-        "deadline": "2026-09-09; 28 days remaining as of 2026-08-12",
-        "outreach_readiness": "outreach blocked",
-        "routing_gate": "Block faculty outreach until source and internal-review status are rechecked.",
-        "source_recheck_required": true,
-        "source_recheck_by": "2026-06-25",
-        "source_recheck_days_overdue": 48,
-        "verification_focus": "Confirm NOI, proposal, and mission-team requirements; verify whether UArk can play a credible role before routing to faculty.",
-        "proposal_runway": "blocked until gate cleared",
-        "proposal_runway_reason": "Outreach is blocked until source verification and internal review status are cleared.",
-        "score": 0.333,
-        "fit_level": "promising",
-        "matched_terms": [
-          "aerospace systems",
-          "systems engineering"
-        ],
-        "next_action": "Treat as a strategic aerospace/systems opportunity; verify NOI requirements and whether UArk has a realistic mission-team role."
-      },
-      {
-        "program": "ROSES-2025 Rapid Response and Novel Research in Earth Science",
-        "sponsor": "NASA",
-        "source_url": "https://simpler.grants.gov/opportunity/f412520b-5594-4ff2-ae51-9de1b8d8efef",
-        "status": "internal review overdue",
-        "deadline": "ROSES-25 close date; 19 days remaining as of 2026-08-12",
-        "outreach_readiness": "outreach blocked",
-        "routing_gate": "Block faculty outreach until source and internal-review status are rechecked.",
-        "source_recheck_required": true,
-        "source_recheck_by": "2026-06-25",
-        "source_recheck_days_overdue": 48,
-        "verification_focus": "Identify the specific ROSES element, confirm whether a rapid-response event or dataset is required, and verify that the close date is not being treated as a normal deadline.",
-        "proposal_runway": "blocked until gate cleared",
-        "proposal_runway_reason": "Outreach is blocked until source verification and internal review status are cleared.",
+        "program": "Unlocking the Potential of Data for AI-Enabled Scientific Discovery",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/ai-datasets-unlocking-dataset-value-ai-enabled-scientific-discovery/nsf26-512/solicitation",
+        "status": "planning",
+        "deadline": "2026-11-04; 84 days remaining as of 2026-08-12",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm track selection, dataset maturity, eligibility, data governance requirements, and the November 4 deadline in NSF 26-512.",
+        "proposal_runway": "normal planning",
+        "proposal_runway_reason": "Normal planning runway after sponsor source and internal review checks.",
         "score": 0.125,
         "fit_level": "exploratory",
         "matched_terms": [
           "sensing"
         ],
-        "next_action": "Read the specific ROSES element before contacting faculty; only forward if the rapid-response mechanism matches an active earth-science event or dataset."
+        "next_action": "Inventory an existing NED3 dataset, its rights and metadata gaps, intended user community, and the AI-enabled discovery question before assigning a proposal team."
+      },
+      {
+        "program": "Fluid Dynamics",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/fluid-dynamics",
+        "status": "accepted anytime",
+        "deadline": "Accepted anytime; no fixed deadline",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm the Fluid Dynamics program status, scope, and appropriate program-officer contact route.",
+        "proposal_runway": "standing program",
+        "proposal_runway_reason": "No fixed deadline; treat as a standing target after source verification and normal concept review.",
+        "score": 0.125,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "sensing"
+        ],
+        "next_action": "Route only faculty with a defined fundamental fluid-mechanics hypothesis and experimental or computational validation plan."
+      }
+    ]
+  },
+  {
+    "faculty_name": "Darin Nutter",
+    "opportunity_count": 6,
+    "priority_opportunities": [
+      {
+        "program": "FY 2026 Continuation Solicitation for the Office of Science Financial Assistance Program",
+        "sponsor": "U.S. Department of Energy Office of Science",
+        "source_url": "https://science.osti.gov/grants/FOAs/Open",
+        "status": "planning",
+        "deadline": "2026-09-30; 49 days remaining as of 2026-08-12",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Identify the specific Office of Science program office, confirm the FOA remains open, and verify whether a pre-application is useful for the concept.",
+        "proposal_runway": "normal planning",
+        "proposal_runway_reason": "Normal planning runway after sponsor source and internal review checks.",
+        "score": 0.143,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "energy systems"
+        ],
+        "next_action": "Write a one-page concept mapped to a named Office of Science program before requesting a program-officer discussion."
+      },
+      {
+        "program": "NSF SBIR/STTR Phase I",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/small-business-innovation-research-small-business-technology",
+        "status": "planning",
+        "deadline": "2026-11-04; 84 days remaining as of 2026-08-12",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm the qualified small-business lead, SBIR versus STTR structure, ownership, subaward limits, and current Phase I requirements.",
+        "proposal_runway": "normal planning",
+        "proposal_runway_reason": "Normal planning runway after sponsor source and internal review checks.",
+        "score": 0.143,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "energy systems"
+        ],
+        "next_action": "Route only when a specific company has a credible product hypothesis and requests a defined faculty or university role."
+      },
+      {
+        "program": "EPSCoR E-RISE and E-CORE Planning Proposals",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/dcl-planning-proposals-nsf-established-program-stimulate",
+        "status": "accepted anytime",
+        "deadline": "Accepted anytime; no fixed deadline",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm Arkansas EPSCoR jurisdiction, PAPPG planning-proposal rules, current DCL language, and the appropriate program contact.",
+        "proposal_runway": "standing program",
+        "proposal_runway_reason": "No fixed deadline; treat as a standing target after source verification and normal concept review.",
+        "score": 0.125,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "energy systems"
+        ],
+        "next_action": "Define a multi-institution infrastructure need, governance model, workforce plan, and eventual E-RISE or E-CORE logic before drafting."
+      },
+      {
+        "program": "Thermal Transport Processes",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/ttp-thermal-transport-processes",
+        "status": "accepted anytime",
+        "deadline": "Accepted anytime; no fixed deadline",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm the current Thermal Transport Processes scope, acceptance status, and directorate guidance before outreach.",
+        "proposal_runway": "standing program",
+        "proposal_runway_reason": "No fixed deadline; treat as a standing target after source verification and normal concept review.",
+        "score": 0.125,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "energy systems"
+        ],
+        "next_action": "Prepare a two-page fundamental thermal-transport concept that separates the scientific mechanism from its device or system application."
       }
     ]
   },
   {
     "faculty_name": "David Huitink",
-    "opportunity_count": 2,
+    "opportunity_count": 7,
     "priority_opportunities": [
       {
-        "program": "Computational and Data-Enabled Science and Engineering (CDS&E)",
-        "sponsor": "National Science Foundation",
-        "source_url": "https://www.nsf.gov/funding/opportunities/cdse-computational-data-enabled-science-engineering",
+        "program": "Samsung Global Research Outreach 2026",
+        "sponsor": "Samsung Electronics",
+        "source_url": "https://semiconductor.samsung.com/sait/event/global-research-outreach/",
+        "status": "soon",
+        "deadline": "2026-08-23; 11 days remaining as of 2026-08-12",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm the proposal portal timing, thermal-management theme wording, university agreement path, and non-confidential submission requirement before faculty outreach.",
+        "proposal_runway": "expedited go/no-go",
+        "proposal_runway_reason": "Public deadline is 11 days away; run a fast go/no-go before asking faculty for proposal work.",
+        "score": 0.143,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "advanced materials"
+        ],
+        "next_action": "Identify one device-level thermal-management concept and obtain a same-week UA agreement and research-development go or no-go decision."
+      },
+      {
+        "program": "FY 2026 Continuation Solicitation for the Office of Science Financial Assistance Program",
+        "sponsor": "U.S. Department of Energy Office of Science",
+        "source_url": "https://science.osti.gov/grants/FOAs/Open",
         "status": "planning",
-        "deadline": "2026-09-15; 34 days remaining as of 2026-08-12",
-        "outreach_readiness": "verify first",
-        "routing_gate": "Verify before concept-routing outreach.",
-        "source_recheck_required": true,
-        "source_recheck_by": "2026-06-25",
-        "source_recheck_days_overdue": 48,
-        "verification_focus": "Confirm the participating NSF divisions, September window, computational-science expectations, and whether the matched PI's topic belongs in CBET or CMMI.",
-        "proposal_runway": "verify before planning",
-        "proposal_runway_reason": "Sponsor source verification is stale; verify before faculty planning or watchlist forwarding.",
-        "score": 0.25,
+        "deadline": "2026-09-30; 49 days remaining as of 2026-08-12",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Identify the specific Office of Science program office, confirm the FOA remains open, and verify whether a pre-application is useful for the concept.",
+        "proposal_runway": "normal planning",
+        "proposal_runway_reason": "Normal planning runway after sponsor source and internal review checks.",
+        "score": 0.286,
         "fit_level": "promising",
         "matched_terms": [
           "manufacturing",
           "materials"
         ],
-        "next_action": "Identify projects where computation or data-enabled methods are the intellectual core, not only a tool layered onto another proposal."
+        "next_action": "Write a one-page concept mapped to a named Office of Science program before requesting a program-officer discussion."
       },
       {
-        "program": "FY26 SBIR/STTR Phase II Applications from FY26 Phase I Awards",
-        "sponsor": "U.S. Department of Energy Office of Science",
-        "source_url": "https://science.osti.gov/grants/FOAs/Open",
-        "status": "watch",
-        "deadline": "2026-12-17; 127 days remaining as of 2026-08-12",
-        "outreach_readiness": "verify first",
-        "routing_gate": "Verify before watchlist forwarding.",
-        "source_recheck_required": true,
-        "source_recheck_by": "2026-06-25",
-        "source_recheck_days_overdue": 48,
-        "verification_focus": "Confirm the Phase II eligibility rule, required small-business lead, current close date, and whether any matched faculty have qualified Phase I partners.",
-        "proposal_runway": "verify before planning",
-        "proposal_runway_reason": "Sponsor source verification is stale; verify before faculty planning or watchlist forwarding.",
+        "program": "NSF SBIR/STTR Phase I",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/small-business-innovation-research-small-business-technology",
+        "status": "planning",
+        "deadline": "2026-11-04; 84 days remaining as of 2026-08-12",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm the qualified small-business lead, SBIR versus STTR structure, ownership, subaward limits, and current Phase I requirements.",
+        "proposal_runway": "normal planning",
+        "proposal_runway_reason": "Normal planning runway after sponsor source and internal review checks.",
+        "score": 0.143,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "advanced manufacturing"
+        ],
+        "next_action": "Route only when a specific company has a credible product hypothesis and requests a defined faculty or university role."
+      },
+      {
+        "program": "EPSCoR E-RISE and E-CORE Planning Proposals",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/dcl-planning-proposals-nsf-established-program-stimulate",
+        "status": "accepted anytime",
+        "deadline": "Accepted anytime; no fixed deadline",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm Arkansas EPSCoR jurisdiction, PAPPG planning-proposal rules, current DCL language, and the appropriate program contact.",
+        "proposal_runway": "standing program",
+        "proposal_runway_reason": "No fixed deadline; treat as a standing target after source verification and normal concept review.",
         "score": 0.125,
         "fit_level": "exploratory",
         "matched_terms": [
-          "materials"
+          "advanced manufacturing"
         ],
-        "next_action": "Forward only to faculty with eligible small-business partners that hold relevant FY26 Phase I awards."
-      }
-    ]
-  },
-  {
-    "faculty_name": "David Jensen",
-    "opportunity_count": 3,
-    "priority_opportunities": [
-      {
-        "program": "Astrophysics Explorers Program 2026 SMEX AO",
-        "sponsor": "NASA",
-        "source_url": "https://science.nasa.gov/researchers/sara/grant-solicitations/",
-        "status": "internal review overdue",
-        "deadline": "2026-09-09; 28 days remaining as of 2026-08-12",
-        "outreach_readiness": "outreach blocked",
-        "routing_gate": "Block faculty outreach until source and internal-review status are rechecked.",
-        "source_recheck_required": true,
-        "source_recheck_by": "2026-06-25",
-        "source_recheck_days_overdue": 48,
-        "verification_focus": "Confirm NOI, proposal, and mission-team requirements; verify whether UArk can play a credible role before routing to faculty.",
-        "proposal_runway": "blocked until gate cleared",
-        "proposal_runway_reason": "Outreach is blocked until source verification and internal review status are cleared.",
-        "score": 0.167,
-        "fit_level": "exploratory",
-        "matched_terms": [
-          "systems engineering"
-        ],
-        "next_action": "Treat as a strategic aerospace/systems opportunity; verify NOI requirements and whether UArk has a realistic mission-team role."
-      },
-      {
-        "program": "Computational and Data-Enabled Science and Engineering (CDS&E)",
-        "sponsor": "National Science Foundation",
-        "source_url": "https://www.nsf.gov/funding/opportunities/cdse-computational-data-enabled-science-engineering",
-        "status": "planning",
-        "deadline": "2026-09-15; 34 days remaining as of 2026-08-12",
-        "outreach_readiness": "verify first",
-        "routing_gate": "Verify before concept-routing outreach.",
-        "source_recheck_required": true,
-        "source_recheck_by": "2026-06-25",
-        "source_recheck_days_overdue": 48,
-        "verification_focus": "Confirm the participating NSF divisions, September window, computational-science expectations, and whether the matched PI's topic belongs in CBET or CMMI.",
-        "proposal_runway": "verify before planning",
-        "proposal_runway_reason": "Sponsor source verification is stale; verify before faculty planning or watchlist forwarding.",
-        "score": 0.375,
-        "fit_level": "promising",
-        "matched_terms": [
-          "ai",
-          "computational modeling",
-          "data-enabled science"
-        ],
-        "next_action": "Identify projects where computation or data-enabled methods are the intellectual core, not only a tool layered onto another proposal."
-      },
-      {
-        "program": "Fluid Dynamics",
-        "sponsor": "National Science Foundation",
-        "source_url": "https://www.nsf.gov/funding/opportunities/fluid-dynamics",
-        "status": "accepted anytime",
-        "deadline": "Accepted anytime; no fixed deadline",
-        "outreach_readiness": "verify first",
-        "routing_gate": "Verify before watchlist forwarding.",
-        "source_recheck_required": true,
-        "source_recheck_by": "2026-06-25",
-        "source_recheck_days_overdue": 48,
-        "verification_focus": "Confirm the program still accepts proposals anytime, check program-director guidance, and verify whether a concept summary should precede PI outreach.",
-        "proposal_runway": "verify before planning",
-        "proposal_runway_reason": "Sponsor source verification is stale; verify before faculty planning or watchlist forwarding.",
-        "score": 0.1,
-        "fit_level": "exploratory",
-        "matched_terms": [
-          "ai"
-        ],
-        "next_action": "Use as a standing target for mature fluid-dynamics concepts; schedule program-director contact once a two-page concept is ready."
+        "next_action": "Define a multi-institution infrastructure need, governance model, workforce plan, and eventual E-RISE or E-CORE logic before drafting."
       }
     ]
   },
   {
     "faculty_name": "Han Hu",
-    "opportunity_count": 4,
+    "opportunity_count": 11,
     "priority_opportunities": [
       {
-        "program": "Astrophysics Explorers Program 2026 SMEX AO",
-        "sponsor": "NASA",
-        "source_url": "https://science.nasa.gov/researchers/sara/grant-solicitations/",
-        "status": "internal review overdue",
-        "deadline": "2026-09-09; 28 days remaining as of 2026-08-12",
-        "outreach_readiness": "outreach blocked",
-        "routing_gate": "Block faculty outreach until source and internal-review status are rechecked.",
-        "source_recheck_required": true,
-        "source_recheck_by": "2026-06-25",
-        "source_recheck_days_overdue": 48,
-        "verification_focus": "Confirm NOI, proposal, and mission-team requirements; verify whether UArk can play a credible role before routing to faculty.",
-        "proposal_runway": "blocked until gate cleared",
-        "proposal_runway_reason": "Outreach is blocked until source verification and internal review status are cleared.",
-        "score": 0.167,
-        "fit_level": "exploratory",
-        "matched_terms": [
-          "instrumentation"
-        ],
-        "next_action": "Treat as a strategic aerospace/systems opportunity; verify NOI requirements and whether UArk has a realistic mission-team role."
-      },
-      {
-        "program": "Computational and Data-Enabled Science and Engineering (CDS&E)",
-        "sponsor": "National Science Foundation",
-        "source_url": "https://www.nsf.gov/funding/opportunities/cdse-computational-data-enabled-science-engineering",
-        "status": "planning",
-        "deadline": "2026-09-15; 34 days remaining as of 2026-08-12",
-        "outreach_readiness": "verify first",
-        "routing_gate": "Verify before concept-routing outreach.",
-        "source_recheck_required": true,
-        "source_recheck_by": "2026-06-25",
-        "source_recheck_days_overdue": 48,
-        "verification_focus": "Confirm the participating NSF divisions, September window, computational-science expectations, and whether the matched PI's topic belongs in CBET or CMMI.",
-        "proposal_runway": "verify before planning",
-        "proposal_runway_reason": "Sponsor source verification is stale; verify before faculty planning or watchlist forwarding.",
-        "score": 0.25,
+        "program": "Samsung Global Research Outreach 2026",
+        "sponsor": "Samsung Electronics",
+        "source_url": "https://semiconductor.samsung.com/sait/event/global-research-outreach/",
+        "status": "soon",
+        "deadline": "2026-08-23; 11 days remaining as of 2026-08-12",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm the proposal portal timing, thermal-management theme wording, university agreement path, and non-confidential submission requirement before faculty outreach.",
+        "proposal_runway": "expedited go/no-go",
+        "proposal_runway_reason": "Public deadline is 11 days away; run a fast go/no-go before asking faculty for proposal work.",
+        "score": 0.286,
         "fit_level": "promising",
         "matched_terms": [
-          "ai",
-          "machine learning"
+          "heat transfer",
+          "thermal management"
         ],
-        "next_action": "Identify projects where computation or data-enabled methods are the intellectual core, not only a tool layered onto another proposal."
+        "next_action": "Identify one device-level thermal-management concept and obtain a same-week UA agreement and research-development go or no-go decision."
       },
       {
-        "program": "Fluid Dynamics",
-        "sponsor": "National Science Foundation",
-        "source_url": "https://www.nsf.gov/funding/opportunities/fluid-dynamics",
-        "status": "accepted anytime",
-        "deadline": "Accepted anytime; no fixed deadline",
-        "outreach_readiness": "verify first",
-        "routing_gate": "Verify before watchlist forwarding.",
-        "source_recheck_required": true,
-        "source_recheck_by": "2026-06-25",
-        "source_recheck_days_overdue": 48,
-        "verification_focus": "Confirm the program still accepts proposals anytime, check program-director guidance, and verify whether a concept summary should precede PI outreach.",
-        "proposal_runway": "verify before planning",
-        "proposal_runway_reason": "Sponsor source verification is stale; verify before faculty planning or watchlist forwarding.",
-        "score": 0.6,
-        "fit_level": "strong",
-        "matched_terms": [
-          "ai",
-          "bubble dynamics",
-          "flow diagnostics",
-          "instrumentation",
-          "machine learning",
-          "multiphase flow"
-        ],
-        "next_action": "Use as a standing target for mature fluid-dynamics concepts; schedule program-director contact once a two-page concept is ready."
-      },
-      {
-        "program": "FY26 SBIR/STTR Phase II Applications from FY26 Phase I Awards",
+        "program": "FY 2026 Continuation Solicitation for the Office of Science Financial Assistance Program",
         "sponsor": "U.S. Department of Energy Office of Science",
         "source_url": "https://science.osti.gov/grants/FOAs/Open",
-        "status": "watch",
-        "deadline": "2026-12-17; 127 days remaining as of 2026-08-12",
-        "outreach_readiness": "verify first",
-        "routing_gate": "Verify before watchlist forwarding.",
-        "source_recheck_required": true,
-        "source_recheck_by": "2026-06-25",
-        "source_recheck_days_overdue": 48,
-        "verification_focus": "Confirm the Phase II eligibility rule, required small-business lead, current close date, and whether any matched faculty have qualified Phase I partners.",
-        "proposal_runway": "verify before planning",
-        "proposal_runway_reason": "Sponsor source verification is stale; verify before faculty planning or watchlist forwarding.",
-        "score": 0.125,
-        "fit_level": "exploratory",
+        "status": "planning",
+        "deadline": "2026-09-30; 49 days remaining as of 2026-08-12",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Identify the specific Office of Science program office, confirm the FOA remains open, and verify whether a pre-application is useful for the concept.",
+        "proposal_runway": "normal planning",
+        "proposal_runway_reason": "Normal planning runway after sponsor source and internal review checks.",
+        "score": 0.286,
+        "fit_level": "promising",
         "matched_terms": [
-          "instrumentation"
+          "diagnostics",
+          "energy systems"
         ],
-        "next_action": "Forward only to faculty with eligible small-business partners that hold relevant FY26 Phase I awards."
+        "next_action": "Write a one-page concept mapped to a named Office of Science program before requesting a program-officer discussion."
+      },
+      {
+        "program": "FY 2027 Defense University Research Instrumentation Program",
+        "sponsor": "Department of War",
+        "source_url": "https://www.grants.gov/search-results-detail/363379",
+        "status": "planning",
+        "deadline": "2026-11-06; 86 days remaining as of 2026-08-12",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm the Grants.gov package, defense relevance, current equipment rules, and institutional submission routing.",
+        "proposal_runway": "normal planning",
+        "proposal_runway_reason": "Normal planning runway after sponsor source and internal review checks.",
+        "score": 0.286,
+        "fit_level": "promising",
+        "matched_terms": [
+          "flow diagnostics",
+          "multiphase flow"
+        ],
+        "next_action": "Convene prospective users around one non-routine shared instrumentation gap, usage commitments, and a defensible defense-research rationale."
+      },
+      {
+        "program": "NSF SBIR/STTR Phase I",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/small-business-innovation-research-small-business-technology",
+        "status": "planning",
+        "deadline": "2026-11-04; 84 days remaining as of 2026-08-12",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm the qualified small-business lead, SBIR versus STTR structure, ownership, subaward limits, and current Phase I requirements.",
+        "proposal_runway": "normal planning",
+        "proposal_runway_reason": "Normal planning runway after sponsor source and internal review checks.",
+        "score": 0.286,
+        "fit_level": "promising",
+        "matched_terms": [
+          "energy systems",
+          "thermal management"
+        ],
+        "next_action": "Route only when a specific company has a credible product hypothesis and requests a defined faculty or university role."
       }
     ]
   },
   {
     "faculty_name": "Min Zou",
-    "opportunity_count": 2,
+    "opportunity_count": 5,
     "priority_opportunities": [
       {
-        "program": "Computational and Data-Enabled Science and Engineering (CDS&E)",
-        "sponsor": "National Science Foundation",
-        "source_url": "https://www.nsf.gov/funding/opportunities/cdse-computational-data-enabled-science-engineering",
+        "program": "Samsung Global Research Outreach 2026",
+        "sponsor": "Samsung Electronics",
+        "source_url": "https://semiconductor.samsung.com/sait/event/global-research-outreach/",
+        "status": "soon",
+        "deadline": "2026-08-23; 11 days remaining as of 2026-08-12",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm the proposal portal timing, thermal-management theme wording, university agreement path, and non-confidential submission requirement before faculty outreach.",
+        "proposal_runway": "expedited go/no-go",
+        "proposal_runway_reason": "Public deadline is 11 days away; run a fast go/no-go before asking faculty for proposal work.",
+        "score": 0.143,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "advanced materials"
+        ],
+        "next_action": "Identify one device-level thermal-management concept and obtain a same-week UA agreement and research-development go or no-go decision."
+      },
+      {
+        "program": "FY 2026 Continuation Solicitation for the Office of Science Financial Assistance Program",
+        "sponsor": "U.S. Department of Energy Office of Science",
+        "source_url": "https://science.osti.gov/grants/FOAs/Open",
         "status": "planning",
-        "deadline": "2026-09-15; 34 days remaining as of 2026-08-12",
-        "outreach_readiness": "verify first",
-        "routing_gate": "Verify before concept-routing outreach.",
-        "source_recheck_required": true,
-        "source_recheck_by": "2026-06-25",
-        "source_recheck_days_overdue": 48,
-        "verification_focus": "Confirm the participating NSF divisions, September window, computational-science expectations, and whether the matched PI's topic belongs in CBET or CMMI.",
-        "proposal_runway": "verify before planning",
-        "proposal_runway_reason": "Sponsor source verification is stale; verify before faculty planning or watchlist forwarding.",
-        "score": 0.25,
+        "deadline": "2026-09-30; 49 days remaining as of 2026-08-12",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Identify the specific Office of Science program office, confirm the FOA remains open, and verify whether a pre-application is useful for the concept.",
+        "proposal_runway": "normal planning",
+        "proposal_runway_reason": "Normal planning runway after sponsor source and internal review checks.",
+        "score": 0.286,
         "fit_level": "promising",
         "matched_terms": [
           "manufacturing",
           "materials"
         ],
-        "next_action": "Identify projects where computation or data-enabled methods are the intellectual core, not only a tool layered onto another proposal."
+        "next_action": "Write a one-page concept mapped to a named Office of Science program before requesting a program-officer discussion."
       },
       {
-        "program": "FY26 SBIR/STTR Phase II Applications from FY26 Phase I Awards",
-        "sponsor": "U.S. Department of Energy Office of Science",
-        "source_url": "https://science.osti.gov/grants/FOAs/Open",
-        "status": "watch",
-        "deadline": "2026-12-17; 127 days remaining as of 2026-08-12",
-        "outreach_readiness": "verify first",
-        "routing_gate": "Verify before watchlist forwarding.",
-        "source_recheck_required": true,
-        "source_recheck_by": "2026-06-25",
-        "source_recheck_days_overdue": 48,
-        "verification_focus": "Confirm the Phase II eligibility rule, required small-business lead, current close date, and whether any matched faculty have qualified Phase I partners.",
-        "proposal_runway": "verify before planning",
-        "proposal_runway_reason": "Sponsor source verification is stale; verify before faculty planning or watchlist forwarding.",
+        "program": "Thermal Transport Processes",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/ttp-thermal-transport-processes",
+        "status": "accepted anytime",
+        "deadline": "Accepted anytime; no fixed deadline",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm the current Thermal Transport Processes scope, acceptance status, and directorate guidance before outreach.",
+        "proposal_runway": "standing program",
+        "proposal_runway_reason": "No fixed deadline; treat as a standing target after source verification and normal concept review.",
         "score": 0.125,
         "fit_level": "exploratory",
         "matched_terms": [
           "materials"
         ],
-        "next_action": "Forward only to faculty with eligible small-business partners that hold relevant FY26 Phase I awards."
+        "next_action": "Prepare a two-page fundamental thermal-transport concept that separates the scientific mechanism from its device or system application."
+      },
+      {
+        "program": "Transport Phenomena",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/transport-phenomena",
+        "status": "accepted anytime",
+        "deadline": "Accepted anytime; no fixed deadline",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm the current program description, proposal acceptance status, directorate fit, and whether a concept summary should precede contact.",
+        "proposal_runway": "standing program",
+        "proposal_runway_reason": "No fixed deadline; treat as a standing target after source verification and normal concept review.",
+        "score": 0.125,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "manufacturing"
+        ],
+        "next_action": "Use for a mature fundamental transport question with a clear mechanism, validation plan, and program-officer discussion target."
       }
     ]
   },
@@ -318,181 +418,277 @@
     "opportunity_count": 2,
     "priority_opportunities": [
       {
-        "program": "Astrophysics Explorers Program 2026 SMEX AO",
-        "sponsor": "NASA",
-        "source_url": "https://science.nasa.gov/researchers/sara/grant-solicitations/",
-        "status": "internal review overdue",
-        "deadline": "2026-09-09; 28 days remaining as of 2026-08-12",
-        "outreach_readiness": "outreach blocked",
-        "routing_gate": "Block faculty outreach until source and internal-review status are rechecked.",
-        "source_recheck_required": true,
-        "source_recheck_by": "2026-06-25",
-        "source_recheck_days_overdue": 48,
-        "verification_focus": "Confirm NOI, proposal, and mission-team requirements; verify whether UArk can play a credible role before routing to faculty.",
-        "proposal_runway": "blocked until gate cleared",
-        "proposal_runway_reason": "Outreach is blocked until source verification and internal review status are cleared.",
-        "score": 0.667,
-        "fit_level": "strong",
+        "program": "Unlocking the Potential of Data for AI-Enabled Scientific Discovery",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/ai-datasets-unlocking-dataset-value-ai-enabled-scientific-discovery/nsf26-512/solicitation",
+        "status": "planning",
+        "deadline": "2026-11-04; 84 days remaining as of 2026-08-12",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm track selection, dataset maturity, eligibility, data governance requirements, and the November 4 deadline in NSF 26-512.",
+        "proposal_runway": "normal planning",
+        "proposal_runway_reason": "Normal planning runway after sponsor source and internal review checks.",
+        "score": 0.125,
+        "fit_level": "exploratory",
         "matched_terms": [
-          "aerospace systems",
-          "mission design",
-          "nasa",
-          "systems engineering"
-        ],
-        "next_action": "Treat as a strategic aerospace/systems opportunity; verify NOI requirements and whether UArk has a realistic mission-team role."
-      },
-      {
-        "program": "ROSES-2025 Rapid Response and Novel Research in Earth Science",
-        "sponsor": "NASA",
-        "source_url": "https://simpler.grants.gov/opportunity/f412520b-5594-4ff2-ae51-9de1b8d8efef",
-        "status": "internal review overdue",
-        "deadline": "ROSES-25 close date; 19 days remaining as of 2026-08-12",
-        "outreach_readiness": "outreach blocked",
-        "routing_gate": "Block faculty outreach until source and internal-review status are rechecked.",
-        "source_recheck_required": true,
-        "source_recheck_by": "2026-06-25",
-        "source_recheck_days_overdue": 48,
-        "verification_focus": "Identify the specific ROSES element, confirm whether a rapid-response event or dataset is required, and verify that the close date is not being treated as a normal deadline.",
-        "proposal_runway": "blocked until gate cleared",
-        "proposal_runway_reason": "Outreach is blocked until source verification and internal review status are cleared.",
-        "score": 0.25,
-        "fit_level": "promising",
-        "matched_terms": [
-          "nasa",
           "sensing"
         ],
-        "next_action": "Read the specific ROSES element before contacting faculty; only forward if the rapid-response mechanism matches an active earth-science event or dataset."
-      }
-    ]
-  },
-  {
-    "faculty_name": "Paul Millett",
-    "opportunity_count": 1,
-    "priority_opportunities": [
+        "next_action": "Inventory an existing NED3 dataset, its rights and metadata gaps, intended user community, and the AI-enabled discovery question before assigning a proposal team."
+      },
       {
-        "program": "Computational and Data-Enabled Science and Engineering (CDS&E)",
+        "program": "Fluid Dynamics",
         "sponsor": "National Science Foundation",
-        "source_url": "https://www.nsf.gov/funding/opportunities/cdse-computational-data-enabled-science-engineering",
-        "status": "planning",
-        "deadline": "2026-09-15; 34 days remaining as of 2026-08-12",
-        "outreach_readiness": "verify first",
-        "routing_gate": "Verify before concept-routing outreach.",
-        "source_recheck_required": true,
-        "source_recheck_by": "2026-06-25",
-        "source_recheck_days_overdue": 48,
-        "verification_focus": "Confirm the participating NSF divisions, September window, computational-science expectations, and whether the matched PI's topic belongs in CBET or CMMI.",
-        "proposal_runway": "verify before planning",
-        "proposal_runway_reason": "Sponsor source verification is stale; verify before faculty planning or watchlist forwarding.",
-        "score": 0.25,
-        "fit_level": "promising",
+        "source_url": "https://www.nsf.gov/funding/opportunities/fluid-dynamics",
+        "status": "accepted anytime",
+        "deadline": "Accepted anytime; no fixed deadline",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm the Fluid Dynamics program status, scope, and appropriate program-officer contact route.",
+        "proposal_runway": "standing program",
+        "proposal_runway_reason": "No fixed deadline; treat as a standing target after source verification and normal concept review.",
+        "score": 0.125,
+        "fit_level": "exploratory",
         "matched_terms": [
-          "computational modeling",
-          "data-enabled science"
+          "sensing"
         ],
-        "next_action": "Identify projects where computation or data-enabled methods are the intellectual core, not only a tool layered onto another proposal."
+        "next_action": "Route only faculty with a defined fundamental fluid-mechanics hypothesis and experimental or computational validation plan."
       }
     ]
   },
   {
     "faculty_name": "Wan Shou",
-    "opportunity_count": 1,
+    "opportunity_count": 5,
     "priority_opportunities": [
       {
-        "program": "Computational and Data-Enabled Science and Engineering (CDS&E)",
-        "sponsor": "National Science Foundation",
-        "source_url": "https://www.nsf.gov/funding/opportunities/cdse-computational-data-enabled-science-engineering",
+        "program": "FY 2026 Continuation Solicitation for the Office of Science Financial Assistance Program",
+        "sponsor": "U.S. Department of Energy Office of Science",
+        "source_url": "https://science.osti.gov/grants/FOAs/Open",
         "status": "planning",
-        "deadline": "2026-09-15; 34 days remaining as of 2026-08-12",
-        "outreach_readiness": "verify first",
-        "routing_gate": "Verify before concept-routing outreach.",
-        "source_recheck_required": true,
-        "source_recheck_by": "2026-06-25",
-        "source_recheck_days_overdue": 48,
-        "verification_focus": "Confirm the participating NSF divisions, September window, computational-science expectations, and whether the matched PI's topic belongs in CBET or CMMI.",
-        "proposal_runway": "verify before planning",
-        "proposal_runway_reason": "Sponsor source verification is stale; verify before faculty planning or watchlist forwarding.",
+        "deadline": "2026-09-30; 49 days remaining as of 2026-08-12",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Identify the specific Office of Science program office, confirm the FOA remains open, and verify whether a pre-application is useful for the concept.",
+        "proposal_runway": "normal planning",
+        "proposal_runway_reason": "Normal planning runway after sponsor source and internal review checks.",
+        "score": 0.143,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "manufacturing"
+        ],
+        "next_action": "Write a one-page concept mapped to a named Office of Science program before requesting a program-officer discussion."
+      },
+      {
+        "program": "NSF SBIR/STTR Phase I",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/small-business-innovation-research-small-business-technology",
+        "status": "planning",
+        "deadline": "2026-11-04; 84 days remaining as of 2026-08-12",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm the qualified small-business lead, SBIR versus STTR structure, ownership, subaward limits, and current Phase I requirements.",
+        "proposal_runway": "normal planning",
+        "proposal_runway_reason": "Normal planning runway after sponsor source and internal review checks.",
+        "score": 0.143,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "advanced manufacturing"
+        ],
+        "next_action": "Route only when a specific company has a credible product hypothesis and requests a defined faculty or university role."
+      },
+      {
+        "program": "EPSCoR E-RISE and E-CORE Planning Proposals",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/dcl-planning-proposals-nsf-established-program-stimulate",
+        "status": "accepted anytime",
+        "deadline": "Accepted anytime; no fixed deadline",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm Arkansas EPSCoR jurisdiction, PAPPG planning-proposal rules, current DCL language, and the appropriate program contact.",
+        "proposal_runway": "standing program",
+        "proposal_runway_reason": "No fixed deadline; treat as a standing target after source verification and normal concept review.",
+        "score": 0.125,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "advanced manufacturing"
+        ],
+        "next_action": "Define a multi-institution infrastructure need, governance model, workforce plan, and eventual E-RISE or E-CORE logic before drafting."
+      },
+      {
+        "program": "Transport Phenomena",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/transport-phenomena",
+        "status": "accepted anytime",
+        "deadline": "Accepted anytime; no fixed deadline",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm the current program description, proposal acceptance status, directorate fit, and whether a concept summary should precede contact.",
+        "proposal_runway": "standing program",
+        "proposal_runway_reason": "No fixed deadline; treat as a standing target after source verification and normal concept review.",
         "score": 0.125,
         "fit_level": "exploratory",
         "matched_terms": [
           "manufacturing"
         ],
-        "next_action": "Identify projects where computation or data-enabled methods are the intellectual core, not only a tool layered onto another proposal."
+        "next_action": "Use for a mature fundamental transport question with a clear mechanism, validation plan, and program-officer discussion target."
       }
     ]
   },
   {
     "faculty_name": "Wenchao Zhou",
-    "opportunity_count": 2,
+    "opportunity_count": 7,
     "priority_opportunities": [
       {
-        "program": "Computational and Data-Enabled Science and Engineering (CDS&E)",
-        "sponsor": "National Science Foundation",
-        "source_url": "https://www.nsf.gov/funding/opportunities/cdse-computational-data-enabled-science-engineering",
+        "program": "FY 2026 Continuation Solicitation for the Office of Science Financial Assistance Program",
+        "sponsor": "U.S. Department of Energy Office of Science",
+        "source_url": "https://science.osti.gov/grants/FOAs/Open",
         "status": "planning",
-        "deadline": "2026-09-15; 34 days remaining as of 2026-08-12",
-        "outreach_readiness": "verify first",
-        "routing_gate": "Verify before concept-routing outreach.",
-        "source_recheck_required": true,
-        "source_recheck_by": "2026-06-25",
-        "source_recheck_days_overdue": 48,
-        "verification_focus": "Confirm the participating NSF divisions, September window, computational-science expectations, and whether the matched PI's topic belongs in CBET or CMMI.",
-        "proposal_runway": "verify before planning",
-        "proposal_runway_reason": "Sponsor source verification is stale; verify before faculty planning or watchlist forwarding.",
-        "score": 0.25,
+        "deadline": "2026-09-30; 49 days remaining as of 2026-08-12",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Identify the specific Office of Science program office, confirm the FOA remains open, and verify whether a pre-application is useful for the concept.",
+        "proposal_runway": "normal planning",
+        "proposal_runway_reason": "Normal planning runway after sponsor source and internal review checks.",
+        "score": 0.286,
         "fit_level": "promising",
         "matched_terms": [
           "manufacturing",
           "materials"
         ],
-        "next_action": "Identify projects where computation or data-enabled methods are the intellectual core, not only a tool layered onto another proposal."
+        "next_action": "Write a one-page concept mapped to a named Office of Science program before requesting a program-officer discussion."
       },
       {
-        "program": "FY26 SBIR/STTR Phase II Applications from FY26 Phase I Awards",
-        "sponsor": "U.S. Department of Energy Office of Science",
-        "source_url": "https://science.osti.gov/grants/FOAs/Open",
-        "status": "watch",
-        "deadline": "2026-12-17; 127 days remaining as of 2026-08-12",
-        "outreach_readiness": "verify first",
-        "routing_gate": "Verify before watchlist forwarding.",
-        "source_recheck_required": true,
-        "source_recheck_by": "2026-06-25",
-        "source_recheck_days_overdue": 48,
-        "verification_focus": "Confirm the Phase II eligibility rule, required small-business lead, current close date, and whether any matched faculty have qualified Phase I partners.",
-        "proposal_runway": "verify before planning",
-        "proposal_runway_reason": "Sponsor source verification is stale; verify before faculty planning or watchlist forwarding.",
-        "score": 0.125,
+        "program": "NSF SBIR/STTR Phase I",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/small-business-innovation-research-small-business-technology",
+        "status": "planning",
+        "deadline": "2026-11-04; 84 days remaining as of 2026-08-12",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm the qualified small-business lead, SBIR versus STTR structure, ownership, subaward limits, and current Phase I requirements.",
+        "proposal_runway": "normal planning",
+        "proposal_runway_reason": "Normal planning runway after sponsor source and internal review checks.",
+        "score": 0.143,
         "fit_level": "exploratory",
         "matched_terms": [
-          "materials"
+          "advanced manufacturing"
         ],
-        "next_action": "Forward only to faculty with eligible small-business partners that hold relevant FY26 Phase I awards."
+        "next_action": "Route only when a specific company has a credible product hypothesis and requests a defined faculty or university role."
+      },
+      {
+        "program": "Thermal Transport Processes",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/ttp-thermal-transport-processes",
+        "status": "accepted anytime",
+        "deadline": "Accepted anytime; no fixed deadline",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm the current Thermal Transport Processes scope, acceptance status, and directorate guidance before outreach.",
+        "proposal_runway": "standing program",
+        "proposal_runway_reason": "No fixed deadline; treat as a standing target after source verification and normal concept review.",
+        "score": 0.25,
+        "fit_level": "promising",
+        "matched_terms": [
+          "materials",
+          "modeling"
+        ],
+        "next_action": "Prepare a two-page fundamental thermal-transport concept that separates the scientific mechanism from its device or system application."
+      },
+      {
+        "program": "Transport Phenomena",
+        "sponsor": "National Science Foundation",
+        "source_url": "https://www.nsf.gov/funding/opportunities/transport-phenomena",
+        "status": "accepted anytime",
+        "deadline": "Accepted anytime; no fixed deadline",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm the current program description, proposal acceptance status, directorate fit, and whether a concept summary should precede contact.",
+        "proposal_runway": "standing program",
+        "proposal_runway_reason": "No fixed deadline; treat as a standing target after source verification and normal concept review.",
+        "score": 0.25,
+        "fit_level": "promising",
+        "matched_terms": [
+          "manufacturing",
+          "modeling"
+        ],
+        "next_action": "Use for a mature fundamental transport question with a clear mechanism, validation plan, and program-officer discussion target."
       }
     ]
   },
   {
     "faculty_name": "Xiangbo Meng",
-    "opportunity_count": 1,
+    "opportunity_count": 2,
     "priority_opportunities": [
       {
-        "program": "FY26 SBIR/STTR Phase II Applications from FY26 Phase I Awards",
-        "sponsor": "U.S. Department of Energy Office of Science",
-        "source_url": "https://science.osti.gov/grants/FOAs/Open",
-        "status": "watch",
-        "deadline": "2026-12-17; 127 days remaining as of 2026-08-12",
-        "outreach_readiness": "verify first",
-        "routing_gate": "Verify before watchlist forwarding.",
-        "source_recheck_required": true,
-        "source_recheck_by": "2026-06-25",
-        "source_recheck_days_overdue": 48,
-        "verification_focus": "Confirm the Phase II eligibility rule, required small-business lead, current close date, and whether any matched faculty have qualified Phase I partners.",
-        "proposal_runway": "verify before planning",
-        "proposal_runway_reason": "Sponsor source verification is stale; verify before faculty planning or watchlist forwarding.",
+        "program": "Samsung Global Research Outreach 2026",
+        "sponsor": "Samsung Electronics",
+        "source_url": "https://semiconductor.samsung.com/sait/event/global-research-outreach/",
+        "status": "soon",
+        "deadline": "2026-08-23; 11 days remaining as of 2026-08-12",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm the proposal portal timing, thermal-management theme wording, university agreement path, and non-confidential submission requirement before faculty outreach.",
+        "proposal_runway": "expedited go/no-go",
+        "proposal_runway_reason": "Public deadline is 11 days away; run a fast go/no-go before asking faculty for proposal work.",
+        "score": 0.143,
+        "fit_level": "exploratory",
+        "matched_terms": [
+          "advanced materials"
+        ],
+        "next_action": "Identify one device-level thermal-management concept and obtain a same-week UA agreement and research-development go or no-go decision."
+      },
+      {
+        "program": "CHIPS Research and Development Office Broad Agency Announcement",
+        "sponsor": "National Institute of Standards and Technology",
+        "source_url": "https://www.nist.gov/chips/chips-rd-funding-opportunities/crdo-broad-agency-announcement-baa",
+        "status": "rolling",
+        "deadline": "Rolling white papers through Sep 30 2029 unless amended; rolling while open",
+        "outreach_readiness": "ready after normal review",
+        "routing_gate": "Open for routing",
+        "source_recheck_required": false,
+        "source_recheck_by": "2026-08-26",
+        "source_recheck_days_overdue": 0,
+        "verification_focus": "Confirm BAA topic alignment, white-paper format, eligibility, current amendment status, and the invitation-only investment-application step.",
+        "proposal_runway": "standing program",
+        "proposal_runway_reason": "No fixed deadline; treat as a standing target after source verification and normal concept review.",
         "score": 0.125,
         "fit_level": "exploratory",
         "matched_terms": [
-          "energy"
+          "semiconductors"
         ],
-        "next_action": "Forward only to faculty with eligible small-business partners that hold relevant FY26 Phase I awards."
+        "next_action": "Develop a sponsor-facing one-page capability statement only after identifying a semiconductor R&D gap and an appropriate external partner path."
       }
     ]
   }

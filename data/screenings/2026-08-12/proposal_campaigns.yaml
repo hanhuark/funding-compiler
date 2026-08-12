@@ -1,0 +1,123 @@
+# Proposal-campaign metadata is local planning judgment, not sponsor evidence.
+records:
+  opp-samsung-gro-2026:
+    official_source_url: https://semiconductor.samsung.com/sait/event/global-research-outreach/
+    sponsor_evidence_scope: "2026 themes, August 23 UTC deadline, non-confidential submission condition, and university research agreement requirement."
+    eligibility_disposition: "institutional agreement confirmation required"
+    scientific_fit_disposition: "strong thermal-management theme signal; select one device-level mechanism and evidence plan"
+    meeg_lanes: [thermal-fluids, materials, energy-systems, diagnostics-ai]
+    campaign_status: "rapid go/no-go"
+    concept_owner: "Unassigned"
+    proposed_roles: [faculty PI, device thermal-management lead, UA agreement reviewer]
+    team_gap: "Need one sponsor-aligned research question, an agreement/IP review, and confirmation that no unpublished proprietary detail is needed."
+    next_decision: "By August 14, decide whether a ready-to-submit non-confidential thermal-management concept exists."
+  opp-doe-sc-continuation-2026:
+    official_source_url: https://science.osti.gov/grants/FOAs/Open
+    sponsor_evidence_scope: "Current continuation FOA status, named Office of Science program alignment, pre-application guidance, and eligibility."
+    eligibility_disposition: "institutional confirmation required"
+    scientific_fit_disposition: "manual named-program and scientific-centrality review required"
+    meeg_lanes: [energy-systems, thermal-fluids, materials, diagnostics-ai]
+    campaign_status: "scope confirmation"
+    concept_owner: "Unassigned"
+    proposed_roles: [faculty PI, Office of Science program contact, research-development reviewer]
+    team_gap: "Need a named Office of Science program and a scientific question it explicitly supports."
+    next_decision: "Do not form a proposal team until a program officer or current program text validates the topical home."
+  opp-nsf-ai-datasets-2026:
+    official_source_url: https://www.nsf.gov/funding/opportunities/ai-datasets-unlocking-dataset-value-ai-enabled-scientific-discovery/nsf26-512/solicitation
+    sponsor_evidence_scope: "NSF 26-512 track requirements, November 4 deadline, existing-dataset condition, governance, and community-use expectations."
+    eligibility_disposition: "institutional confirmation required"
+    scientific_fit_disposition: "strong only when an existing NED3 dataset supports a defined AI-enabled discovery use case"
+    meeg_lanes: [diagnostics-ai, thermal-fluids, energy-systems, data-infrastructure]
+    campaign_status: "concept shaping"
+    concept_owner: "Unassigned"
+    proposed_roles: [data steward, domain-science PI, AI methods lead, governance lead]
+    team_gap: "Need a verified existing dataset inventory, rights record, metadata plan, target user community, and durable governance owner."
+    next_decision: "By September 8, choose Planning, Impact, or Flagship only after an evidence-backed dataset readiness review."
+  opp-nsf-sbir-sttr-2026:
+    official_source_url: https://www.nsf.gov/funding/opportunities/small-business-innovation-research-small-business-technology
+    sponsor_evidence_scope: "NSF 26-510 company-lead eligibility, SBIR/STTR choice, commercialization requirements, and university role."
+    eligibility_disposition: "eligible only through qualified small-business lead"
+    scientific_fit_disposition: "manual company-product and faculty-role review required"
+    meeg_lanes: [energy-systems, thermal-fluids, diagnostics-ai, advanced-manufacturing]
+    campaign_status: "company-partner watch"
+    concept_owner: "Unassigned"
+    proposed_roles: [company PI, faculty technical collaborator, technology-transfer reviewer]
+    team_gap: "No qualified company lead, product hypothesis, commercialization plan, or negotiated university role is recorded."
+    next_decision: "Route only after a company asks for a scoped technical collaboration."
+  opp-dow-durip-2027:
+    official_source_url: https://www.grants.gov/search-results-detail/363379
+    sponsor_evidence_scope: "Current FY27 DURIP package, equipment rules, defense relevance, and institutional routing."
+    eligibility_disposition: "institutional confirmation required"
+    scientific_fit_disposition: "shared capability gap and enabled defense-relevant research must be evidenced"
+    meeg_lanes: [thermal-fluids, diagnostics-ai, materials, power-systems]
+    campaign_status: "capability-gap definition"
+    concept_owner: "Unassigned"
+    proposed_roles: [instrumentation lead, multi-user faculty group, research-development reviewer]
+    team_gap: "Need non-routine shared equipment, committed users, a utilization plan, and defensible defense relevance."
+    next_decision: "By September 10, compare one equipment capability against existing campus access and document the research it uniquely enables."
+  opp-nsf-transport-phenomena-2026:
+    official_source_url: https://www.nsf.gov/funding/opportunities/transport-phenomena
+    sponsor_evidence_scope: "Current core-program scope, acceptance-anytime status, directorate fit, and program-officer guidance."
+    eligibility_disposition: "institutional confirmation required"
+    scientific_fit_disposition: "manual fundamental transport contribution review required"
+    meeg_lanes: [thermal-fluids, energy-systems, advanced-manufacturing, materials]
+    campaign_status: "standing concept development"
+    concept_owner: "Unassigned"
+    proposed_roles: [faculty PI, experimental or computational validation lead]
+    team_gap: "Need a mature mechanism-focused research question rather than an application-only project."
+    next_decision: "Create a short concept and seek program-officer guidance before committing proposal-development time."
+  opp-nsf-thermal-transport-2026:
+    official_source_url: https://www.nsf.gov/funding/opportunities/ttp-thermal-transport-processes
+    sponsor_evidence_scope: "Current Thermal Transport Processes scope, acceptance-anytime status, and program-officer guidance."
+    eligibility_disposition: "institutional confirmation required"
+    scientific_fit_disposition: "manual fundamental thermal-transport contribution review required"
+    meeg_lanes: [thermal-fluids, energy-systems, materials, power-systems]
+    campaign_status: "standing concept development"
+    concept_owner: "Unassigned"
+    proposed_roles: [faculty PI, thermal-science lead, validation lead]
+    team_gap: "Need a separable mechanism hypothesis, state variables, and validation path beyond a device performance target."
+    next_decision: "Use this as an evergreen target after a concise mechanism-focused concept is ready."
+  opp-nsf-fluid-dynamics-2026:
+    official_source_url: https://www.nsf.gov/funding/opportunities/fluid-dynamics
+    sponsor_evidence_scope: "Current Fluid Dynamics scope, acceptance-anytime status, and program-officer guidance."
+    eligibility_disposition: "institutional confirmation required"
+    scientific_fit_disposition: "manual fundamental fluid-mechanics contribution review required"
+    meeg_lanes: [thermal-fluids, diagnostics-ai]
+    campaign_status: "standing concept development"
+    concept_owner: "Unassigned"
+    proposed_roles: [faculty PI, experiment or CFD lead, validation lead]
+    team_gap: "Need a central fluid-dynamics hypothesis; generic sensing or computation does not create a campaign."
+    next_decision: "Seek a program-officer fit check when a focused fluid-mechanics concept is mature."
+  opp-nsf-epscor-planning-2026:
+    official_source_url: https://www.nsf.gov/funding/opportunities/dcl-planning-proposals-nsf-established-program-stimulate
+    sponsor_evidence_scope: "Current planning DCL, Arkansas EPSCoR eligibility, PAPPG rules, and E-RISE/E-CORE planning intent."
+    eligibility_disposition: "EPSCoR jurisdiction and institutional confirmation required"
+    scientific_fit_disposition: "manual infrastructure need, collaboration logic, and workforce impact review required"
+    meeg_lanes: [energy-systems, advanced-manufacturing, diagnostics-ai, data-infrastructure]
+    campaign_status: "infrastructure concept formation"
+    concept_owner: "Unassigned"
+    proposed_roles: [multi-institution PI team, infrastructure lead, workforce lead, EPSCoR liaison]
+    team_gap: "Need an Arkansas-centered multi-institution capability gap, governance plan, partners, and a credible route to later infrastructure work."
+    next_decision: "Develop an infrastructure concept before requesting EPSCoR routing; no future competition is implied."
+  opp-nist-chips-crdo-baa-2026:
+    official_source_url: https://www.nist.gov/chips/chips-rd-funding-opportunities/crdo-broad-agency-announcement-baa
+    sponsor_evidence_scope: "Current BAA scope, amendment status, required white paper, eligibility, and invitation-only investment-application process."
+    eligibility_disposition: "eligibility and invitation-path confirmation required"
+    scientific_fit_disposition: "manual semiconductor R&D gap and partner-role review required"
+    meeg_lanes: [thermal-fluids, materials, advanced-manufacturing, power-systems]
+    campaign_status: "sponsor-fit screen"
+    concept_owner: "Unassigned"
+    proposed_roles: [semiconductor partner, faculty technical lead, research-development reviewer]
+    team_gap: "Need a defined semiconductor R&D gap, credible partner or customer signal, and a white-paper-ready capability statement."
+    next_decision: "Do not draft an investment application; first test a non-confidential white-paper concept against the BAA."
+  opp-doe-genesis-phaseii-2026:
+    official_source_url: https://science.osti.gov/grants/FOAs/Open
+    sponsor_evidence_scope: "Current Phase II listing, required Phase I lineage, company lead, deadline, and potential university subcontract role."
+    eligibility_disposition: "eligible only through qualified small-business Phase I awardee"
+    scientific_fit_disposition: "manual company-product and defined university-contribution review required"
+    meeg_lanes: [energy-systems, diagnostics-ai, thermal-fluids]
+    campaign_status: "company-partner watch"
+    concept_owner: "Unassigned"
+    proposed_roles: [company PI, faculty technical collaborator, university subcontract lead]
+    team_gap: "No eligible prior Phase I company or scoped faculty contribution is recorded."
+    next_decision: "Watch for a qualified company request; do not initiate as a university campaign."

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="318" viewBox="0 0 1120 318" role="img" aria-label="Funding opportunity timeline">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="24" y="28" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#1b2a32">Funding opportunity timeline as of 2026-08-12</text>
+<line x1="300" y1="32" x2="1000" y2="32" stroke="#cbd5dc" stroke-width="1"/>
+<text x="24" y="60" font-family="Arial, sans-serif" font-size="12" fill="#33444e">Samsung Global Research Outreach 2026</text>
+<rect x="300" y="44" width="60" height="18" rx="4" fill="#b7791f"/>
+<text x="368" y="58" font-family="Arial, sans-serif" font-size="12" fill="#33444e">2026-08-23 (11 days remaining as of 2026-08-12)</text>
+<text x="24" y="94" font-family="Arial, sans-serif" font-size="12" fill="#33444e">FY 2026 Continuation Solicitation for the </text>
+<rect x="300" y="78" width="270" height="18" rx="4" fill="#2563eb"/>
+<text x="578" y="92" font-family="Arial, sans-serif" font-size="12" fill="#33444e">2026-09-30 (49 days remaining as of 2026-08-12)</text>
+<text x="24" y="128" font-family="Arial, sans-serif" font-size="12" fill="#33444e">NSF SBIR/STTR Phase I</text>
+<rect x="300" y="112" width="462" height="18" rx="4" fill="#2563eb"/>
+<text x="770" y="126" font-family="Arial, sans-serif" font-size="12" fill="#33444e">2026-11-04 (84 days remaining as of 2026-08-12)</text>
+<text x="24" y="162" font-family="Arial, sans-serif" font-size="12" fill="#33444e">Unlocking the Potential of Data for AI-Ena</text>
+<rect x="300" y="146" width="462" height="18" rx="4" fill="#2563eb"/>
+<text x="770" y="160" font-family="Arial, sans-serif" font-size="12" fill="#33444e">2026-11-04 (84 days remaining as of 2026-08-12)</text>
+<text x="24" y="196" font-family="Arial, sans-serif" font-size="12" fill="#33444e">FY 2027 Defense University Research Instru</text>
+<rect x="300" y="180" width="474" height="18" rx="4" fill="#2563eb"/>
+<text x="782" y="194" font-family="Arial, sans-serif" font-size="12" fill="#33444e">2026-11-06 (86 days remaining as of 2026-08-12)</text>
+<text x="24" y="230" font-family="Arial, sans-serif" font-size="12" fill="#33444e">The Genesis Mission FY 2026 SBIR Phase II</text>
+<rect x="300" y="214" width="700" height="18" rx="4" fill="#0f766e"/>
+<text x="1008" y="228" font-family="Arial, sans-serif" font-size="12" fill="#33444e">2026-12-17 (127 days remaining as of 2026-08-12)</text>
+<text x="24" y="272" font-family="Arial, sans-serif" font-size="12" fill="#61717b">Rolling and accepted-anytime items are tracked in the action table instead of shown as fixed deadline bars.</text>
+</svg>

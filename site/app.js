@@ -148,6 +148,19 @@ function renderScreeningSummary() {
   setText("#do-not-start-count", summary.do_not_start_count);
   setText("#source-recheck-count", summary.source_recheck_count);
   setText("#urgent-action-count", summary.urgent_action_count);
+  const screeningTitle = document.querySelector("#screening-title");
+  if (screeningTitle && summary.snapshot_date) {
+    const dateLabel = new Date(`${summary.snapshot_date}T12:00:00`).toLocaleDateString(
+      "en-US",
+      { month: "long", day: "numeric", year: "numeric" },
+    );
+    screeningTitle.textContent = `${dateLabel} faculty action inbox`;
+  }
+  document.querySelectorAll("[data-screening-link]").forEach((link) => {
+    if (summary.report_url) {
+      link.href = summary.report_url;
+    }
+  });
   setText(
     "#screening-as-of",
     `Public sponsor pages checked on ${summary.snapshot_date}. Action status refreshed on ${summary.refreshed_on}.`,

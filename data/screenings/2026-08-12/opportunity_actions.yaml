@@ -1,0 +1,117 @@
+snapshot_date: "2026-08-12"
+records:
+  opp-samsung-gro-2026:
+    deadline_type: fixed
+    verified_on: "2026-08-12"
+    source_recheck_owner: Research development lead
+    source_recheck_by: "2026-08-26"
+    source_recheck_focus: Confirm the proposal portal timing, thermal-management theme wording, university agreement path, and non-confidential submission requirement before faculty outreach.
+    internal_review_by: "2026-08-14"
+    decision_stage: rapid go/no-go
+    next_action: Identify one device-level thermal-management concept and obtain a same-week UA agreement and research-development go or no-go decision.
+    risk_notes: Eleven-day runway. Do not disclose unpublished invention details or submit until the research agreement and IP implications are reviewed.
+  opp-doe-sc-continuation-2026:
+    deadline_type: fixed
+    verified_on: "2026-08-12"
+    source_recheck_owner: Research development lead
+    source_recheck_by: "2026-08-26"
+    source_recheck_focus: Identify the specific Office of Science program office, confirm the FOA remains open, and verify whether a pre-application is useful for the concept.
+    internal_review_by: "2026-09-01"
+    decision_stage: scope confirmation
+    next_action: Write a one-page concept mapped to a named Office of Science program before requesting a program-officer discussion.
+    risk_notes: The continuation listing is not a topic match by itself; program-level scientific scope controls.
+  opp-nsf-ai-datasets-2026:
+    deadline_type: fixed
+    verified_on: "2026-08-12"
+    source_recheck_owner: Data stewardship lead
+    source_recheck_by: "2026-08-26"
+    source_recheck_focus: Confirm track selection, dataset maturity, eligibility, data governance requirements, and the November 4 deadline in NSF 26-512.
+    internal_review_by: "2026-09-08"
+    decision_stage: concept shaping
+    next_action: Inventory an existing NED3 dataset, its rights and metadata gaps, intended user community, and the AI-enabled discovery question before assigning a proposal team.
+    risk_notes: A planned dataset is insufficient; the call requires a defensible existing-data asset, governance, and reuse pathway.
+  opp-nsf-sbir-sttr-2026:
+    deadline_type: fixed
+    verified_on: "2026-08-12"
+    source_recheck_owner: Innovation partnerships lead
+    source_recheck_by: "2026-08-26"
+    source_recheck_focus: Confirm the qualified small-business lead, SBIR versus STTR structure, ownership, subaward limits, and current Phase I requirements.
+    internal_review_by: "2026-09-08"
+    decision_stage: company-partner screen
+    next_action: Route only when a specific company has a credible product hypothesis and requests a defined faculty or university role.
+    risk_notes: Not a university-led route; company ownership, effort, and IP terms require UA review.
+  opp-dow-durip-2027:
+    deadline_type: fixed
+    verified_on: "2026-08-12"
+    source_recheck_owner: Research development lead
+    source_recheck_by: "2026-08-26"
+    source_recheck_focus: Confirm the Grants.gov package, defense relevance, current equipment rules, and institutional submission routing.
+    internal_review_by: "2026-09-10"
+    decision_stage: capability-gap definition
+    next_action: Convene prospective users around one non-routine shared instrumentation gap, usage commitments, and a defensible defense-research rationale.
+    risk_notes: Equipment narrative must establish enabled research and shared demand, not merely list desired purchases.
+  opp-nsf-transport-phenomena-2026:
+    deadline_type: accepted_anytime
+    display_deadline: Accepted anytime
+    verified_on: "2026-08-12"
+    source_recheck_owner: Research development lead
+    source_recheck_by: "2026-08-26"
+    source_recheck_focus: Confirm the current program description, proposal acceptance status, directorate fit, and whether a concept summary should precede contact.
+    internal_review_by: ""
+    decision_stage: standing concept development
+    next_action: Use for a mature fundamental transport question with a clear mechanism, validation plan, and program-officer discussion target.
+    risk_notes: An application-driven project needs a central transport-science contribution.
+  opp-nsf-thermal-transport-2026:
+    deadline_type: accepted_anytime
+    display_deadline: Accepted anytime
+    verified_on: "2026-08-12"
+    source_recheck_owner: Research development lead
+    source_recheck_by: "2026-08-26"
+    source_recheck_focus: Confirm the current Thermal Transport Processes scope, acceptance status, and directorate guidance before outreach.
+    internal_review_by: ""
+    decision_stage: standing concept development
+    next_action: Prepare a two-page fundamental thermal-transport concept that separates the scientific mechanism from its device or system application.
+    risk_notes: Broad thermal keywords do not establish program fit without a fundamental transport question.
+  opp-nsf-fluid-dynamics-2026:
+    deadline_type: accepted_anytime
+    display_deadline: Accepted anytime
+    verified_on: "2026-08-12"
+    source_recheck_owner: Research development lead
+    source_recheck_by: "2026-08-26"
+    source_recheck_focus: Confirm the Fluid Dynamics program status, scope, and appropriate program-officer contact route.
+    internal_review_by: ""
+    decision_stage: standing concept development
+    next_action: Route only faculty with a defined fundamental fluid-mechanics hypothesis and experimental or computational validation plan.
+    risk_notes: Generic sensing or CFD use is not enough without a central fluid-dynamics contribution.
+  opp-nsf-epscor-planning-2026:
+    deadline_type: accepted_anytime
+    display_deadline: Accepted anytime
+    verified_on: "2026-08-12"
+    source_recheck_owner: EPSCoR liaison
+    source_recheck_by: "2026-08-26"
+    source_recheck_focus: Confirm Arkansas EPSCoR jurisdiction, PAPPG planning-proposal rules, current DCL language, and the appropriate program contact.
+    internal_review_by: ""
+    decision_stage: infrastructure concept formation
+    next_action: Define a multi-institution infrastructure need, governance model, workforce plan, and eventual E-RISE or E-CORE logic before drafting.
+    risk_notes: Planning proposals are not a promise of a later competition or an award; state the infrastructure and collaboration need precisely.
+  opp-nist-chips-crdo-baa-2026:
+    deadline_type: rolling
+    display_deadline: Rolling white papers through Sep 30 2029 unless amended
+    verified_on: "2026-08-12"
+    source_recheck_owner: Research development and industry partnerships leads
+    source_recheck_by: "2026-08-26"
+    source_recheck_focus: Confirm BAA topic alignment, white-paper format, eligibility, current amendment status, and the invitation-only investment-application step.
+    internal_review_by: ""
+    decision_stage: sponsor-fit screen
+    next_action: Develop a sponsor-facing one-page capability statement only after identifying a semiconductor R&D gap and an appropriate external partner path.
+    risk_notes: A white paper is required and does not guarantee invitation; do not treat this as an open full-proposal competition.
+  opp-doe-genesis-phaseii-2026:
+    deadline_type: fixed
+    verified_on: "2026-08-12"
+    source_recheck_owner: Innovation partnerships lead
+    source_recheck_by: "2026-08-26"
+    source_recheck_focus: Confirm the Phase I award lineage, company lead eligibility, Phase II package requirements, and any university subcontract role.
+    internal_review_by: "2026-09-15"
+    decision_stage: company-partner watch
+    next_action: Keep as a watch item until an eligible Phase I company requests a concrete technical collaboration.
+    risk_notes: University faculty cannot lead without the required qualified small-business Phase I lineage.
