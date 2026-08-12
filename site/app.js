@@ -59,8 +59,10 @@ function fundingCard(source) {
       <span class="pill ${categoryClass}">${source.category}</span>
     </header>
     <p>${source.notes}</p>
+    <p class="source-meta"><strong>Access:</strong> ${source.access} <span aria-hidden="true">|</span> <strong>Recheck:</strong> ${source.refresh_hint}</p>
     <div class="tags">
-      ${source.focus_areas.slice(0, 5).map((tag) => `<span class="tag">${tag}</span>`).join("")}
+      ${source.opportunity_types.slice(0, 2).map((tag) => `<span class="tag">${tag}</span>`).join("")}
+      ${source.focus_areas.slice(0, 3).map((tag) => `<span class="tag">${tag}</span>`).join("")}
     </div>
     <a class="card-link" href="${source.url}">Open source</a>
   `;

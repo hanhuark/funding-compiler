@@ -72,6 +72,8 @@ python tools/generate_screening_report.py
 - `docs/` - Architecture, data schema, and reporting workflow notes.
 - `tests/` - Unit tests for loaders, matching, and reports.
 
+The registry includes open public portals and relationship-gated pathways. `access`, `refresh_hint`, and source notes identify when a route requires a concept paper, membership, an industry partner, a letter of inquiry, or institutional routing. They are discovery guidance, not a claim that a call is currently open.
+
 ## Current Matching Method
 
 The MVP uses a readable scoring method:

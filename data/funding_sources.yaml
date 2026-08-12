@@ -251,3 +251,157 @@ sources:
     focus_areas: [university-industry collaboration, corporate engagement, research partnerships]
     refresh_hint: monthly
     notes: Track as an industry-partnership intelligence source rather than a standard grant portal.
+
+  - id: nist-funding-opportunities
+    name: NIST Funding Opportunities
+    category: federal
+    sponsor_type: federal agency
+    url: https://www.nist.gov/oam/funding-opportunities
+    access: public
+    opportunity_types: [NOFO, cooperative agreement, precision measurement grant, Manufacturing USA project, SBIR]
+    focus_areas: [measurement science, thermal metrology, manufacturing, standards, semiconductors, energy efficiency]
+    refresh_hint: monthly
+    notes: NIST lists funding and Manufacturing USA pathways, but Grants.gov and the controlling NOFO remain authoritative for active competitions.
+
+  - id: nist-chips-rd
+    name: NIST CHIPS R&D Funding Opportunities
+    category: federal
+    sponsor_type: federal agency
+    url: https://www.nist.gov/chips/chips-rd-funding-opportunities
+    access: public
+    opportunity_types: [broad agency announcement, research and development funding, commercialization pathway, SBIR]
+    focus_areas: [semiconductors, advanced packaging, thermal management, metrology, manufacturing, AI]
+    refresh_hint: weekly
+    notes: Track CHIPS R&D notices and rolling BAA conditions; confirm applicant role, budget scale, and commercial-viability requirements before routing.
+
+  - id: nsf-entrepreneurial-researchers-tip
+    name: NSF Entrepreneurial Researchers and TIP Pathways
+    category: startup and commercialization
+    sponsor_type: federal agency
+    url: https://www.nsf.gov/funding/entrepreneurs
+    access: public
+    opportunity_types: [I-Corps, SBIR, STTR, entrepreneurial fellowship, convergence accelerator]
+    focus_areas: [startups, technology transfer, university-industry collaboration, commercialization, deep tech]
+    refresh_hint: monthly
+    notes: Added for the requested DIPS pathway, interpreted here as NSF Directorate for Technology, Innovation and Partnerships (TIP) entrepreneurial-research support. Confirm the applicable program and applicant type before action.
+
+  - id: samsung-global-research-outreach
+    name: Samsung Global Research Outreach
+    category: industry partnership
+    sponsor_type: company
+    url: https://semiconductor.samsung.com/sait/event/global-research-outreach/
+    access: public
+    opportunity_types: [sponsored research, university collaboration, annual research call]
+    focus_areas: [semiconductors, electronics, AI, materials, devices, manufacturing]
+    refresh_hint: monthly
+    notes: University proposals and multi-university collaborations may be accepted when a current GRO call is open. Confirm current topics, institutional agreement terms, publication, and IP conditions.
+
+  - id: sony-research-award
+    name: Sony Research Award Program
+    category: industry partnership
+    sponsor_type: company
+    url: https://www.sony.com/SonyInfo/research-award-program/
+    access: public
+    opportunity_types: [faculty innovation award, focused research award, sponsored research]
+    focus_areas: [AI, sensing, robotics, imaging, materials, devices, entertainment technology]
+    refresh_hint: monthly
+    notes: Track the Faculty Innovation and Focused Research Award windows. A selected project requires a sponsored-research agreement, so route through university contracting before any commitment.
+
+  - id: poweramerica-rfp
+    name: PowerAmerica Project Calls
+    category: consortium
+    sponsor_type: Manufacturing USA institute
+    url: https://poweramericainstitute.org/2025-request-for-proposals/
+    access: membership or public call
+    opportunity_types: [RFP, concept paper, university project, member initiated project]
+    focus_areas: [wide-bandgap semiconductors, SiC, GaN, power electronics, thermal management, manufacturing]
+    refresh_hint: monthly
+    notes: Track RFP and member-initiated-project routes. Calls may require concept-paper encouragement, membership, cost match, student participation, or industry partners.
+
+  - id: semiconductor-research-corporation
+    name: Semiconductor Research Corporation Global Research Collaboration
+    category: consortium
+    sponsor_type: industry consortium
+    url: https://www.src.org/
+    access: relationship-based
+    opportunity_types: [university research program, pre-competitive research collaboration, industry research network]
+    focus_areas: [semiconductor design, manufacturing, packaging, materials, thermal management, electronics]
+    refresh_hint: monthly
+    notes: SRC supports pre-competitive university research through its research programs. Treat this as a relationship and program-fit pathway; verify current topic calls, membership, and university participation rules.
+
+  - id: walton-family-foundation-grant-proposals
+    name: Walton Family Foundation Grant Proposals
+    category: foundation
+    sponsor_type: private foundation
+    url: https://www.waltonfamilyfoundation.org/grants/grant-proposals
+    access: letter of inquiry or invitation
+    opportunity_types: [foundation grant, letter of inquiry, invited proposal]
+    focus_areas: [northwest Arkansas, environment, education, community, economic opportunity]
+    refresh_hint: quarterly
+    notes: The foundation generally does not accept unsolicited full proposals. Start with a brief letter of inquiry aligned to a current funding area; do not route as an open technical-research call without foundation interest.
+
+  - id: nsf-early-career-researchers
+    name: NSF Early-Career Researchers Funding Hub
+    category: early career
+    sponsor_type: federal agency
+    url: https://www.nsf.gov/funding/early-career-researchers
+    access: public
+    opportunity_types: [CAREER, engineering research initiation, EAGER, research initiation, EPSCoR research fellows]
+    focus_areas: [junior faculty, early career, engineering, research initiation, education integration]
+    refresh_hint: monthly
+    notes: Curated NSF entry point for early-career opportunities. Program eligibility, institution classification, and annual deadlines vary; use the linked solicitation before planning.
+
+  - id: doe-office-science-early-career
+    name: DOE Office of Science Early Career Research Program
+    category: early career
+    sponsor_type: federal agency
+    url: https://www.energy.gov/science/articles/department-energy-announces-early-career-research-program-2026
+    access: public
+    opportunity_types: [early career research award]
+    focus_areas: [energy sciences, materials, computing, thermal fluids, early career, national laboratories]
+    refresh_hint: monthly
+    notes: Annual Office of Science pathway for exceptional early-career researchers. Confirm the current announcement, eligibility date, SC program office, and pre-application requirements.
+
+  - id: darpa-young-faculty-award
+    name: DARPA Young Faculty Award
+    category: early career
+    sponsor_type: federal agency
+    url: https://www.darpa.mil/work-with-us/communities/academia/yfa-participants
+    access: public
+    opportunity_types: [young faculty award, research announcement, defense research]
+    focus_areas: [junior faculty, high-risk research, national security, AI, materials, systems]
+    refresh_hint: monthly
+    notes: DARPA indicates that the annual YFA announcement typically appears in Grants.gov and SAM.gov in late summer. Confirm the current research announcement and security or citizenship constraints.
+
+  - id: afosr-young-investigator
+    name: AFOSR Young Investigator Research Program
+    category: early career
+    sponsor_type: federal agency
+    url: https://www.afrl.af.mil/About-Us/Fact-Sheets/Fact-Sheet-Display/Article/2282106/afosr-funding-opportunities-additional-programs/
+    access: public
+    opportunity_types: [young investigator program, basic research award]
+    focus_areas: [early career, aerospace, materials, thermal sciences, sensing, autonomy, basic research]
+    refresh_hint: monthly
+    notes: Monitor the current AFOSR announcement on Grants.gov. Eligibility includes appointment, degree-timing, and citizenship or residency conditions that must be checked against the active call.
+
+  - id: nsf-epscor
+    name: NSF EPSCoR Funding Opportunities
+    category: EPSCoR
+    sponsor_type: federal agency
+    url: https://www.nsf.gov/funding/initiatives/epscor
+    access: public
+    opportunity_types: [research infrastructure improvement, research fellows, research incubators, collaborative capacity building]
+    focus_areas: [Arkansas, EPSCoR jurisdiction, research capacity, infrastructure, collaboration, workforce]
+    refresh_hint: monthly
+    notes: Arkansas is an EPSCoR jurisdiction. Track the official EPSCoR portfolio and confirm solicitation-specific jurisdiction, institutional, collaboration, and cost-share requirements.
+
+  - id: uark-epscor-and-research-routing
+    name: University of Arkansas EPSCoR and Proposal Routing Resources
+    category: EPSCoR
+    sponsor_type: university
+    url: https://research.uark.edu/apply/
+    access: institutional
+    opportunity_types: [internal routing, limited submission, EPSCoR coordination, proposal support]
+    focus_areas: [Arkansas EPSCoR, E-CORE, E-RISE, proposal routing, startup collaboration, university compliance]
+    refresh_hint: monthly
+    notes: Use this alongside the official NSF EPSCoR page. UA routing, available state opportunities, and E-CORE or E-RISE eligibility must be confirmed with the appropriate university or Arkansas partner office.

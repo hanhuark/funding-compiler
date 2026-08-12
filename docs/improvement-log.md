@@ -26,6 +26,18 @@ This log supports the recurring faculty-perspective improvement workflow. Each r
 
 - Generated artifacts should be refreshed with a fixed `FUNDING_COMPILER_TODAY` value for reproducible tests, then with the current date for operational use.
 
+## 2026-08-12 - MEEG source-registry expansion
+
+### Faculty-Perspective Need
+
+- The initial registry did not adequately cover metrology and semiconductor pathways, startup and university-industry translation, company-sponsored research, consortia, invitation-oriented foundations, early-career programs, or the Arkansas EPSCoR pathway.
+
+### Changes Made
+
+- Added NIST and CHIPS R&D, NSF entrepreneurial/TIP pathways, Samsung GRO, Sony Research Awards, PowerAmerica, SRC, Walton Family Foundation, NSF and DOE early-career hubs, DARPA and AFOSR early-career paths, and NSF/UA EPSCoR routing sources.
+- Preserved relationship or invitation constraints as structured `access` values and exposed access plus expected source-recheck cadence in the dashboard cards.
+- Interpreted the request for `DIPS` as the NSF TIP entrepreneurial-research pathway because no unambiguous current federal funding program named DIPS was identified; the registry notes that interpretation explicitly.
+
 ## 2026-07-20 - Day 7
 
 ### Comparison With Prior Run

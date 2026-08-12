@@ -223,6 +223,11 @@ h3 {
   color: var(--muted);
 }
 
+.card .source-meta {
+  color: #40515a;
+  font-size: 12px;
+}
+
 .toolbar {
   display: grid;
   grid-template-columns: minmax(220px, 1fr) minmax(180px, 260px);
