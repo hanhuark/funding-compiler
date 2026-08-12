@@ -16,7 +16,7 @@ The MVP accepts CSV and YAML files. CSV files should use the headers below.
 | `topic_summary` | Short description of the opportunity. |
 | `keywords` | Semicolon-delimited keywords. |
 | `source_url` | Source page or announcement URL. |
-| `notes` | Optional internal notes. |
+| `notes` | Public curation notes only in this repository. |
 
 ## Screening Action Metadata
 
@@ -77,10 +77,12 @@ The generated campaign board automatically blocks a campaign when sponsor-source
 | `institution` | Institution name. |
 | `research_interests` | Short research interest summary. |
 | `capabilities` | Methods, tools, or technical capabilities. |
-| `facilities` | Labs, equipment, or unique infrastructure. |
+| `facilities` | Publicly described labs, equipment, or infrastructure only; leave blank rather than inferring or requesting protected details. |
 | `keywords` | Semicolon-delimited expertise tags. |
 | `profile_url` | Public faculty profile URL. |
-| `evidence` | Optional evidence snippet from profiles, papers, or awards. |
+| `evidence` | Optional public evidence snippet from profiles, papers, or awards. |
+
+The public repository must contain public information only. Protected inputs can be used only in a private fork under the ignored `data/private/` path, and their derived reports must remain local. See `docs/private-local-workflow.md`.
 
 ## Faculty Sources
 

@@ -1,6 +1,6 @@
 # funding-compiler
 
-`funding-compiler` is a starter toolkit for compiling funding opportunities, summarizing faculty research capabilities, and aligning opportunities with faculty members who may be interested in leading or joining proposals.
+`funding-compiler` is a public-information toolkit for compiling funding opportunities, summarizing publicly available faculty research capabilities, and identifying screening-level proposal leads.
 
 The first version is intentionally transparent: local CSV data, a Python CLI, simple matching logic, tests, and Markdown reports that can be converted into one-pagers, detailed reports, slides, or dashboards later.
 
@@ -11,7 +11,7 @@ Latest screening report: https://hanhuark.github.io/funding-compiler/screenings/
 ## What It Does
 
 1. **Compile funding opportunities** from federal agencies, state agencies, foundations, and private companies. Examples include RFPs, NOFOs, FOAs, solicitations, prize calls, and recurring programs.
-2. **Summarize faculty capabilities** for a department, including research interests, methods, facilities, keywords, and profile links.
+2. **Summarize public faculty evidence** from directories, profiles, lab websites, publications, and other public sources.
 3. **Align opportunities with faculty** using a transparent keyword-overlap baseline that produces ranked matches and rationale text.
 4. **Gate proposal campaigns** with explicit sponsor-evidence scope, MEEG planning lanes, eligibility and scientific-fit review states, team gaps, and next decisions.
 
@@ -61,12 +61,19 @@ python tools/generate_screening_report.py
 
 Maintainers can also use **Run screening** on the deployed dashboard. It opens the repository's manual GitHub Actions workflow, which regenerates the curated screening artifacts, commits only changed outputs, and triggers the Pages deployment. It does not fetch sponsor portals or bypass source verification; sponsor records must still be curated or rechecked before outreach.
 
+## Public Data Boundary
+
+The public repository and GitHub Pages site use only public sponsor records and public faculty or lab evidence. They are not a request for private or protected information. Do not add unpublished projects, nonpublic facility or equipment details, proposal drafts, partner information, student records, controlled data, credentials, or sponsor-restricted material to this repository, an issue, a pull request, or the public site.
+
+For a personalized search, fork this repository, make the fork private, and keep any protected inputs in the ignored `data/private/` directory. Generate and inspect the personalized dashboard only on a local host; do not push or deploy those inputs or their derived outputs. The full workflow and a sanitized input template are in [docs/private-local-workflow.md](docs/private-local-workflow.md).
+
 ## Repository Layout
 
 - `src/funding_compiler/` - Python package and CLI.
 - `site/` - Static GitHub Pages dashboard.
 - `data/funding_sources.yaml` - Curated registry of funding portals and discovery sources.
-- `data/uark_meeg_faculty_sources.yaml` - Seed registry for UArk MEEG faculty directories, profiles, and lab sites.
+- `data/uark_meeg_faculty_sources.yaml` - Public-source registry for UArk MEEG faculty directories, profiles, and lab sites.
+- `data/private/` - Ignored local-only directory for protected personalization inputs in a private fork; never publish its contents or derived outputs.
 - `data/screenings/*/opportunity_actions.yaml` - Curated action metadata for deadline semantics, internal review dates, next actions, and risk notes.
 - `data/screenings/*/proposal_campaigns.yaml` - Local campaign judgments that separate sponsor evidence, eligibility, scientific fit, team gaps, and proposal decisions.
 - `site/data/screening_summary.json`, `site/data/faculty_action_summary.json`, and `site/data/source_recheck_queue.json` - Generated dashboard data for current screening, per-faculty opportunity briefs, and source-recheck operations.
@@ -85,7 +92,7 @@ The MVP uses a readable scoring method:
 - compute an overlap score from 0 to 1;
 - generate rationale from matched terms.
 
-This baseline is easy to audit, but it is only screening evidence. It does not establish scientific centrality, sponsor eligibility, team commitment, or faculty availability. The campaign board makes those gates explicit and can later be extended with semantic retrieval, sponsor-specific rules, and private human-review workflows.
+This baseline is easy to audit, but it is only screening evidence. It does not establish scientific centrality, sponsor eligibility, team commitment, or faculty availability. The campaign board makes those gates explicit. A private fork may add protected, user-controlled inputs for a local personalized search, but that data must not be pushed or deployed.
 
 ## Planned Extensions
 

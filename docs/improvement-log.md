@@ -2,6 +2,19 @@
 
 This log supports the recurring faculty-perspective improvement workflow. Each run should compare its critique against the prior entry; repeated concerns mean the previous implementation was not deep enough.
 
+## 2026-08-12 - Public-data boundary and private local personalization
+
+### Faculty-Perspective Critique
+
+- A public opportunity-matching site should not create pressure for faculty to reveal unpublished projects, equipment inventories, facility constraints, partner relationships, student information, or other protected inputs just to receive a stronger match.
+- The public product boundary and the private personalization path need to be explicit; calling a workflow "private" without a local-only operating procedure is not a sufficient safeguard.
+
+### Changes Made
+
+- Defined the public dashboard and repository as a public-information screening tool in the homepage, README, faculty-intake guidance, and data schemas.
+- Added ignored local-only paths for protected inputs and outputs, a sanitized example profile, and a private-fork workflow that uses a local host and pre-commit checks.
+- Documented that protected inputs and their derived outputs must not be pushed, deployed, or passed through GitHub Actions.
+
 ## 2026-08-12 - Current opportunity screening and latest-page repair
 
 ### Comparison With Prior Run

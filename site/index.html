@@ -15,6 +15,7 @@
     </div>
     <nav aria-label="Primary navigation">
       <a href="#workflow">Workflow</a>
+      <a href="#data-boundary">Data Boundary</a>
       <a href="#campaigns">Campaign Board</a>
       <a href="#sources">Funding Sources</a>
       <a href="#faculty">Faculty Sources</a>
@@ -29,7 +30,7 @@
         <p class="eyebrow">UArk MEEG seed registry</p>
         <h2 id="overview-title">Compile opportunities, profile expertise, and find proposal matches.</h2>
         <p>
-          A MEEG proposal-planning workspace that separates sponsor evidence, screening-level faculty matches, eligibility gates, and team-readiness decisions.
+          A public-information MEEG proposal-planning workspace that separates sponsor evidence, screening-level faculty matches, eligibility gates, and team-readiness decisions.
         </p>
       </div>
       <div class="metrics" aria-label="Registry summary">
@@ -130,6 +131,32 @@
       </div>
     </section>
 
+    <section id="data-boundary" class="panel data-boundary" aria-labelledby="data-boundary-title">
+      <div class="section-heading">
+        <p class="eyebrow">Data Boundary</p>
+        <h2 id="data-boundary-title">Public screening here. Private personalization stays local.</h2>
+        <p class="section-note">This public dashboard uses public sponsor records and public faculty or lab evidence only. It does not collect or request protected information.</p>
+      </div>
+      <div class="flow">
+        <article>
+          <span>01</span>
+          <h3>Use Public Evidence</h3>
+          <p>Screen public calls against public profiles, lab sites, publications, and other public research statements.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Keep Protected Inputs Out</h3>
+          <p>Do not submit unpublished projects, facility details, equipment inventories, student data, partner information, or proposal materials here.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Personalize Privately</h3>
+          <p>Fork the repository, make the fork private, place protected inputs in the ignored local directory, and run the dashboard only on localhost.</p>
+        </article>
+      </div>
+      <p class="section-note"><a href="https://github.com/hanhuark/funding-compiler/blob/main/docs/private-local-workflow.md">Private-fork and local-host workflow</a></p>
+    </section>
+
     <section id="campaigns" class="panel" aria-labelledby="campaigns-title">
       <div class="section-heading">
         <p class="eyebrow">Proposal Campaigns</p>
@@ -183,7 +210,7 @@
   </main>
 
   <footer>
-    <p>Static preview for the funding-compiler repository. Data comes from the repo's curated registries.</p>
+    <p>Static preview for the public funding-compiler repository. Data comes from curated public registries and public faculty or lab sources.</p>
   </footer>
 
   <script src="app.js"></script>

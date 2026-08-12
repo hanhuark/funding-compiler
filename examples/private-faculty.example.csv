@@ -1,0 +1,2 @@
+id,name,title,department,institution,research_interests,capabilities,facilities,keywords,profile_url,evidence
+example-private-profile,Example Faculty,Professor,Mechanical Engineering,Example University,"Replace with the minimum authorized research summary","Replace with authorized methods or capabilities","Replace only with authorized nonpublic infrastructure details","thermal management; data center cooling",,Local-only example. Do not commit protected data.

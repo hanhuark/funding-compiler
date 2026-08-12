@@ -9,3 +9,9 @@ build/
 *.egg-info/
 outputs/
 .env
+
+# Local-only personalization inputs and rendered outputs. Never add protected
+# project, equipment, facility, student, or partner information to the public repo.
+data/private/
+site/private/
+docs/private/
