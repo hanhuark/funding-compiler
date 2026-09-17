@@ -37,8 +37,10 @@ jobs:
         run: python -m pip install -e .
       - name: Sync site data
         run: python tools/sync_site_data.py
-      - name: Generate screening pages
-        run: python tools/generate_screening_report.py
+      - name: Generate latest screening page
+        env:
+          FUNDING_COMPILER_TODAY: "2026-09-17"
+        run: python tools/generate_screening_report.py --snapshot-date 2026-09-17
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact

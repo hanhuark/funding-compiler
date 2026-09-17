@@ -4,6 +4,7 @@ import csv
 import html
 import json
 import os
+import argparse
 from collections import defaultdict
 from dataclasses import asdict
 from datetime import date, datetime, timedelta
@@ -15,7 +16,8 @@ from funding_compiler.loaders import load_faculty, load_opportunities
 from funding_compiler.matching import match_opportunities
 
 
-SNAPSHOT_DATE = date(2026, 8, 12)
+DEFAULT_SNAPSHOT_DATE = date(2026, 8, 12)
+SNAPSHOT_DATE = DEFAULT_SNAPSHOT_DATE
 SCREENING_DIR = Path("data/screenings/2026-08-12")
 # Faculty profiles change less frequently than sponsor calls; keep the reviewed
 # seed profiles as a shared input while each screening owns its opportunity data.
@@ -31,7 +33,29 @@ EMERGENCY_RUNWAY_DAYS = 7
 EXPEDITED_RUNWAY_DAYS = 21
 
 
-def main() -> int:
+def configure_screening(snapshot: date) -> None:
+    """Point generated artifacts at one dated screening snapshot."""
+
+    global SNAPSHOT_DATE, SCREENING_DIR, FACULTY_PROFILES_PATH
+    global ACTION_METADATA_PATH, CAMPAIGN_METADATA_PATH, DOCS_DIR, REPORT_URL
+
+    snapshot_key = snapshot.isoformat()
+    SNAPSHOT_DATE = snapshot
+    SCREENING_DIR = Path("data/screenings") / snapshot_key
+    own_faculty_profiles = SCREENING_DIR / "faculty_profiles.csv"
+    FACULTY_PROFILES_PATH = (
+        own_faculty_profiles
+        if own_faculty_profiles.exists()
+        else Path("data/screenings/2026-06-11/faculty_profiles.csv")
+    )
+    ACTION_METADATA_PATH = SCREENING_DIR / "opportunity_actions.yaml"
+    CAMPAIGN_METADATA_PATH = SCREENING_DIR / "proposal_campaigns.yaml"
+    DOCS_DIR = Path("docs/screenings") / snapshot_key
+    REPORT_URL = f"screenings/{snapshot_key}.html"
+
+
+def main(snapshot: date | None = None) -> int:
+    configure_screening(snapshot or DEFAULT_SNAPSHOT_DATE)
     as_of = current_date()
     opportunities = load_opportunities(SCREENING_DIR / "opportunities.csv")
     faculty = load_faculty(FACULTY_PROFILES_PATH)
@@ -69,7 +93,7 @@ def main() -> int:
     report = render_markdown_report(opportunities, matches, actions, as_of, campaigns)
     (DOCS_DIR / "funding-screening-report.md").write_text(report, encoding="utf-8")
     site_page = render_site_page(opportunities, matches, actions, campaigns, timeline_svg, as_of)
-    (SITE_DIR / "2026-08-12.html").write_text(site_page, encoding="utf-8")
+    (SITE_DIR / Path(REPORT_URL).name).write_text(site_page, encoding="utf-8")
     return 0
 
 
@@ -1215,4 +1239,7 @@ def render_site_page(opportunities, matches, actions: dict[str, dict[str, str]],
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    parser = argparse.ArgumentParser(description="Generate a dated funding screening report.")
+    parser.add_argument("--snapshot-date", type=date.fromisoformat)
+    args = parser.parse_args()
+    raise SystemExit(main(args.snapshot_date))

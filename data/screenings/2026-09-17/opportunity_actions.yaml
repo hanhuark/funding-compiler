@@ -1,0 +1,75 @@
+records:
+  opp-doe-aspect-2026:
+    deadline_type: fixed
+    display_deadline: "Concept paper: 2026-10-09 5 p.m. ET; full application: 2026-12-01 5 p.m. ET"
+    verified_on: "2026-09-17"
+    source_recheck_by: "2026-09-24"
+    source_recheck_owner: "Research development lead"
+    source_recheck_focus: "Confirm Topic Area 2 technical scope, applicant eligibility, cost share, teaming requirements, and internal routing before outreach."
+    internal_review_by: "2026-09-23"
+    next_action: "Run a rapid go/no-go with energy-process, manufacturing, and industry-partnership leads before the concept-paper deadline."
+    risk_notes: "Near-term concept-paper deadline; scale-up and pre-pilot readiness may require partners, cost share, and evidence beyond a single academic lab."
+  opp-netl-university-training-2026:
+    deadline_type: fixed
+    verified_on: "2026-09-17"
+    source_recheck_by: "2026-09-24"
+    source_recheck_owner: "Research development lead"
+    source_recheck_focus: "Confirm technical topic priorities, award structure, graduate-training expectations, and University of Arkansas submission requirements."
+    internal_review_by: "2026-09-25"
+    next_action: "Identify whether an energy-systems training concept with a faculty team is viable before committing proposal-development time."
+    risk_notes: "Opportunity is broad; scientific topic fit, cohort design, and sponsor priorities need direct review."
+  opp-usda-part-2026:
+    deadline_type: fixed
+    verified_on: "2026-09-17"
+    source_recheck_by: "2026-09-24"
+    source_recheck_owner: "Research development lead"
+    source_recheck_focus: "Verify eligible borrower status, rural-utility partnership, loan terms, matching requirements, and the appropriate university technical role."
+    internal_review_by: "2026-09-23"
+    next_action: "Do not initiate as a university-led proposal; only explore if an eligible rural-utility partner requests technical collaboration."
+    risk_notes: "Partner-facing loan program, not a conventional university research grant."
+  opp-nsf-eri-2026:
+    deadline_type: fixed
+    verified_on: "2026-09-17"
+    source_recheck_by: "2026-09-24"
+    source_recheck_owner: "Research development lead"
+    source_recheck_focus: "Confirm Carnegie classification and investigator affiliation rules before any outreach."
+    next_action: "Archive for UArk faculty routing because the program excludes investigators affiliated with very-high-research-activity R1 institutions."
+    risk_notes: "Screened out for University of Arkansas R1 affiliation; do not recommend as an active UArk faculty opportunity."
+  opp-nsf-eclipse-2026:
+    deadline_type: window
+    display_deadline: "Submission window: 2026-10-01 to 2026-11-02"
+    verified_on: "2026-09-17"
+    source_recheck_by: "2026-09-24"
+    source_recheck_owner: "Research development lead"
+    source_recheck_focus: "Confirm participating program area, plasma-science relevance, project role, and window-specific requirements."
+    internal_review_by: "2026-10-01"
+    next_action: "Seek a short technical relevance check from materials and high-temperature-systems faculty before campaign formation."
+    risk_notes: "Keyword overlap does not establish a plasma-science role; route only with a credible enabling-materials or systems contribution."
+  opp-nsf-efri-wbc-2027:
+    deadline_type: fixed
+    display_deadline: "Required concept outline: 2026-11-19; invited full proposal: 2027-02-11"
+    verified_on: "2026-09-17"
+    source_recheck_by: "2026-10-01"
+    source_recheck_owner: "Research development lead"
+    source_recheck_focus: "Confirm concept-outline requirement, track selection, team composition, and physical wave-computing contribution."
+    internal_review_by: "2026-10-15"
+    next_action: "Run a concept-fit discussion around wave physics, materials, transducers, sensing, and computing before soliciting collaborators."
+    risk_notes: "Concept outline plus NSF invitation are mandatory; ordinary AI or generic materials work alone is not sufficient."
+  opp-nsf-cmmi-2026:
+    deadline_type: accepted_anytime
+    display_deadline: "Accepted anytime"
+    verified_on: "2026-09-17"
+    source_recheck_by: "2026-10-01"
+    source_recheck_owner: "Research development lead"
+    source_recheck_focus: "Confirm the specific CMMI core program, program-officer fit, and current PAPPG requirements."
+    next_action: "Develop a one-page concept and request program-officer guidance for a 2027 submission target."
+    risk_notes: "Standing program; screen and plan by scientific readiness rather than an artificial calendar date."
+  opp-nsf-cbet-2026:
+    deadline_type: accepted_anytime
+    display_deadline: "Accepted anytime"
+    verified_on: "2026-09-17"
+    source_recheck_by: "2026-10-01"
+    source_recheck_owner: "Research development lead"
+    source_recheck_focus: "Confirm the specific CBET core program, program-officer fit, and current PAPPG requirements."
+    next_action: "Develop thermal-fluid, energy, or transport concept summaries and contact the relevant program officer before drafting."
+    risk_notes: "Standing program; keyword fit must be followed by a specific program and intellectual-merit fit check."

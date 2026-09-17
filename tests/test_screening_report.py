@@ -1,4 +1,5 @@
 import json
+from datetime import date
 from pathlib import Path
 
 from tools.generate_screening_report import main
@@ -72,3 +73,25 @@ def test_generate_current_screening_outputs_actionable_august_snapshot(monkeypat
         for item in campaign_board_data["records"]
     )
     assert any(record["faculty_name"] == "Han Hu" for record in faculty_summary_data)
+
+
+def test_generate_september_screening_uses_dated_source_snapshot(monkeypatch):
+    monkeypatch.setenv("FUNDING_COMPILER_TODAY", "2026-09-17")
+
+    assert main(date(2026, 9, 17)) == 0
+
+    report = Path("docs/screenings/2026-09-17/funding-screening-report.md")
+    site_page = Path("site/screenings/2026-09-17.html")
+    summary = json.loads(Path("site/data/screening_summary.json").read_text(encoding="utf-8"))
+    report_text = report.read_text(encoding="utf-8")
+
+    assert report.exists()
+    assert site_page.exists()
+    assert "Snapshot date: 2026-09-17" in report_text
+    assert "Accelerating Scale-up and Pre-piloting of Emerging Chemical Technologies (ASPECT)" in report_text
+    assert "Engineering Research Initiation" in report_text
+    assert "Screened out for University of Arkansas R1 affiliation" in report_text
+    assert summary["snapshot_date"] == "2026-09-17"
+    assert summary["refreshed_on"] == "2026-09-17"
+    assert summary["report_url"] == "screenings/2026-09-17.html"
+    assert summary["opportunity_count"] == 8

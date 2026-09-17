@@ -1,0 +1,89 @@
+records:
+  opp-doe-aspect-2026:
+    official_source_url: https://eere-exchange.energy.gov/Default.aspx?Search=notice+of+intent
+    sponsor_evidence_scope: "DOE CMEI eXCHANGE lists the ASPECT NOFO and its October 9 concept-paper deadline."
+    campaign_status: credibility screen
+    eligibility_disposition: "confirmation required: verify applicant, cost-share, and teaming rules"
+    scientific_fit_disposition: "possible fit for energy-process scale-up, manufacturing, and technoeconomic research; confirm Topic Area 2 relevance"
+    meeg_lanes: [energy systems, advanced manufacturing, materials]
+    concept_owner: Unassigned
+    proposed_roles: [process and scale-up analysis, thermal and manufacturing systems, technoeconomic analysis]
+    team_gap: "Likely needs an industry or demonstration partner and a process-technology lead."
+    next_decision: "By September 23, decide whether a verified team can support a concept paper."
+  opp-netl-university-training-2026:
+    official_source_url: https://simpler.grants.gov/opportunity/d5000ab5-7171-4c60-8d85-ce2117bfc9aa
+    sponsor_evidence_scope: "Simpler Grants.gov lists the NETL university training and research grant with an October 16 deadline."
+    campaign_status: credibility screen
+    eligibility_disposition: "confirmation required: verify institutional submission and technical-topic requirements"
+    scientific_fit_disposition: "possible fit for cross-cutting energy, materials, manufacturing, and workforce-development themes"
+    meeg_lanes: [energy systems, advanced manufacturing, materials]
+    concept_owner: Unassigned
+    proposed_roles: [graduate training, energy research, instrumentation and data skills]
+    team_gap: "Needs a coherent energy research theme, student-training plan, and sponsor-topic confirmation."
+    next_decision: "By September 25, decide whether to form a small faculty concept team."
+  opp-usda-part-2026:
+    official_source_url: https://simpler.grants.gov/opportunity/354883d0-cdf7-4353-90d4-59d5b8f7c331
+    sponsor_evidence_scope: "Simpler Grants.gov lists the USDA RUS PART program as a loan opportunity for qualified applicants."
+    campaign_status: partner eligibility screen
+    eligibility_disposition: "eligible only through a qualified rural-utility or project applicant partner"
+    scientific_fit_disposition: "technical support may fit energy systems and technoeconomic analysis, but only if a project partner defines the need"
+    meeg_lanes: [energy systems]
+    concept_owner: Unassigned
+    proposed_roles: [technical analysis, energy-system modeling, evaluation support]
+    team_gap: "Requires an eligible borrower and a defined project; no university-led campaign."
+    next_decision: "Route only in response to a qualified partner request."
+  opp-nsf-eri-2026:
+    official_source_url: https://www.nsf.gov/funding/opportunities/eri-engineering-research-initiation
+    sponsor_evidence_scope: "NSF ERI states that investigators affiliated with very-high-research-activity R1 institutions are excluded."
+    campaign_status: partner eligibility screen
+    eligibility_disposition: "eligible only for investigators not affiliated with very-high-research-activity R1 institutions"
+    scientific_fit_disposition: "not routed for UArk faculty despite broad engineering relevance"
+    meeg_lanes: []
+    concept_owner: Unassigned
+    proposed_roles: []
+    team_gap: "University of Arkansas R1 affiliation is disqualifying for the screened faculty cohort."
+    next_decision: "Archive for UArk faculty routing."
+  opp-nsf-eclipse-2026:
+    official_source_url: https://www.nsf.gov/funding/opportunities/eclipse-ecosystem-leading-innovation-plasma-science-engineering
+    sponsor_evidence_scope: "NSF lists an October 1 to November 2, 2026 window for participating program areas."
+    campaign_status: mission-scale triage
+    eligibility_disposition: "confirmation required: verify participating program-area routing"
+    scientific_fit_disposition: "requires a demonstrated plasma-science or enabling-materials contribution"
+    meeg_lanes: [materials, advanced manufacturing, energy systems]
+    concept_owner: Unassigned
+    proposed_roles: [enabling materials, high-temperature systems, manufacturing]
+    team_gap: "Needs a plasma-science lead and a defined MEEG role beyond keyword similarity."
+    next_decision: "Conduct a scientific-role screen before any faculty outreach."
+  opp-nsf-efri-wbc-2027:
+    official_source_url: https://www.nsf.gov/funding/opportunities/efri-wbc-emerging-frontiers-research-innovation-efri-wave-based
+    sponsor_evidence_scope: "NSF 26-524 requires a concept outline by November 19, 2026 and an invitation before full proposal submission."
+    campaign_status: mission-scale triage
+    eligibility_disposition: "confirmation required: concept outline, invitation, and one-proposal-per-PI-or-co-PI limits"
+    scientific_fit_disposition: "requires a central physical wave-computing contribution, not generic AI or materials activity"
+    meeg_lanes: [materials, sensing and diagnostics, energy systems]
+    concept_owner: Unassigned
+    proposed_roles: [materials and transducers, physical test beds, sensing and data interpretation]
+    team_gap: "Needs wave-physics, device, and computation partners with an integrated research question."
+    next_decision: "Before October 15, decide whether a credible concept-outline team exists."
+  opp-nsf-cmmi-2026:
+    official_source_url: https://www.nsf.gov/funding/opportunities/engineering-eng-civil-mechanical-manufacturing-innovation/nsf26-515/solicitation
+    sponsor_evidence_scope: "NSF 26-515 is active and accepts proposals anytime."
+    campaign_status: standing program
+    eligibility_disposition: "normal institutional eligibility; confirm the selected core program"
+    scientific_fit_disposition: "strong standing route for mechanical, manufacturing, materials, robotics, and systems research when a specific program fit is established"
+    meeg_lanes: [advanced manufacturing, materials, robotics and autonomy, systems engineering]
+    concept_owner: Unassigned
+    proposed_roles: [PI-led foundational research, collaborative subawards, student training]
+    team_gap: "Needs a specific core-program home and an intellectually coherent research question."
+    next_decision: "Create a program-officer-ready concept summary for the best-supported faculty idea."
+  opp-nsf-cbet-2026:
+    official_source_url: https://www.nsf.gov/funding/opportunities/engineering-eng-chemical-bioengineering-energy-transport/nsf26-518/solicitation
+    sponsor_evidence_scope: "NSF ENG lists CBET as a current core research opportunity with proposals accepted anytime."
+    campaign_status: standing program
+    eligibility_disposition: "normal institutional eligibility; confirm the selected core program"
+    scientific_fit_disposition: "strong standing route for thermal-fluid, energy, transport, water, and material-resource research when a specific program fit is established"
+    meeg_lanes: [thermal fluids, energy systems, materials]
+    concept_owner: Unassigned
+    proposed_roles: [PI-led foundational research, experiments and modeling, data-enabled physical analysis]
+    team_gap: "Needs a specific CBET program home and sponsor-relevance confirmation."
+    next_decision: "Develop a focused concept brief and request program-officer fit guidance."
